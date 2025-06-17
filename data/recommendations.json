@@ -1,0 +1,272 @@
+[
+  {
+    "id": "1",
+    "title": "Introduction to Computer Science Concepts",
+    "description": "A comprehensive introduction to fundamental computer science concepts",
+    "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+    "type": "video",
+    "tags": ["computer science", "fundamentals", "theory"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "2",
+    "title": "Computer Science Crash Course",
+    "description": "A fast-paced introduction to key computer science topics",
+    "url": "https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo",
+    "type": "video",
+    "tags": ["computer science", "fundamentals", "theory"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "3",
+    "title": "Algorithms and Data Structures",
+    "description": "Learn about fundamental algorithms and data structures",
+    "url": "https://www.geeksforgeeks.org/data-structures/",
+    "type": "article",
+    "tags": ["computer science", "algorithms", "data structures"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "4",
+    "title": "Discrete Mathematics for Computer Science",
+    "description": "Essential mathematical concepts for computer science",
+    "url": "https://www.coursera.org/learn/discrete-mathematics",
+    "type": "course",
+    "tags": ["mathematics", "computer science", "logic"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "5",
+    "title": "Python Programming Basics",
+    "description": "Learn the fundamentals of Python programming",
+    "url": "https://www.w3schools.com/python/",
+    "type": "tutorial",
+    "tags": ["python", "programming", "computer science"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "6",
+    "title": "Python Data Structures Tutorial",
+    "description": "Comprehensive guide to data structures in Python",
+    "url": "https://realpython.com/python-data-structures/",
+    "type": "article",
+    "tags": ["python", "programming", "data structures"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "7",
+    "title": "Python Practice Exercises",
+    "description": "Hands-on exercises to improve your Python skills",
+    "url": "https://www.practicepython.org/",
+    "type": "exercise",
+    "tags": ["python", "programming", "practice"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "8",
+    "title": "Advanced Python Concepts",
+    "description": "Deep dive into advanced Python programming techniques",
+    "url": "https://realpython.com/tutorials/advanced/",
+    "type": "article",
+    "tags": ["python", "programming", "advanced"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "9",
+    "title": "Mathematical Foundations for Computer Science",
+    "description": "Essential mathematical concepts for computer science students",
+    "url": "https://mml-book.github.io/",
+    "type": "book",
+    "tags": ["mathematics", "computer science", "theory"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "10",
+    "title": "Probability and Statistics for Computer Science",
+    "description": "Learn probability and statistics concepts relevant to computer science",
+    "url": "https://www.edx.org/course/probability-and-statistics-in-data-science-using-p",
+    "type": "course",
+    "tags": ["mathematics", "statistics", "probability"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "11",
+    "title": "Linear Algebra for Computer Science",
+    "description": "Essential linear algebra concepts for computer science applications",
+    "url": "https://www.khanacademy.org/math/linear-algebra",
+    "type": "course",
+    "tags": ["mathematics", "linear algebra", "computer science"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "12",
+    "title": "Computational Thinking Exercises",
+    "description": "Practice problems to develop your computational thinking skills",
+    "url": "https://www.cs.cmu.edu/~CompThink/",
+    "type": "exercise",
+    "tags": ["computer science", "problem solving", "logic"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "13",
+    "title": "Computer Networking: A Top-Down Approach",
+    "description": "Comprehensive introduction to computer networking concepts",
+    "url": "https://gaia.cs.umass.edu/kurose_ross/index.php",
+    "type": "book",
+    "tags": ["networking", "computer science", "protocols"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "14",
+    "title": "Web Security Fundamentals",
+    "description": "Essential web security concepts every developer should know",
+    "url": "https://www.hacksplaining.com/lessons",
+    "type": "interactive",
+    "tags": ["web development", "security", "computer science"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "15",
+    "title": "Database Systems: Concepts, Design and Applications",
+    "description": "Comprehensive guide to database systems and SQL",
+    "url": "https://www.postgresql.org/docs/online-resources/",
+    "type": "tutorial",
+    "tags": ["databases", "sql", "computer science"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "16",
+    "title": "Machine Learning Crash Course",
+    "description": "Fast-paced introduction to machine learning with TensorFlow",
+    "url": "https://developers.google.com/machine-learning/crash-course",
+    "type": "course",
+    "tags": ["machine learning", "artificial intelligence", "data science"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "17",
+    "title": "Operating Systems: Three Easy Pieces",
+    "description": "Fundamental concepts of operating systems",
+    "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+    "type": "book",
+    "tags": ["operating systems", "computer science", "systems"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "18",
+    "title": "Blockchain Technology Explained",
+    "description": "Clear explanation of blockchain technology and its applications",
+    "url": "https://andersbrownworth.com/blockchain/",
+    "type": "interactive",
+    "tags": ["blockchain", "cryptography", "distributed systems"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "19",
+    "title": "Introduction to Software Engineering",
+    "description": "Overview of software engineering principles and practices",
+    "url": "https://www.coursera.org/learn/introduction-to-software-engineering",
+    "type": "course",
+    "tags": ["software engineering", "development", "project management"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "20",
+    "title": "Competitive Programming Challenges",
+    "description": "Programming challenges to improve algorithm skills",
+    "url": "https://codeforces.com/problemset",
+    "type": "exercise",
+    "tags": ["algorithms", "competitive programming", "problem solving"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "21",
+    "title": "Computer Architecture Fundamentals",
+    "description": "In-depth exploration of computer architecture concepts",
+    "url": "https://www.coursera.org/learn/comparch",
+    "type": "course",
+    "tags": ["computer architecture", "hardware", "systems"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "22",
+    "title": "Design Patterns in Software Engineering",
+    "description": "Common design patterns and their applications",
+    "url": "https://refactoring.guru/design-patterns",
+    "type": "article",
+    "tags": ["design patterns", "software engineering", "object-oriented programming"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "23",
+    "title": "Intro to Artificial Intelligence with Python",
+    "description": "Learn AI concepts using Python programming",
+    "url": "https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python",
+    "type": "course",
+    "tags": ["artificial intelligence", "python", "machine learning"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "24",
+    "title": "Ethical Hacking: Hands-on Training",
+    "description": "Learn ethical hacking and penetration testing techniques",
+    "url": "https://www.cybrary.it/course/ethical-hacking/",
+    "type": "course",
+    "tags": ["cybersecurity", "ethical hacking", "network security"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "25",
+    "title": "Game Development with Unity",
+    "description": "Create games using the Unity game engine",
+    "url": "https://learn.unity.com/",
+    "type": "tutorial",
+    "tags": ["game development", "unity", "programming"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "26",
+    "title": "Cloud Computing Essentials",
+    "description": "Fundamentals of cloud computing technologies",
+    "url": "https://aws.amazon.com/training/learn-about/cloud-computing/",
+    "type": "course",
+    "tags": ["cloud computing", "aws", "distributed systems"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "27",
+    "title": "Mobile App Development with React Native",
+    "description": "Build cross-platform mobile apps with React Native",
+    "url": "https://reactnative.dev/docs/tutorial",
+    "type": "tutorial",
+    "tags": ["mobile development", "react native", "javascript"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "28",
+    "title": "Data Science and Big Data Analytics",
+    "description": "Introduction to data science and big data processing",
+    "url": "https://www.edx.org/professional-certificate/harvardx-data-science",
+    "type": "course",
+    "tags": ["data science", "big data", "analytics"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "29",
+    "title": "DevOps Practices and Tools",
+    "description": "Learn about DevOps culture, practices, and tools",
+    "url": "https://www.coursera.org/learn/devops-culture-and-mindset",
+    "type": "course",
+    "tags": ["devops", "continuous integration", "automation"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "30",
+    "title": "Internet of Things (IoT) Fundamentals",
+    "description": "Introduction to IoT concepts and applications",
+    "url": "https://www.coursera.org/learn/iot",
+    "type": "course",
+    "tags": ["iot", "embedded systems", "networking"],
+    "difficulty": "intermediate"
+  }
+]

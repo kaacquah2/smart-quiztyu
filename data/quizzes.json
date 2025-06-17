@@ -1,0 +1,227 @@
+[
+  {
+    "id": "intro-to-cs",
+    "title": "Introduction to Computer Science",
+    "description": "Test your knowledge of computer science fundamentals",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["computer science", "fundamentals", "theory"],
+    "questions": [
+      {
+        "text": "What is an algorithm?",
+        "options": [
+          "A programming language",
+          "A step-by-step procedure for solving a problem",
+          "A type of computer hardware",
+          "A mathematical equation"
+        ],
+        "correctAnswer": "A step-by-step procedure for solving a problem"
+      },
+      {
+        "text": "Which of the following is NOT a programming paradigm?",
+        "options": [
+          "Object-Oriented Programming",
+          "Functional Programming",
+          "Procedural Programming",
+          "Analytical Programming"
+        ],
+        "correctAnswer": "Analytical Programming"
+      },
+      {
+        "text": "What does CPU stand for?",
+        "options": [
+          "Central Processing Unit",
+          "Computer Processing Unit",
+          "Central Program Unit",
+          "Central Processor Utility"
+        ],
+        "correctAnswer": "Central Processing Unit"
+      },
+      {
+        "text": "Which of the following is an example of secondary storage?",
+        "options": ["RAM", "CPU Cache", "Hard Disk Drive", "Registers"],
+        "correctAnswer": "Hard Disk Drive"
+      },
+      {
+        "text": "What is the binary representation of the decimal number 10?",
+        "options": ["1010", "1100", "1001", "1110"],
+        "correctAnswer": "1010"
+      },
+      {
+        "text": "Which of the following is NOT a type of computer network?",
+        "options": [
+          "LAN (Local Area Network)",
+          "WAN (Wide Area Network)",
+          "MAN (Metropolitan Area Network)",
+          "CAN (Computer Area Network)"
+        ],
+        "correctAnswer": "CAN (Computer Area Network)"
+      },
+      {
+        "text": "What is the time complexity of binary search?",
+        "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+        "correctAnswer": "O(log n)"
+      },
+      {
+        "text": "Which of the following is NOT a high-level programming language?",
+        "options": ["Python", "Java", "Assembly", "Ruby"],
+        "correctAnswer": "Assembly"
+      },
+      {
+        "text": "What is the purpose of an operating system?",
+        "options": [
+          "To provide a user interface",
+          "To manage hardware resources",
+          "To run applications",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "text": "Which data structure operates on a LIFO (Last In, First Out) principle?",
+        "options": ["Queue", "Stack", "Linked List", "Tree"],
+        "correctAnswer": "Stack"
+      }
+    ]
+  },
+  {
+    "id": "math-for-cs",
+    "title": "Mathematics for Computer Science",
+    "description": "Test your knowledge of mathematical concepts used in computer science",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["mathematics", "computer science", "logic"],
+    "questions": [
+      {
+        "text": "What is a proposition in mathematical logic?",
+        "options": [
+          "A statement that is always true",
+          "A statement that is always false",
+          "A statement that can be either true or false",
+          "A question that requires an answer"
+        ],
+        "correctAnswer": "A statement that can be either true or false"
+      },
+      {
+        "text": "Which of the following is the contrapositive of 'If P, then Q'?",
+        "options": ["If Q, then P", "If not P, then not Q", "If not Q, then not P", "If P, then not Q"],
+        "correctAnswer": "If not Q, then not P"
+      },
+      {
+        "text": "What is the result of the boolean expression: (true AND false) OR (NOT false)?",
+        "options": ["true", "false", "undefined", "error"],
+        "correctAnswer": "true"
+      },
+      {
+        "text": "In set theory, what is the cardinality of the power set of a set with n elements?",
+        "options": ["n", "2n", "n²", "n!"],
+        "correctAnswer": "2n"
+      },
+      {
+        "text": "Which of the following is NOT a type of graph?",
+        "options": ["Directed Graph", "Undirected Graph", "Weighted Graph", "Logical Graph"],
+        "correctAnswer": "Logical Graph"
+      },
+      {
+        "text": "What is the solution to the recurrence relation T(n) = 2T(n/2) + n with T(1) = 1?",
+        "options": ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+        "correctAnswer": "O(n log n)"
+      },
+      {
+        "text": "Which of the following is an example of a bijective function?",
+        "options": [
+          "f(x) = x² for all real numbers",
+          "f(x) = x³ for all real numbers",
+          "f(x) = sin(x) for all real numbers",
+          "f(x) = ex for all real numbers"
+        ],
+        "correctAnswer": "f(x) = x³ for all real numbers"
+      },
+      {
+        "text": "What is the probability of getting at least one head when flipping a fair coin 3 times?",
+        "options": ["1/8", "3/8", "1/2", "7/8"],
+        "correctAnswer": "7/8"
+      },
+      {
+        "text": "Which of the following is NOT a property of a relation that is an equivalence relation?",
+        "options": ["Reflexivity", "Symmetry", "Transitivity", "Antisymmetry"],
+        "correctAnswer": "Antisymmetry"
+      },
+      {
+        "text": "What is the matrix representation of a 90-degree rotation in 2D space?",
+        "options": ["[[0, -1], [1, 0]]", "[[0, 1], [-1, 0]]", "[[1, 0], [0, -1]]", "[[-1, 0], [0, -1]]"],
+        "correctAnswer": "[[0, -1], [1, 0]]"
+      }
+    ]
+  },
+  {
+    "id": "intro-to-python",
+    "title": "Introduction to Programming (Python)",
+    "description": "Test your knowledge of Python programming basics",
+    "difficulty": "Beginner",
+    "timeLimit": 12,
+    "tags": ["python", "programming", "computer science"],
+    "questions": [
+      {
+        "text": "What is the correct way to create a variable named 'age' with the value 25 in Python?",
+        "options": ["var age = 25", "age = 25", "int age = 25", "age := 25"],
+        "correctAnswer": "age = 25"
+      },
+      {
+        "text": "Which of the following is NOT a valid data type in Python?",
+        "options": ["int", "float", "char", "bool"],
+        "correctAnswer": "char"
+      },
+      {
+        "text": "What will the following code output? print(3 * '7')",
+        "options": ["21", "777", "37", "Error"],
+        "correctAnswer": "777"
+      },
+      {
+        "text": "Which of the following is the correct way to define a function in Python?",
+        "options": ["function my_function():", "def my_function():", "define my_function():", "func my_function():"],
+        "correctAnswer": "def my_function():"
+      },
+      {
+        "text": "What is the output of the following code? print(list(range(5)))",
+        "options": ["[0, 1, 2, 3, 4, 5]", "[0, 1, 2, 3, 4]", "[1, 2, 3, 4, 5]", "[5]"],
+        "correctAnswer": "[0, 1, 2, 3, 4]"
+      },
+      {
+        "text": "Which of the following is used to handle exceptions in Python?",
+        "options": ["if-else", "for-in", "try-except", "switch-case"],
+        "correctAnswer": "try-except"
+      },
+      {
+        "text": "What does the 'append' method do in Python lists?",
+        "options": [
+          "Adds an element to the beginning of the list",
+          "Adds an element to the end of the list",
+          "Removes an element from the list",
+          "Sorts the list"
+        ],
+        "correctAnswer": "Adds an element to the end of the list"
+      },
+      {
+        "text": "What is the output of the following code? print('Hello'[1])",
+        "options": ["H", "e", "He", "l"],
+        "correctAnswer": "e"
+      },
+      {
+        "text": "Which of the following is NOT a valid way to create a list in Python?",
+        "options": ["my_list = []", "my_list = list()", "my_list = [1, 2, 3]", "my_list = list[1, 2, 3]"],
+        "correctAnswer": "my_list = list[1, 2, 3]"
+      },
+      {
+        "text": "What is the purpose of the 'if __name__ == \"__main__\":' statement in Python?",
+        "options": [
+          "It defines the main function of the program",
+          "It checks if the current module is being run directly or imported",
+          "It is a required statement in all Python programs",
+          "It imports the main module"
+        ],
+        "correctAnswer": "It checks if the current module is being run directly or imported"
+      }
+    ]
+  }
+]
