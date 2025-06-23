@@ -1,5 +1,13 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const [currentYear, setCurrentYear] = useState<number>(2024)
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear())
+  }, [])
 
   return (
     <footer className="border-t py-6 md:py-8">

@@ -1,0 +1,235 @@
+academic-writing - Academic Writing and Research
+adult-health-nursing-1 - Adult Health Nursing I
+adult-health-nursing-2 - Adult Health Nursing II
+advanced-algorithms - Advanced Algorithms
+advanced-database - Advanced Database Management
+advanced-medical-surgical-nursing - Advanced Medical-Surgical Nursing
+anatomy-biomed - Anatomy
+antenna-wave-propagation - Antennas and Wave Propagation
+applied-thermodynamics - Applied Thermodynamics
+automobile-engineering - Automobile Engineering
+big-data-analytics - Big Data Analytics
+biochemistry - Biochemistry for Nurses
+biochemistry-biomed - Biochemistry
+blockchain - Elective: Blockchain and Cryptocurrency
+business-analytics - Business Analytics
+business-communication - Business Communication
+business-elective-1 - Business Elective I
+business-elective-2 - Business Elective II
+business-elective-3 - Business Elective III
+business-ethics - Business Ethics and Corporate Social Responsibility
+business-finance - Business Finance
+business-forecasting - Business Forecasting Methods
+business-law - Business Law
+business-math - Business Mathematics
+business-policy - Business Policy and Strategy
+business-research-project - Business Research Project I
+business-research-project-2 - Business Research Project II
+business-simulation - Business Simulation and Decision Making
+business-statistics - Business Statistics
+calculus-1 - Calculus I
+calculus-2 - Calculus II
+capstone-project-1 - Capstone Project I (Research/Design)
+capstone-project-2 - Capstone Project II (Implementation/Final Presentation)
+cell-biology - Cell Biology
+change-management - Change Management and Leadership
+chemistry-biomed - Chemistry for Biomedical Science
+chemistry-engineers - Chemistry for Engineers
+clinical-practice-1 - Clinical Nursing Practice I
+clinical-practice-2 - Clinical Nursing Practice II
+clinical-practice-3 - Clinical Nursing Practice III
+clinical-practice-4 - Clinical Nursing Practice IV
+clinical-practice-5 - Clinical Nursing Practice V
+cloud-computing - Cloud Computing
+communication-healthcare - Communication in Healthcare
+communication-skills - Communication Skills
+communication-skills-ee - Communication Skills
+communication-skills-me - Communication Skills
+communication-systems - Communication Systems
+community-health-nursing-1 - Community Health Nursing I
+community-health-nursing-2 - Community Health Nursing II
+comprehensive-nursing-practice - Comprehensive Nursing Practice
+computer-graphics - Computer Graphics
+computer-networks - Computer Networks
+computer-organization - Computer Organization
+computer-vision - Computer Vision
+control-systems - Control Systems Engineering
+corporate-finance - Corporate Finance
+critical-care-nursing - Critical Care Nursing
+culture-society - Culture and Society
+cybersecurity - Cybersecurity and Risk Management
+development-economics - Development Economics
+digital-electronics - Digital Electronics
+digital-marketing - Digital Marketing
+digital-signal-processing - Digital Signal Processing
+discrete-math - Discrete Mathematics
+discrete-math-math - Discrete Mathematics
+distributed-systems - Distributed Systems
+dynamics - Engineering Dynamics
+economic-history - Economic History
+electric-machines-1 - Electric Machines I
+electric-machines-2 - Electric Machines II
+electrical-tech-me - Electrical Technology for Mechanical Engineers
+electricity-magnetism - Electricity and Magnetism
+electromagnetic-fields - Electromagnetic Fields and Waves
+electromagnetism - Electromagnetic Theory
+embedded-systems - Embedded Systems
+emergency-nursing - Emergency Nursing
+engineering-design - Engineering Design Project
+engineering-drawing-ce - Engineering Drawing
+engineering-economics - Engineering Economics
+engineering-economics-me - Engineering Economics
+engineering-ethics - Engineering Ethics and Professionalism
+engineering-math - Engineering Mathematics
+engineering-math-1 - Engineering Mathematics I
+engineering-math-2 - Engineering Mathematics II
+engineering-math-ce - Engineering Mathematics
+entrepreneurship - Entrepreneurship
+environmental-eng - Environmental Engineering
+evidence-based-practice - Evidence-Based Nursing Practice
+financial-markets - Financial Markets and Institutions
+finite-element-analysis - Finite Element Analysis
+fluid-mechanics-2 - Fluid Mechanics II
+game-development - Elective: Game Development
+genetics - Genetics
+geriatric-nursing - Geriatric Nursing
+global-health-issues - Global Health Issues
+health-policy - Health Policy and Healthcare Systems
+heat-transfer - Heat Transfer
+high-voltage-engineering - High Voltage Engineering
+human-anatomy-pharm - Human Anatomy
+human-resource-management - Human Resource Management
+industrial-electronics - Industrial Electronics and Automation
+industrial-engineering - Industrial Engineering
+industrial-training - Industrial Training/Internship
+information-security - Information Security
+innovation-management - Innovation Management
+instrumentation-control - Advanced Instrumentation and Control
+international-business - International Business
+international-finance - International Finance
+internship - Internship/Industrial Attachment
+internship-ba - Business Internship
+internship-ee - Industrial Internship
+intro-biomed - Introduction to Biomedical Science
+intro-civil-eng - Introduction to Civil Engineering
+intro-math - Introduction to Mathematics
+intro-nursing - Introduction to Nursing
+intro-pharmacy - Introduction to Pharmacy
+intro-sociology - Introduction to Sociology
+investment-analysis - Investment Analysis and Portfolio Management
+iot - Elective: Internet of Things (IoT)
+it-business - Information Technology for Business
+it-project-management - IT Project Management
+linear-algebra-1 - Linear Algebra I
+machine-design-2 - Machine Design II
+machine-drawing - Machine Drawing
+macroeconomics-eco - Macroeconomics
+major-project-1 - Major Project I
+major-project-2 - Major Project II
+management-accounting - Management Accounting
+management-info-systems - Management Information Systems
+manufacturing-processes - Manufacturing Processes
+materials-science - Materials Science
+materials-science-ce - Materials Science
+maternal-newborn-nursing - Maternal and Newborn Nursing
+math-economics - Mathematics for Economics
+math-for-engineers-1 - Mathematics for Engineers I
+math-for-engineers-2 - Mathematics for Engineers II
+math-physics - Mathematics for Physics
+mathematical-logic - Mathematical Logic
+measurements-instrumentation - Electrical Measurements and Instrumentation
+mechanical-vibrations - Mechanical Vibrations
+mechanics - Mechanics
+mechanics-structures - Mechanics of Structures
+mechatronics - Mechatronics
+mental-health-nursing - Mental Health Nursing
+microbiology - Microbiology
+microbiology-pharm - Microbiology
+microeconomics-eco - Microeconomics
+microprocessors - Microprocessors and Microcontrollers
+mobile-app-dev - Mobile Application Development
+modern-physics - Modern Physics
+numerical-methods - Numerical Methods for Engineers
+numerical-methods-me - Numerical Methods for Engineers
+nursing-capstone - Nursing Capstone Project
+nursing-elective-1 - Nursing Elective I
+nursing-elective-2 - Nursing Elective II
+nursing-elective-3 - Nursing Elective III
+nursing-ethics - Nursing Ethics and Professional Practice
+nursing-informatics - Nursing Informatics
+nursing-internship - Nursing Internship
+nursing-leadership - Nursing Leadership and Management
+nursing-research-project - Nursing Research Project
+nutrition - Nutrition and Health
+oop-java - Object-Oriented Programming (Java)
+operations-management - Operations Management
+organizational-behavior - Organizational Behavior
+pathophysiology - Pathophysiology
+pediatric-nursing - Pediatric Nursing
+pharmaceutical-chemistry - Pharmaceutical Chemistry
+pharmaceutics - Pharmaceutics
+pharmacology-2 - Pharmacology II
+pharmacy - BSc. Pharmacy
+physics-for-engineers - Physics for Engineers
+physics-mechanics - Physics: Mechanics
+physiology-pharm - Physiology
+power-electronics - Power Electronics
+power-plant-eng - Power Plant Engineering
+power-system-operation - Power System Operation and Control
+power-system-protection - Power System Protection and Switchgear
+probability - Probability Theory
+production-planning - Production Planning and Control
+professional-development - Professional Development in Nursing
+professional-ethics - Professional Ethics in Computing
+project-management - Project Management
+project-management-me - Project Management
+psychology-health - Psychology for Health Professionals
+quality-management - Total Quality Management
+refrigeration-ac - Refrigeration and Air Conditioning
+renewable-energy - Renewable Energy Systems
+renewable-energy-me - Renewable Energy Systems
+research-methods - Research Methods in Computer Science
+research-methods-business - Research Methods for Business
+research-methods-soc - Research Methods
+research-nursing - Research Methods in Nursing
+research-project-1 - Final Year Research Project I
+research-project-2 - Final Year Research Project II
+risk-management - Risk Management
+robotics-me - Robotics
+seminar-me - Seminar
+signals-systems - Signals and Systems
+social-stratification - Social Stratification
+social-theory - Social Theory
+sociology-family - Sociology of the Family
+sociology-health - Sociology of Health and Illness
+software-eng-advanced - Software Engineering (Advanced)
+statics - Engineering Statics
+statistics-economics - Statistics for Economics
+supply-chain-management - Supply Chain Management
+surveying - Surveying
+technical-drawing - Technical Drawing and CAD
+technical-elective-1 - Technical Elective I
+technical-elective-2 - Technical Elective II
+technical-elective-3 - Technical Elective III
+technical-elective-4 - Technical Elective IV
+technical-elective-me-1 - Technical Elective I
+technical-elective-me-2 - Technical Elective II
+technical-elective-me-3 - Technical Elective III
+technical-elective-me-4 - Technical Elective IV
+theory-computation - Theory of Computation
+thermal-physics - Thermal Physics
+thermodynamics-2 - Thermodynamics II
+university-elective-1 - University Elective/General Education
+university-elective-2 - General Education/University Elective
+university-elective-3 - General Education/University Elective
+university-elective-ba-1 - University Elective/General Education
+university-elective-ba-2 - University Elective/General Education
+university-elective-me-1 - University Elective/General Education
+university-elective-me-2 - University Elective/General Education
+university-elective-nursing-1 - University Elective/General Education
+university-elective-nursing-2 - University Elective/General Education
+university-elective-nursing-3 - University Elective/General Education
+vlsi-design - VLSI Design
+waves-optics - Waves and Optics
+wireless-communication - Wireless and Mobile Communication
+workshop-practice - Workshop Practice

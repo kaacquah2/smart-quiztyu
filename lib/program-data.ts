@@ -1250,6 +1250,317 @@ export const programs: Program[] = [
       },
     ],
   },
+  {
+    id: "mechanical-engineering",
+    title: "BSc. Mechanical Engineering",
+    description: "Study of mechanics, thermodynamics, materials, and machine design",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-mechanical-eng", title: "Introduction to Mechanical Engineering", description: "Overview of mechanical engineering principles and careers" },
+              { id: "engineering-math-1", title: "Engineering Mathematics I", description: "Mathematical foundations for engineering" },
+              { id: "physics-mechanics", title: "Physics: Mechanics", description: "Fundamentals of mechanics and motion" },
+              { id: "engineering-drawing", title: "Engineering Drawing and CAD", description: "Technical drawing and computer-aided design" },
+              { id: "chemistry-engineers", title: "Chemistry for Engineers", description: "Basic chemistry concepts for engineering" },
+              { id: "communication-skills-me", title: "Communication Skills", description: "Effective communication in technical contexts" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "engineering-math-2", title: "Engineering Mathematics II", description: "Advanced mathematical concepts for engineering" },
+              { id: "materials-science", title: "Materials Science", description: "Properties and applications of engineering materials" },
+              { id: "thermodynamics-1", title: "Thermodynamics I", description: "Basic thermodynamic principles" },
+              { id: "statics", title: "Engineering Statics", description: "Analysis of static structures and forces" },
+              { id: "workshop-practice", title: "Workshop Practice", description: "Hands-on training in engineering workshops" },
+              { id: "university-elective-me-1", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "dynamics", title: "Engineering Dynamics", description: "Study of moving bodies and systems" },
+              { id: "mechanics-materials", title: "Mechanics of Materials", description: "Behavior of materials under load" },
+              { id: "thermodynamics-2", title: "Thermodynamics II", description: "Advanced thermodynamic systems" },
+              { id: "fluid-mechanics-1", title: "Fluid Mechanics I", description: "Fundamentals of fluid behavior" },
+              { id: "electrical-tech-me", title: "Electrical Technology for Mechanical Engineers", description: "Electrical concepts for mechanical systems" },
+              { id: "engineering-economics-me", title: "Engineering Economics", description: "Economic analysis for engineering decisions" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "manufacturing-processes", title: "Manufacturing Processes", description: "Techniques and technologies in manufacturing" },
+              { id: "machine-drawing", title: "Machine Drawing", description: "Technical drawing for machine components" },
+              { id: "fluid-mechanics-2", title: "Fluid Mechanics II", description: "Advanced fluid mechanics" },
+              { id: "applied-thermodynamics", title: "Applied Thermodynamics", description: "Applications of thermodynamic principles" },
+              { id: "numerical-methods-me", title: "Numerical Methods for Engineers", description: "Computational methods in engineering" },
+              { id: "university-elective-me-2", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "machine-design-1", title: "Machine Design I", description: "Design of machine elements and systems" },
+              { id: "heat-transfer", title: "Heat Transfer", description: "Mechanisms of heat transfer in engineering" },
+              { id: "control-systems-me", title: "Control Systems", description: "Principles of automatic control" },
+              { id: "mechanical-vibrations", title: "Mechanical Vibrations", description: "Analysis of vibrating systems" },
+              { id: "mechatronics", title: "Mechatronics", description: "Integration of mechanical and electronic systems" },
+              { id: "technical-elective-me-1", title: "Technical Elective I", description: "Specialized mechanical engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "machine-design-2", title: "Machine Design II", description: "Advanced machine design concepts" },
+              { id: "production-planning", title: "Production Planning and Control", description: "Management of manufacturing processes" },
+              { id: "automobile-engineering", title: "Automobile Engineering", description: "Design and analysis of automotive systems" },
+              { id: "refrigeration-ac", title: "Refrigeration and Air Conditioning", description: "Principles of refrigeration and HVAC" },
+              { id: "industrial-engineering", title: "Industrial Engineering", description: "Optimization of industrial operations" },
+              { id: "technical-elective-me-2", title: "Technical Elective II", description: "Specialized mechanical engineering topic" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "power-plant-eng", title: "Power Plant Engineering", description: "Design and operation of power plants" },
+              { id: "finite-element-analysis", title: "Finite Element Analysis", description: "Numerical analysis of engineering structures" },
+              { id: "renewable-energy-me", title: "Renewable Energy Systems", description: "Alternative energy sources and technologies" },
+              { id: "project-management-me", title: "Project Management", description: "Management of engineering projects" },
+              { id: "seminar-me", title: "Seminar", description: "Presentation and discussion of engineering topics" },
+              { id: "major-project-1", title: "Major Project I", description: "First phase of final year project" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "major-project-2", title: "Major Project II", description: "Completion of final year project" },
+              { id: "industrial-training", title: "Industrial Training/Internship", description: "Practical industry experience" },
+              { id: "robotics-me", title: "Robotics", description: "Principles and applications of robotics" },
+              { id: "environmental-eng", title: "Environmental Engineering", description: "Environmental impact and sustainability in engineering" },
+              { id: "technical-elective-me-3", title: "Technical Elective III", description: "Specialized mechanical engineering topic" },
+              { id: "technical-elective-me-4", title: "Technical Elective IV", description: "Specialized mechanical engineering topic" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "mathematics",
+    title: "BSc. Mathematics",
+    description: "Study of numbers, quantities, shapes, and patterns",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "calculus-1", title: "Calculus I", description: "Differential and integral calculus" },
+              { id: "linear-algebra-1", title: "Linear Algebra I", description: "Vector spaces and linear transformations" },
+              { id: "intro-math", title: "Introduction to Mathematics", description: "Fundamental concepts in mathematics" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "calculus-2", title: "Calculus II", description: "Sequences, series, and multivariable calculus" },
+              { id: "discrete-math-math", title: "Discrete Mathematics", description: "Logic, sets, and combinatorics" },
+              { id: "probability", title: "Probability Theory", description: "Basic probability and statistics" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "physics",
+    title: "BSc. Physics",
+    description: "Study of matter, energy, and the interactions between them",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "mechanics", title: "Mechanics", description: "Motion, forces, and energy" },
+              { id: "waves-optics", title: "Waves and Optics", description: "Wave phenomena and optics" },
+              { id: "math-physics", title: "Mathematics for Physics", description: "Mathematical methods in physics" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "electricity-magnetism", title: "Electricity and Magnetism", description: "Electromagnetic theory" },
+              { id: "thermal-physics", title: "Thermal Physics", description: "Heat, temperature, and thermodynamics" },
+              { id: "modern-physics", title: "Modern Physics", description: "Relativity and quantum mechanics" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "civil-engineering",
+    title: "BSc. Civil Engineering",
+    description: "Study of design, construction, and maintenance of the built environment",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-civil-eng", title: "Introduction to Civil Engineering", description: "Overview of civil engineering" },
+              { id: "engineering-math-ce", title: "Engineering Mathematics", description: "Mathematics for civil engineers" },
+              { id: "engineering-drawing-ce", title: "Engineering Drawing", description: "Technical drawing for civil engineering" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "materials-science-ce", title: "Materials Science", description: "Properties of construction materials" },
+              { id: "surveying", title: "Surveying", description: "Principles and methods of surveying" },
+              { id: "mechanics-structures", title: "Mechanics of Structures", description: "Statics and strength of materials" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "economics",
+    title: "BA. Economics",
+    description: "Study of production, distribution, and consumption of goods and services",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "microeconomics-eco", title: "Microeconomics", description: "Consumer and firm behavior" },
+              { id: "math-economics", title: "Mathematics for Economics", description: "Mathematical tools for economics" },
+              { id: "economic-history", title: "Economic History", description: "Development of economic systems" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "macroeconomics-eco", title: "Macroeconomics", description: "National income and policy" },
+              { id: "statistics-economics", title: "Statistics for Economics", description: "Statistical methods in economics" },
+              { id: "development-economics", title: "Development Economics", description: "Economics of developing countries" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "sociology",
+    title: "BA. Sociology",
+    description: "Study of society, social relationships, and institutions",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-sociology", title: "Introduction to Sociology", description: "Basic concepts in sociology" },
+              { id: "social-theory", title: "Social Theory", description: "Classical and contemporary social theory" },
+              { id: "research-methods-soc", title: "Research Methods", description: "Methods of sociological research" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "sociology-family", title: "Sociology of the Family", description: "Family structures and relationships" },
+              { id: "social-stratification", title: "Social Stratification", description: "Inequality and social class" },
+              { id: "culture-society", title: "Culture and Society", description: "Cultural influences on society" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "pharmacy",
+    title: "BSc. Pharmacy",
+    description: "Study of drugs, their preparation, and their effects",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-pharmacy", title: "Introduction to Pharmacy", description: "Overview of pharmacy profession" },
+              { id: "pharmaceutical-chemistry", title: "Pharmaceutical Chemistry", description: "Chemistry of drugs" },
+              { id: "human-anatomy-pharm", title: "Human Anatomy", description: "Structure of the human body" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "pharmaceutics", title: "Pharmaceutics", description: "Formulation and delivery of drugs" },
+              { id: "physiology-pharm", title: "Physiology", description: "Functions of the human body" },
+              { id: "microbiology-pharm", title: "Microbiology", description: "Microorganisms and health" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "biomedical-science",
+    title: "BSc. Biomedical Science",
+    description: "Study of biological sciences related to human health and disease",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-biomed", title: "Introduction to Biomedical Science", description: "Overview of biomedical science" },
+              { id: "cell-biology", title: "Cell Biology", description: "Structure and function of cells" },
+              { id: "chemistry-biomed", title: "Chemistry for Biomedical Science", description: "Basic chemistry concepts" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "genetics", title: "Genetics", description: "Principles of heredity and variation" },
+              { id: "biochemistry-biomed", title: "Biochemistry", description: "Biochemical processes in living organisms" },
+              { id: "anatomy-biomed", title: "Anatomy", description: "Human body structure" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]
 
 export function getProgramById(id: string): Program | undefined {

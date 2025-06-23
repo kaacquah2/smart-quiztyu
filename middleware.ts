@@ -1,4 +1,5 @@
 import { withAuth } from "next-auth/middleware"
+import { PROTECTED_ROUTES } from "@/lib/routes"
 
 export default withAuth(
   function middleware(req) {
@@ -14,10 +15,12 @@ export default withAuth(
 export const config = {
   matcher: [
     "/dashboard/:path*",
-    "/quiz/:path*",
-    "/results/:path*",
-    "/profile/:path*",
+    "/programs/:path*",
+    "/quizzes/:path*",
+    "/resources/:path*",
+    "/scheduler/:path*",
+    "/analytics/:path*",
     "/social/:path*",
-    "/resources/:path*"
+    "/profile/:path*"
   ]
 } 

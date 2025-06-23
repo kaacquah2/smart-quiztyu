@@ -223,5 +223,1205 @@
         "correctAnswer": "It checks if the current module is being run directly or imported"
       }
     ]
+  },
+  {
+    "id": "intro-mechanical-eng",
+    "title": "Introduction to Mechanical Engineering",
+    "description": "Test your knowledge of basic mechanical engineering concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["mechanical engineering", "fundamentals", "engineering"],
+    "questions": [
+      {
+        "text": "What is the primary focus of mechanical engineering?",
+        "options": [
+          "Design and analysis of mechanical systems",
+          "Chemical reactions",
+          "Electrical circuits",
+          "Genetic engineering"
+        ],
+        "correctAnswer": "Design and analysis of mechanical systems"
+      },
+      {
+        "text": "Which of the following is NOT a branch of mechanical engineering?",
+        "options": [
+          "Thermodynamics",
+          "Fluid Mechanics",
+          "Machine Design",
+          "Organic Chemistry"
+        ],
+        "correctAnswer": "Organic Chemistry"
+      },
+      {
+        "text": "What is the SI unit of force?",
+        "options": [
+          "Newton",
+          "Joule",
+          "Pascal",
+          "Watt"
+        ],
+        "correctAnswer": "Newton"
+      },
+      {
+        "text": "Which software is commonly used for computer-aided design (CAD) in mechanical engineering?",
+        "options": [
+          "AutoCAD",
+          "Photoshop",
+          "Excel",
+          "Word"
+        ],
+        "correctAnswer": "AutoCAD"
+      },
+      {
+        "text": "Which property measures a material's resistance to deformation?",
+        "options": [
+          "Hardness",
+          "Conductivity",
+          "Transparency",
+          "Elasticity"
+        ],
+        "correctAnswer": "Hardness"
+      }
+    ]
+  },
+  {
+    "id": "intro-to-ee",
+    "title": "Introduction to Electrical and Electronic Engineering",
+    "description": "Test your knowledge of basic electrical and electronic engineering concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["electrical engineering", "electronics", "fundamentals"],
+    "questions": [
+      {
+        "text": "What does Ohm's Law relate?",
+        "options": [
+          "Voltage, Current, and Resistance",
+          "Power, Energy, and Time",
+          "Frequency, Wavelength, and Speed",
+          "Capacitance, Inductance, and Resistance"
+        ],
+        "correctAnswer": "Voltage, Current, and Resistance"
+      },
+      {
+        "text": "Which device stores electrical energy in an electric field?",
+        "options": [
+          "Resistor",
+          "Capacitor",
+          "Inductor",
+          "Transformer"
+        ],
+        "correctAnswer": "Capacitor"
+      },
+      {
+        "text": "What is the SI unit of electric current?",
+        "options": [
+          "Ampere",
+          "Volt",
+          "Ohm",
+          "Watt"
+        ],
+        "correctAnswer": "Ampere"
+      },
+      {
+        "text": "Which component is used to amplify electrical signals?",
+        "options": [
+          "Diode",
+          "Transistor",
+          "Resistor",
+          "Capacitor"
+        ],
+        "correctAnswer": "Transistor"
+      },
+      {
+        "text": "Which law states that the total voltage around a closed loop is zero?",
+        "options": [
+          "Kirchhoff's Voltage Law",
+          "Ohm's Law",
+          "Faraday's Law",
+          "Lenz's Law"
+        ],
+        "correctAnswer": "Kirchhoff's Voltage Law"
+      }
+    ]
+  },
+  {
+    "id": "intro-biomed-eng",
+    "title": "Introduction to Biomedical Engineering",
+    "description": "Test your knowledge of basic biomedical engineering concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["biomedical engineering", "fundamentals", "engineering"],
+    "questions": [
+      {
+        "text": "What is the primary focus of biomedical engineering?",
+        "options": [
+          "Designing medical devices and technologies",
+          "Building bridges",
+          "Programming computers",
+          "Studying animal behavior"
+        ],
+        "correctAnswer": "Designing medical devices and technologies"
+      },
+      {
+        "text": "Which of the following is NOT a typical area in biomedical engineering?",
+        "options": [
+          "Medical imaging",
+          "Tissue engineering",
+          "Robotics",
+          "Astrophysics"
+        ],
+        "correctAnswer": "Astrophysics"
+      },
+      {
+        "text": "What does an MRI machine primarily use to create images?",
+        "options": [
+          "Magnetic fields and radio waves",
+          "X-rays",
+          "Ultrasound",
+          "Visible light"
+        ],
+        "correctAnswer": "Magnetic fields and radio waves"
+      },
+      {
+        "text": "Which material is commonly used for artificial joints?",
+        "options": [
+          "Titanium",
+          "Wood",
+          "Glass",
+          "Copper"
+        ],
+        "correctAnswer": "Titanium"
+      },
+      {
+        "text": "Which of the following best describes tissue engineering?",
+        "options": [
+          "Creating artificial organs or tissues",
+          "Measuring blood pressure",
+          "Programming medical software",
+          "Designing hospital buildings"
+        ],
+        "correctAnswer": "Creating artificial organs or tissues"
+      }
+    ]
+  },
+  {
+    "id": "intro-bio-sci",
+    "title": "Introduction to Biological Science",
+    "description": "Test your knowledge of basic biological science concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["biological science", "biology", "fundamentals"],
+    "questions": [
+      {
+        "text": "What is the basic unit of life?",
+        "options": [
+          "Atom",
+          "Cell",
+          "Molecule",
+          "Tissue"
+        ],
+        "correctAnswer": "Cell"
+      },
+      {
+        "text": "Which of the following is NOT one of the four main types of biological molecules?",
+        "options": [
+          "Carbohydrates",
+          "Proteins",
+          "Lipids",
+          "Vitamins"
+        ],
+        "correctAnswer": "Vitamins"
+      },
+      {
+        "text": "What is the process by which plants make their own food?",
+        "options": [
+          "Respiration",
+          "Photosynthesis",
+          "Digestion",
+          "Fermentation"
+        ],
+        "correctAnswer": "Photosynthesis"
+      },
+      {
+        "text": "Which of the following is the genetic material in most organisms?",
+        "options": [
+          "RNA",
+          "DNA",
+          "Protein",
+          "Lipid"
+        ],
+        "correctAnswer": "DNA"
+      },
+      {
+        "text": "What is the study of how organisms interact with their environment called?",
+        "options": [
+          "Genetics",
+          "Ecology",
+          "Anatomy",
+          "Physiology"
+        ],
+        "correctAnswer": "Ecology"
+      }
+    ]
+  },
+  {
+    "id": "intro-data-sci",
+    "title": "Introduction to Data Science",
+    "description": "Test your knowledge of basic data science concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["data science", "analytics", "statistics"],
+    "questions": [
+      {
+        "text": "What is the primary goal of data science?",
+        "options": [
+          "To collect as much data as possible",
+          "To extract insights and knowledge from data",
+          "To store data efficiently",
+          "To delete unnecessary data"
+        ],
+        "correctAnswer": "To extract insights and knowledge from data"
+      },
+      {
+        "text": "Which of the following is NOT a common step in the data science process?",
+        "options": [
+          "Data collection",
+          "Data cleaning",
+          "Data visualization",
+          "Data deletion"
+        ],
+        "correctAnswer": "Data deletion"
+      },
+      {
+        "text": "What is the most popular programming language for data science?",
+        "options": [
+          "Java",
+          "Python",
+          "C++",
+          "JavaScript"
+        ],
+        "correctAnswer": "Python"
+      },
+      {
+        "text": "Which library is commonly used for data manipulation in Python?",
+        "options": [
+          "NumPy",
+          "Pandas",
+          "Matplotlib",
+          "Scikit-learn"
+        ],
+        "correctAnswer": "Pandas"
+      },
+      {
+        "text": "What is the purpose of exploratory data analysis (EDA)?",
+        "options": [
+          "To make final predictions",
+          "To understand the data structure and patterns",
+          "To clean the data",
+          "To store the data"
+        ],
+        "correctAnswer": "To understand the data structure and patterns"
+      }
+    ]
+  },
+  {
+    "id": "intro-actuarial-sci",
+    "title": "Introduction to Actuarial Science",
+    "description": "Test your knowledge of basic actuarial science concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["actuarial science", "risk management", "statistics"],
+    "questions": [
+      {
+        "text": "What is the primary focus of actuarial science?",
+        "options": [
+          "Computer programming",
+          "Risk assessment and management",
+          "Medical diagnosis",
+          "Engineering design"
+        ],
+        "correctAnswer": "Risk assessment and management"
+      },
+      {
+        "text": "Which industry employs the most actuaries?",
+        "options": [
+          "Technology",
+          "Insurance",
+          "Healthcare",
+          "Education"
+        ],
+        "correctAnswer": "Insurance"
+      },
+      {
+        "text": "What is a mortality table used for?",
+        "options": [
+          "Calculating life expectancy",
+          "Measuring temperature",
+          "Tracking stock prices",
+          "Analyzing traffic patterns"
+        ],
+        "correctAnswer": "Calculating life expectancy"
+      },
+      {
+        "text": "Which mathematical concept is fundamental to actuarial science?",
+        "options": [
+          "Calculus",
+          "Probability",
+          "Geometry",
+          "Algebra"
+        ],
+        "correctAnswer": "Probability"
+      },
+      {
+        "text": "What is the purpose of premium calculation in insurance?",
+        "options": [
+          "To maximize profits",
+          "To cover expected losses and expenses",
+          "To minimize customer complaints",
+          "To reduce paperwork"
+        ],
+        "correctAnswer": "To cover expected losses and expenses"
+      }
+    ]
+  },
+  {
+    "id": "intro-economics",
+    "title": "Introduction to Economics",
+    "description": "Test your knowledge of basic economics concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["economics", "fundamentals", "social science"],
+    "questions": [
+      {
+        "text": "What is the fundamental economic problem?",
+        "options": [
+          "Unlimited wants and limited resources",
+          "Too much money in circulation",
+          "High unemployment rates",
+          "Government regulation"
+        ],
+        "correctAnswer": "Unlimited wants and limited resources"
+      },
+      {
+        "text": "Which of the following is NOT one of the four factors of production?",
+        "options": [
+          "Land",
+          "Labor",
+          "Capital",
+          "Money"
+        ],
+        "correctAnswer": "Money"
+      },
+      {
+        "text": "What does the law of supply state?",
+        "options": [
+          "As price increases, quantity supplied decreases",
+          "As price increases, quantity supplied increases",
+          "As price decreases, quantity supplied increases",
+          "Price and quantity supplied are unrelated"
+        ],
+        "correctAnswer": "As price increases, quantity supplied increases"
+      },
+      {
+        "text": "What is opportunity cost?",
+        "options": [
+          "The total cost of production",
+          "The value of the next best alternative foregone",
+          "The cost of raw materials",
+          "The cost of labor"
+        ],
+        "correctAnswer": "The value of the next best alternative foregone"
+      },
+      {
+        "text": "Which type of economy is characterized by government control of resources?",
+        "options": [
+          "Market economy",
+          "Command economy",
+          "Mixed economy",
+          "Traditional economy"
+        ],
+        "correctAnswer": "Command economy"
+      }
+    ]
+  },
+  {
+    "id": "intro-geography",
+    "title": "Introduction to Geography",
+    "description": "Test your knowledge of basic geography concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["geography", "earth science", "social science"],
+    "questions": [
+      {
+        "text": "What are the two main branches of geography?",
+        "options": [
+          "Physical and Human geography",
+          "Political and Economic geography",
+          "Urban and Rural geography",
+          "Historical and Modern geography"
+        ],
+        "correctAnswer": "Physical and Human geography"
+      },
+      {
+        "text": "Which of the following is NOT a physical geography feature?",
+        "options": [
+          "Mountains",
+          "Rivers",
+          "Cities",
+          "Oceans"
+        ],
+        "correctAnswer": "Cities"
+      },
+      {
+        "text": "What is the study of maps called?",
+        "options": [
+          "Cartography",
+          "Topography",
+          "Geology",
+          "Meteorology"
+        ],
+        "correctAnswer": "Cartography"
+      },
+      {
+        "text": "Which imaginary line divides the Earth into Northern and Southern hemispheres?",
+        "options": [
+          "Prime Meridian",
+          "Equator",
+          "Tropic of Cancer",
+          "Tropic of Capricorn"
+        ],
+        "correctAnswer": "Equator"
+      },
+      {
+        "text": "What is the primary tool used in Geographic Information Systems (GIS)?",
+        "options": [
+          "Maps",
+          "Satellites",
+          "Computers",
+          "Compasses"
+        ],
+        "correctAnswer": "Computers"
+      }
+    ]
+  },
+  {
+    "id": "intro-law",
+    "title": "Introduction to Law",
+    "description": "Test your knowledge of basic legal concepts and principles",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["law", "legal studies", "social science"],
+    "questions": [
+      {
+        "text": "What is the primary source of law in most countries?",
+        "options": [
+          "Religious texts",
+          "Constitution",
+          "International treaties",
+          "Customary practices"
+        ],
+        "correctAnswer": "Constitution"
+      },
+      {
+        "text": "Which branch of law deals with disputes between individuals?",
+        "options": [
+          "Criminal law",
+          "Civil law",
+          "Constitutional law",
+          "Administrative law"
+        ],
+        "correctAnswer": "Civil law"
+      },
+      {
+        "text": "What is the principle that ensures no one is above the law?",
+        "options": [
+          "Due process",
+          "Rule of law",
+          "Separation of powers",
+          "Judicial review"
+        ],
+        "correctAnswer": "Rule of law"
+      },
+      {
+        "text": "Which court is typically the highest court in a country?",
+        "options": [
+          "District Court",
+          "Appellate Court",
+          "Supreme Court",
+          "Magistrate Court"
+        ],
+        "correctAnswer": "Supreme Court"
+      },
+      {
+        "text": "What is the purpose of a precedent in legal systems?",
+        "options": [
+          "To create new laws",
+          "To guide future court decisions",
+          "To punish criminals",
+          "To collect evidence"
+        ],
+        "correctAnswer": "To guide future court decisions"
+      }
+    ]
+  },
+  {
+    "id": "intro-political-sci",
+    "title": "Introduction to Political Science",
+    "description": "Test your knowledge of basic political science concepts",
+    "difficulty": "Beginner",
+    "timeLimit": 10,
+    "tags": ["political science", "politics", "social science"],
+    "questions": [
+      {
+        "text": "What is the study of politics and government called?",
+        "options": [
+          "Sociology",
+          "Political Science",
+          "Economics",
+          "Anthropology"
+        ],
+        "correctAnswer": "Political Science"
+      },
+      {
+        "text": "Which form of government is characterized by rule by the people?",
+        "options": [
+          "Monarchy",
+          "Democracy",
+          "Dictatorship",
+          "Oligarchy"
+        ],
+        "correctAnswer": "Democracy"
+      },
+      {
+        "text": "What are the three branches of government in most democratic systems?",
+        "options": [
+          "Executive, Legislative, Judicial",
+          "Military, Civil, Religious",
+          "Federal, State, Local",
+          "Economic, Social, Cultural"
+        ],
+        "correctAnswer": "Executive, Legislative, Judicial"
+      },
+      {
+        "text": "What is the purpose of separation of powers?",
+        "options": [
+          "To create more government jobs",
+          "To prevent concentration of power",
+          "To increase efficiency",
+          "To reduce costs"
+        ],
+        "correctAnswer": "To prevent concentration of power"
+      },
+      {
+        "text": "Which political ideology emphasizes individual freedom and limited government?",
+        "options": [
+          "Socialism",
+          "Liberalism",
+          "Conservatism",
+          "Communism"
+        ],
+        "correctAnswer": "Liberalism"
+      }
+    ]
+  },
+  {
+    "id": "thermodynamics-1",
+    "title": "Thermodynamics I",
+    "description": "Test your knowledge of fundamental thermodynamic principles",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["mechanical engineering", "thermodynamics", "physics"],
+    "questions": [
+      {
+        "text": "What is the First Law of Thermodynamics?",
+        "options": [
+          "Energy cannot be created or destroyed",
+          "Entropy always increases",
+          "Heat flows from hot to cold",
+          "Pressure and volume are inversely related"
+        ],
+        "correctAnswer": "Energy cannot be created or destroyed"
+      },
+      {
+        "text": "Which thermodynamic process occurs at constant temperature?",
+        "options": [
+          "Isothermal",
+          "Adiabatic",
+          "Isobaric",
+          "Isochoric"
+        ],
+        "correctAnswer": "Isothermal"
+      },
+      {
+        "text": "What is the SI unit of entropy?",
+        "options": [
+          "Joule per Kelvin",
+          "Watt",
+          "Pascal",
+          "Newton"
+        ],
+        "correctAnswer": "Joule per Kelvin"
+      },
+      {
+        "text": "Which cycle is commonly used in steam power plants?",
+        "options": [
+          "Carnot cycle",
+          "Rankine cycle",
+          "Otto cycle",
+          "Diesel cycle"
+        ],
+        "correctAnswer": "Rankine cycle"
+      },
+      {
+        "text": "What is the efficiency of a Carnot engine?",
+        "options": [
+          "1 - (Tc/Th)",
+          "1 - (Th/Tc)",
+          "Th/Tc",
+          "Tc/Th"
+        ],
+        "correctAnswer": "1 - (Tc/Th)"
+      }
+    ]
+  },
+  {
+    "id": "machine-design-1",
+    "title": "Machine Design I",
+    "description": "Test your knowledge of machine design principles",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["mechanical engineering", "design", "machines"],
+    "questions": [
+      {
+        "text": "What is the primary purpose of a key in mechanical design?",
+        "options": [
+          "To transmit torque between shaft and hub",
+          "To reduce friction",
+          "To provide lubrication",
+          "To increase strength"
+        ],
+        "correctAnswer": "To transmit torque between shaft and hub"
+      },
+      {
+        "text": "Which type of gear has teeth parallel to the axis?",
+        "options": [
+          "Spur gear",
+          "Helical gear",
+          "Bevel gear",
+          "Worm gear"
+        ],
+        "correctAnswer": "Spur gear"
+      },
+      {
+        "text": "What is the purpose of a bearing in machine design?",
+        "options": [
+          "To support rotating shafts",
+          "To transmit power",
+          "To provide sealing",
+          "To reduce weight"
+        ],
+        "correctAnswer": "To support rotating shafts"
+      },
+      {
+        "text": "Which factor of safety is typically used for static loading?",
+        "options": [
+          "1.5 to 2.0",
+          "3.0 to 4.0",
+          "5.0 to 6.0",
+          "10.0 or higher"
+        ],
+        "correctAnswer": "1.5 to 2.0"
+      },
+      {
+        "text": "What is the purpose of a clutch in mechanical systems?",
+        "options": [
+          "To engage and disengage power transmission",
+          "To increase speed",
+          "To reduce noise",
+          "To provide lubrication"
+        ],
+        "correctAnswer": "To engage and disengage power transmission"
+      }
+    ]
+  },
+  {
+    "id": "advanced-python",
+    "title": "Advanced Python Programming",
+    "description": "Test your knowledge of advanced Python concepts",
+    "difficulty": "Advanced",
+    "timeLimit": 15,
+    "tags": ["python", "programming", "advanced"],
+    "questions": [
+      {
+        "text": "What is a decorator in Python?",
+        "options": [
+          "A function that modifies another function",
+          "A type of variable",
+          "A loop construct",
+          "A data structure"
+        ],
+        "correctAnswer": "A function that modifies another function"
+      },
+      {
+        "text": "What is the purpose of __init__ method in a class?",
+        "options": [
+          "Constructor method",
+          "Destructor method",
+          "Static method",
+          "Class method"
+        ],
+        "correctAnswer": "Constructor method"
+      },
+      {
+        "text": "What does the 'yield' keyword do in Python?",
+        "options": [
+          "Creates a generator function",
+          "Stops program execution",
+          "Returns a value",
+          "Raises an exception"
+        ],
+        "correctAnswer": "Creates a generator function"
+      },
+      {
+        "text": "What is the difference between a list and a tuple?",
+        "options": [
+          "Lists are mutable, tuples are immutable",
+          "Lists are faster than tuples",
+          "Tuples can contain more data types",
+          "Lists use more memory"
+        ],
+        "correctAnswer": "Lists are mutable, tuples are immutable"
+      },
+      {
+        "text": "What is the purpose of 'self' in Python classes?",
+        "options": [
+          "Reference to the instance of the class",
+          "Reference to the class itself",
+          "Reference to the parent class",
+          "Reference to the module"
+        ],
+        "correctAnswer": "Reference to the instance of the class"
+      }
+    ]
+  },
+  {
+    "id": "data-structures",
+    "title": "Data Structures and Algorithms",
+    "description": "Test your knowledge of fundamental data structures",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["computer science", "data structures", "algorithms"],
+    "questions": [
+      {
+        "text": "What is the time complexity of inserting an element at the end of an array?",
+        "options": [
+          "O(1)",
+          "O(n)",
+          "O(log n)",
+          "O(n²)"
+        ],
+        "correctAnswer": "O(1)"
+      },
+      {
+        "text": "Which data structure uses LIFO (Last In, First Out)?",
+        "options": [
+          "Stack",
+          "Queue",
+          "Tree",
+          "Graph"
+        ],
+        "correctAnswer": "Stack"
+      },
+      {
+        "text": "What is the time complexity of binary search?",
+        "options": [
+          "O(1)",
+          "O(n)",
+          "O(log n)",
+          "O(n²)"
+        ],
+        "correctAnswer": "O(log n)"
+      },
+      {
+        "text": "Which sorting algorithm has the best average-case time complexity?",
+        "options": [
+          "QuickSort",
+          "BubbleSort",
+          "SelectionSort",
+          "InsertionSort"
+        ],
+        "correctAnswer": "QuickSort"
+      },
+      {
+        "text": "What is a hash table used for?",
+        "options": [
+          "Fast key-value lookups",
+          "Sorting data",
+          "Graph traversal",
+          "Tree balancing"
+        ],
+        "correctAnswer": "Fast key-value lookups"
+      }
+    ]
+  },
+  {
+    "id": "microeconomics",
+    "title": "Microeconomics",
+    "description": "Test your knowledge of microeconomic principles",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["economics", "microeconomics", "theory"],
+    "questions": [
+      {
+        "text": "What is the law of diminishing marginal utility?",
+        "options": [
+          "As consumption increases, marginal utility decreases",
+          "As price increases, demand decreases",
+          "As income increases, consumption increases",
+          "As supply increases, price decreases"
+        ],
+        "correctAnswer": "As consumption increases, marginal utility decreases"
+      },
+      {
+        "text": "What is a perfectly competitive market characterized by?",
+        "options": [
+          "Many buyers and sellers, identical products",
+          "One seller, many buyers",
+          "Few sellers, differentiated products",
+          "Government control"
+        ],
+        "correctAnswer": "Many buyers and sellers, identical products"
+      },
+      {
+        "text": "What is the price elasticity of demand?",
+        "options": [
+          "Percentage change in quantity demanded / Percentage change in price",
+          "Percentage change in price / Percentage change in quantity demanded",
+          "Change in price / Change in quantity",
+          "Total revenue / Price"
+        ],
+        "correctAnswer": "Percentage change in quantity demanded / Percentage change in price"
+      },
+      {
+        "text": "What is a normal good?",
+        "options": [
+          "A good whose demand increases when income increases",
+          "A good whose demand decreases when income increases",
+          "A good with no substitutes",
+          "A good that is always in demand"
+        ],
+        "correctAnswer": "A good whose demand increases when income increases"
+      },
+      {
+        "text": "What is producer surplus?",
+        "options": [
+          "Difference between what producers receive and what they would accept",
+          "Total revenue minus total cost",
+          "Price minus marginal cost",
+          "Consumer willingness to pay minus price"
+        ],
+        "correctAnswer": "Difference between what producers receive and what they would accept"
+      }
+    ]
+  },
+  {
+    "id": "macroeconomics",
+    "title": "Macroeconomics",
+    "description": "Test your knowledge of macroeconomic concepts",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["economics", "macroeconomics", "policy"],
+    "questions": [
+      {
+        "text": "What does GDP stand for?",
+        "options": [
+          "Gross Domestic Product",
+          "General Domestic Price",
+          "Gross Demand Price",
+          "General Development Plan"
+        ],
+        "correctAnswer": "Gross Domestic Product"
+      },
+      {
+        "text": "What is inflation?",
+        "options": [
+          "General increase in price levels",
+          "Increase in money supply",
+          "Decrease in unemployment",
+          "Increase in GDP"
+        ],
+        "correctAnswer": "General increase in price levels"
+      },
+      {
+        "text": "What is the Phillips Curve relationship?",
+        "options": [
+          "Inverse relationship between unemployment and inflation",
+          "Direct relationship between GDP and inflation",
+          "Relationship between interest rates and investment",
+          "Relationship between money supply and prices"
+        ],
+        "correctAnswer": "Inverse relationship between unemployment and inflation"
+      },
+      {
+        "text": "What is fiscal policy?",
+        "options": [
+          "Government spending and taxation",
+          "Central bank monetary control",
+          "International trade policy",
+          "Labor market regulations"
+        ],
+        "correctAnswer": "Government spending and taxation"
+      },
+      {
+        "text": "What is the multiplier effect?",
+        "options": [
+          "Initial spending leads to larger total increase in GDP",
+          "Inflation leads to higher interest rates",
+          "Unemployment leads to lower wages",
+          "Exports lead to higher imports"
+        ],
+        "correctAnswer": "Initial spending leads to larger total increase in GDP"
+      }
+    ]
+  },
+  {
+    "id": "constitutional-law",
+    "title": "Constitutional Law",
+    "description": "Test your knowledge of constitutional law principles",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["law", "constitutional law", "legal principles"],
+    "questions": [
+      {
+        "text": "What is judicial review?",
+        "options": [
+          "Power of courts to review constitutionality of laws",
+          "Review of lower court decisions",
+          "Review of executive actions",
+          "Review of legislative procedures"
+        ],
+        "correctAnswer": "Power of courts to review constitutionality of laws"
+      },
+      {
+        "text": "What is the purpose of the Bill of Rights?",
+        "options": [
+          "To protect individual liberties",
+          "To establish government structure",
+          "To define citizenship",
+          "To regulate commerce"
+        ],
+        "correctAnswer": "To protect individual liberties"
+      },
+      {
+        "text": "What is the supremacy clause?",
+        "options": [
+          "Federal law takes precedence over state law",
+          "Executive branch is supreme",
+          "Judicial branch has final authority",
+          "Legislative branch is most powerful"
+        ],
+        "correctAnswer": "Federal law takes precedence over state law"
+      },
+      {
+        "text": "What is due process?",
+        "options": [
+          "Fair treatment under the law",
+          "Right to a speedy trial",
+          "Right to bear arms",
+          "Right to free speech"
+        ],
+        "correctAnswer": "Fair treatment under the law"
+      },
+      {
+        "text": "What is the commerce clause?",
+        "options": [
+          "Congress can regulate interstate commerce",
+          "States can regulate local commerce",
+          "Executive can control trade",
+          "Courts can review trade disputes"
+        ],
+        "correctAnswer": "Congress can regulate interstate commerce"
+      }
+    ]
+  },
+  {
+    "id": "international-relations",
+    "title": "International Relations",
+    "description": "Test your knowledge of international relations concepts",
+    "difficulty": "Intermediate",
+    "timeLimit": 15,
+    "tags": ["political science", "international relations", "diplomacy"],
+    "questions": [
+      {
+        "text": "What is realism in international relations?",
+        "options": [
+          "States act in their own self-interest",
+          "States cooperate for mutual benefit",
+          "International organizations are most important",
+          "Economic factors drive all decisions"
+        ],
+        "correctAnswer": "States act in their own self-interest"
+      },
+      {
+        "text": "What is the balance of power theory?",
+        "options": [
+          "States form alliances to prevent dominance",
+          "Economic power determines influence",
+          "Military strength is everything",
+          "Diplomatic relations are key"
+        ],
+        "correctAnswer": "States form alliances to prevent dominance"
+      },
+      {
+        "text": "What is soft power?",
+        "options": [
+          "Influence through culture and values",
+          "Military force",
+          "Economic sanctions",
+          "Diplomatic pressure"
+        ],
+        "correctAnswer": "Influence through culture and values"
+      },
+      {
+        "text": "What is the purpose of the United Nations?",
+        "options": [
+          "To maintain international peace and security",
+          "To promote economic development",
+          "To regulate trade",
+          "To provide humanitarian aid"
+        ],
+        "correctAnswer": "To maintain international peace and security"
+      },
+      {
+        "text": "What is globalization?",
+        "options": [
+          "Increasing interconnectedness of nations",
+          "Spread of democracy",
+          "Economic liberalization",
+          "Cultural homogenization"
+        ],
+        "correctAnswer": "Increasing interconnectedness of nations"
+      }
+    ]
+  },
+  {
+    "id": "advanced-statistics",
+    "title": "Advanced Statistics",
+    "description": "Test your knowledge of advanced statistical concepts",
+    "difficulty": "Advanced",
+    "timeLimit": 15,
+    "tags": ["statistics", "data science", "mathematics"],
+    "questions": [
+      {
+        "text": "What is a p-value?",
+        "options": [
+          "Probability of observing data as extreme as the sample",
+          "Probability of the null hypothesis being true",
+          "Probability of the alternative hypothesis being true",
+          "Probability of making a Type I error"
+        ],
+        "correctAnswer": "Probability of observing data as extreme as the sample"
+      },
+      {
+        "text": "What is the central limit theorem?",
+        "options": [
+          "Sample means approach normal distribution as n increases",
+          "Population means are always normal",
+          "Standard deviation decreases with sample size",
+          "Variance is always constant"
+        ],
+        "correctAnswer": "Sample means approach normal distribution as n increases"
+      },
+      {
+        "text": "What is multiple regression?",
+        "options": [
+          "Predicting dependent variable with multiple independent variables",
+          "Multiple dependent variables",
+          "Non-linear relationships",
+          "Time series analysis"
+        ],
+        "correctAnswer": "Predicting dependent variable with multiple independent variables"
+      },
+      {
+        "text": "What is a confidence interval?",
+        "options": [
+          "Range of values likely to contain the true parameter",
+          "Range of sample values",
+          "Range of population values",
+          "Range of standard errors"
+        ],
+        "correctAnswer": "Range of values likely to contain the true parameter"
+      },
+      {
+        "text": "What is the difference between correlation and causation?",
+        "options": [
+          "Correlation doesn't imply causation",
+          "Correlation always implies causation",
+          "Causation always implies correlation",
+          "They are the same thing"
+        ],
+        "correctAnswer": "Correlation doesn't imply causation"
+      }
+    ]
+  },
+  {
+    "id": "medical-imaging",
+    "title": "Medical Imaging",
+    "description": "Test your knowledge of medical imaging technologies",
+    "difficulty": "Advanced",
+    "timeLimit": 15,
+    "tags": ["biomedical engineering", "medical imaging", "technology"],
+    "questions": [
+      {
+        "text": "What does MRI stand for?",
+        "options": [
+          "Magnetic Resonance Imaging",
+          "Medical Radiation Imaging",
+          "Molecular Resonance Imaging",
+          "Magnetic Radio Imaging"
+        ],
+        "correctAnswer": "Magnetic Resonance Imaging"
+      },
+      {
+        "text": "Which imaging technique uses X-rays?",
+        "options": [
+          "CT Scan",
+          "Ultrasound",
+          "MRI",
+          "PET Scan"
+        ],
+        "correctAnswer": "CT Scan"
+      },
+      {
+        "text": "What is the principle behind ultrasound imaging?",
+        "options": [
+          "Sound waves reflect off tissues",
+          "Magnetic fields align protons",
+          "Radioactive decay",
+          "X-ray absorption"
+        ],
+        "correctAnswer": "Sound waves reflect off tissues"
+      },
+      {
+        "text": "What is contrast enhancement in medical imaging?",
+        "options": [
+          "Using agents to improve image visibility",
+          "Adjusting brightness and contrast",
+          "Image post-processing",
+          "3D reconstruction"
+        ],
+        "correctAnswer": "Using agents to improve image visibility"
+      },
+      {
+        "text": "What is the main advantage of PET imaging?",
+        "options": [
+          "Shows metabolic activity",
+          "High spatial resolution",
+          "No radiation exposure",
+          "Real-time imaging"
+        ],
+        "correctAnswer": "Shows metabolic activity"
+      }
+    ]
   }
 ]

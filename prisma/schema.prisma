@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../lib/generated/prisma"
@@ -15,18 +9,37 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  image     String?
-  accounts  Account[]
-  sessions  Session[]
-  submissions QuizSubmission[]
+  id                String             @id @default(uuid())
+  name              String
+  email             String             @unique
+  password          String
+  image             String?
+  program           String?
+  bio               String?
+  year              Int?               @default(1)
+  city              String?
+  country           String?
+  latitude          Float?
+  longitude         Float?
+  region            String?
+  timezone          String?
+  accounts          Account[]
+  followers         Follows[]          @relation("UserFollowers")
+  following         Follows[]          @relation("UserFollowing")
+  notifications     Notification[]
+  offlineData       OfflineData[]
+  submissions       QuizSubmission[]
+  sessions          Session[]
+  socialActivities  SocialActivity[]
+  studyGroupMembers StudyGroupMember[]
+  studySessions     StudySession[]
+  userAchievements  UserAchievement[]
+  userAnalytics     UserAnalytics?
+  userStreaks       UserStreak[]
 }
 
 model Quiz {
-  id          String     @id @default(uuid())
+  id          String           @id @default(uuid())
   title       String
   description String
   difficulty  String
@@ -37,12 +50,12 @@ model Quiz {
 }
 
 model Question {
-  id        String   @id @default(uuid())
-  text      String
-  options   String[]
+  id            String   @id @default(uuid())
+  text          String
+  options       String[]
   correctAnswer String
-  quiz      Quiz     @relation(fields: [quizId], references: [id])
-  quizId    String
+  quizId        String
+  quiz          Quiz     @relation(fields: [quizId], references: [id])
 }
 
 model Recommendation {
@@ -55,42 +68,182 @@ model Recommendation {
   difficulty  String
 }
 
+model Resource {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  url         String
+  platform    String
+  type        String
+  category    String
+  tags        String[]
+  duration    String
+  rating      Float
+  views       Int?
+  lessons     Int?
+  videos      Int?
+  courseIds   String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model QuizSubmission {
-  id        String   @id @default(uuid())
-  user      User     @relation(fields: [userId], references: [id])
+  id        String      @id @default(uuid())
   userId    String
-  quiz      Quiz     @relation(fields: [quizId], references: [id])
   quizId    String
   answers   Json
+  createdAt DateTime    @default(now())
+  timeSpent Int?
   result    QuizResult?
-  createdAt DateTime @default(now())
+  quiz      Quiz        @relation(fields: [quizId], references: [id])
+  user      User        @relation(fields: [userId], references: [id])
 }
 
 model QuizResult {
-  id              String   @id @default(uuid())
-  submission      QuizSubmission @relation(fields: [submissionId], references: [id])
-  submissionId    String   @unique
-  score           Int
-  totalQuestions  Int
-  correctAnswers  Int[]
+  id               String         @id @default(uuid())
+  submissionId     String         @unique
+  score            Int
+  totalQuestions   Int
+  correctAnswers   Int[]
   incorrectAnswers Int[]
+  submission       QuizSubmission @relation(fields: [submissionId], references: [id])
 }
 
-// NextAuth models
+model UserAnalytics {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  averageScore    Float    @default(0)
+  totalQuizzes    Int      @default(0)
+  totalQuestions  Int      @default(0)
+  totalStudyHours Float    @default(0)
+  improvementRate Float    @default(0)
+  weakAreas       String[]
+  strongAreas     String[]
+  lastUpdated     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  user            User     @relation(fields: [userId], references: [id])
+}
+
+model UserActivity {
+  id           String   @id @default(uuid())
+  userId       String
+  activityType String
+  metadata     Json?
+  timestamp    DateTime @default(now())
+  sessionId    String?
+  page         String?
+  duration     Int?
+}
+
+model UserAchievement {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  description String
+  type        String
+  metadata    Json?
+  earnedAt    DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model UserStreak {
+  id            String   @id @default(uuid())
+  userId        String
+  type          String
+  currentStreak Int      @default(0)
+  longestStreak Int      @default(0)
+  lastActivity  DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User     @relation(fields: [userId], references: [id])
+}
+
+model SocialActivity {
+  id        String   @id @default(uuid())
+  userId    String
+  type      String
+  content   Json
+  likes     Int      @default(0)
+  comments  Int      @default(0)
+  isPublic  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Follows {
+  id          String   @id @default(uuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+  follower    User     @relation("UserFollowers", fields: [followerId], references: [id])
+  following   User     @relation("UserFollowing", fields: [followingId], references: [id])
+
+  @@unique([followerId, followingId])
+}
+
+model StudyGroup {
+  id          String             @id @default(uuid())
+  name        String
+  description String?
+  category    String
+  avatar      String?
+  isPublic    Boolean            @default(true)
+  maxMembers  Int                @default(100)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  members     StudyGroupMember[]
+}
+
+model StudyGroupMember {
+  id       String     @id @default(uuid())
+  userId   String
+  groupId  String
+  role     String     @default("member")
+  joinedAt DateTime   @default(now())
+  group    StudyGroup @relation(fields: [groupId], references: [id])
+  user     User       @relation(fields: [userId], references: [id])
+
+  @@unique([userId, groupId])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  type      String
+  title     String
+  message   String
+  metadata  Json?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model OfflineData {
+  id         String    @id @default(uuid())
+  userId     String
+  dataType   String
+  data       Json
+  syncStatus String    @default("pending")
+  createdAt  DateTime  @default(now())
+  syncedAt   DateTime?
+  user       User      @relation(fields: [userId], references: [id])
+}
+
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  
-  access_token       String?  
-  expires_at         Int?     
-  token_type         String?  
-  scope              String?  
-  id_token           String?  
-  session_state      String?  
-  user               User     @relation(fields: [userId], references: [id])
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
 }
@@ -106,7 +259,24 @@ model Session {
 model VerificationToken {
   identifier String
   token      String   @unique
-  expires   DateTime
+  expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model StudySession {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  date        DateTime
+  startTime   String
+  endTime     String
+  course      String
+  priority    String
+  completed   Boolean  @default(false)
+  reminders   Boolean  @default(true)
+  userId      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User?    @relation(fields: [userId], references: [id])
 }

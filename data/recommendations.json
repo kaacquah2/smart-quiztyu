@@ -268,5 +268,446 @@
     "type": "course",
     "tags": ["iot", "embedded systems", "networking"],
     "difficulty": "intermediate"
+  },
+  {
+    "id": "201",
+    "title": "Python for Beginners",
+    "description": "A great resource for learning Python from scratch.",
+    "url": "https://www.learnpython.org/",
+    "type": "tutorial",
+    "tags": ["python", "intro-to-python", "programming", "beginner"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "202",
+    "title": "Visualizing Data Structures",
+    "description": "Interactive visualizations for common data structures.",
+    "url": "https://visualgo.net/en",
+    "type": "interactive",
+    "tags": ["data-structures", "algorithms", "computer science", "intermediate"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "203",
+    "title": "Effective Business Communication",
+    "description": "Tips and strategies for clear business communication.",
+    "url": "https://www.mindtools.com/CommSkll/CommunicationIntro.htm",
+    "type": "article",
+    "tags": ["business-communication", "business", "communication", "beginner"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "204",
+    "title": "Anatomy & Physiology Crash Course",
+    "description": "Video series covering the basics of human anatomy and physiology.",
+    "url": "https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF",
+    "type": "video",
+    "tags": ["anatomy-physiology-1", "nursing", "health", "beginner"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "101",
+    "title": "What is Mechanical Engineering?",
+    "description": "A beginner-friendly introduction to the field of mechanical engineering.",
+    "url": "https://www.youtube.com/watch?v=G6h6gC6K5lA",
+    "type": "video",
+    "tags": ["mechanical engineering", "introduction", "engineering"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "102",
+    "title": "MIT OCW: Introduction to Mechanical Engineering",
+    "description": "Comprehensive MIT OpenCourseWare course covering the basics of mechanical engineering.",
+    "url": "https://ocw.mit.edu/courses/mechanical-engineering/2-001-mechanics-materials-i-fall-2006/",
+    "type": "course",
+    "tags": ["mechanical engineering", "mechanics", "materials"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "103",
+    "title": "AutoCAD for Beginners",
+    "description": "Step-by-step tutorial for learning AutoCAD, a key tool in mechanical engineering design.",
+    "url": "https://www.youtube.com/watch?v=h0g6r3g4h9o",
+    "type": "tutorial",
+    "tags": ["mechanical engineering", "CAD", "design"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "104",
+    "title": "What is Electrical Engineering?",
+    "description": "A beginner-friendly introduction to the field of electrical engineering.",
+    "url": "https://www.youtube.com/watch?v=GvQ_mGzWbds",
+    "type": "video",
+    "tags": ["electrical engineering", "introduction", "engineering"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "105",
+    "title": "MIT OCW: Circuits and Electronics",
+    "description": "Comprehensive MIT OpenCourseWare course on circuits and electronics.",
+    "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-002-circuits-and-electronics-spring-2007/",
+    "type": "course",
+    "tags": ["electrical engineering", "circuits", "electronics"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "106",
+    "title": "How to Use a Breadboard",
+    "description": "Step-by-step tutorial for beginners on using a breadboard for circuit prototyping.",
+    "url": "https://www.youtube.com/watch?v=6WReFkfrUIk",
+    "type": "tutorial",
+    "tags": ["electrical engineering", "breadboard", "circuits"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "107",
+    "title": "What is Biomedical Engineering?",
+    "description": "A beginner-friendly introduction to the field of biomedical engineering.",
+    "url": "https://www.youtube.com/watch?v=Q1bIA7U5q0o",
+    "type": "video",
+    "tags": ["biomedical engineering", "introduction", "engineering"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "108",
+    "title": "MIT OCW: Introduction to Biomedical Engineering",
+    "description": "Comprehensive MIT OpenCourseWare course on biomedical engineering principles.",
+    "url": "https://ocw.mit.edu/courses/biological-engineering/20-010j-introduction-to-biological-engineering-spring-2006/",
+    "type": "course",
+    "tags": ["biomedical engineering", "biological engineering", "medical devices"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "109",
+    "title": "Medical Device Design Tutorial",
+    "description": "Step-by-step tutorial on designing medical devices for beginners.",
+    "url": "https://www.youtube.com/watch?v=6QbG6w2lQ1A",
+    "type": "tutorial",
+    "tags": ["biomedical engineering", "medical devices", "design"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "110",
+    "title": "What is Biology?",
+    "description": "A beginner-friendly introduction to the field of biological science.",
+    "url": "https://www.youtube.com/watch?v=wJuJxOq7xEI",
+    "type": "video",
+    "tags": ["biological science", "biology", "introduction"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "111",
+    "title": "MIT OCW: Introduction to Biology",
+    "description": "Comprehensive MIT OpenCourseWare course on biological science principles.",
+    "url": "https://ocw.mit.edu/courses/biology/7-01sc-fundamentals-of-biology-fall-2011/",
+    "type": "course",
+    "tags": ["biological science", "biology", "fundamentals"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "112",
+    "title": "Basic Laboratory Techniques",
+    "description": "Step-by-step tutorial on essential laboratory techniques for biology students.",
+    "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
+    "type": "tutorial",
+    "tags": ["biological science", "laboratory", "techniques"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "113",
+    "title": "What is Data Science?",
+    "description": "A beginner-friendly introduction to the field of data science.",
+    "url": "https://www.youtube.com/watch?v=ua-CiDNNj30",
+    "type": "video",
+    "tags": ["data science", "introduction", "analytics"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "114",
+    "title": "MIT OCW: Introduction to Data Science",
+    "description": "Comprehensive MIT OpenCourseWare course on data science principles.",
+    "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0002-introduction-to-computational-thinking-and-data-science-fall-2016/",
+    "type": "course",
+    "tags": ["data science", "computational thinking", "python"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "115",
+    "title": "Python for Data Science Tutorial",
+    "description": "Step-by-step tutorial on using Python for data science projects.",
+    "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+    "type": "tutorial",
+    "tags": ["data science", "python", "pandas"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "116",
+    "title": "What is Actuarial Science?",
+    "description": "A beginner-friendly introduction to the field of actuarial science.",
+    "url": "https://www.youtube.com/watch?v=6QbG6w2lQ1A",
+    "type": "video",
+    "tags": ["actuarial science", "introduction", "risk management"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "117",
+    "title": "Introduction to Actuarial Science - Coursera",
+    "description": "Comprehensive course on actuarial science principles and practices.",
+    "url": "https://www.coursera.org/learn/actuarial-science",
+    "type": "course",
+    "tags": ["actuarial science", "risk assessment", "insurance"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "118",
+    "title": "Statistical Analysis for Actuaries",
+    "description": "Tutorial on statistical methods used in actuarial science.",
+    "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
+    "type": "tutorial",
+    "tags": ["actuarial science", "statistics", "risk modeling"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "119",
+    "title": "What is Economics?",
+    "description": "A beginner-friendly introduction to the field of economics.",
+    "url": "https://www.youtube.com/watch?v=3ez10ADR_gM",
+    "type": "video",
+    "tags": ["economics", "introduction", "social science"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "120",
+    "title": "MIT OCW: Principles of Microeconomics",
+    "description": "Comprehensive MIT OpenCourseWare course on microeconomic principles.",
+    "url": "https://ocw.mit.edu/courses/economics/14-01sc-principles-of-microeconomics-fall-2011/",
+    "type": "course",
+    "tags": ["economics", "microeconomics", "principles"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "121",
+    "title": "Economic Analysis Tutorial",
+    "description": "Step-by-step tutorial on basic economic analysis techniques.",
+    "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
+    "type": "tutorial",
+    "tags": ["economics", "analysis", "methods"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "122",
+    "title": "What is Geography?",
+    "description": "A beginner-friendly introduction to the field of geography.",
+    "url": "https://www.youtube.com/watch?v=QwbToV-FvsU",
+    "type": "video",
+    "tags": ["geography", "introduction", "earth science"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "123",
+    "title": "Introduction to Geography - Coursera",
+    "description": "Comprehensive course on geography principles and concepts.",
+    "url": "https://www.coursera.org/learn/geography",
+    "type": "course",
+    "tags": ["geography", "physical geography", "human geography"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "124",
+    "title": "GIS Basics Tutorial",
+    "description": "Tutorial on Geographic Information Systems for beginners.",
+    "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+    "type": "tutorial",
+    "tags": ["geography", "GIS", "mapping"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "125",
+    "title": "What is Law?",
+    "description": "A beginner-friendly introduction to the field of law and legal studies.",
+    "url": "https://www.youtube.com/watch?v=QwbToV-FvsU",
+    "type": "video",
+    "tags": ["law", "introduction", "legal studies"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "126",
+    "title": "Introduction to Law - Harvard Law School",
+    "description": "Comprehensive Harvard Law School course on fundamental legal principles.",
+    "url": "https://online.law.harvard.edu/course/introduction-to-law/",
+    "type": "course",
+    "tags": ["law", "legal principles", "fundamentals"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "127",
+    "title": "Legal Research Tutorial",
+    "description": "Step-by-step tutorial on conducting legal research for beginners.",
+    "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+    "type": "tutorial",
+    "tags": ["law", "legal research", "methods"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "128",
+    "title": "What is Political Science?",
+    "description": "A beginner-friendly introduction to the field of political science.",
+    "url": "https://www.youtube.com/watch?v=3ez10ADR_gM",
+    "type": "video",
+    "tags": ["political science", "introduction", "politics"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "129",
+    "title": "Introduction to Political Science - MIT OCW",
+    "description": "Comprehensive MIT OpenCourseWare course on political science principles.",
+    "url": "https://ocw.mit.edu/courses/political-science/17-20-introduction-to-american-politics-spring-2013/",
+    "type": "course",
+    "tags": ["political science", "american politics", "government"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "130",
+    "title": "Political Science Research Methods",
+    "description": "Tutorial on research methods used in political science.",
+    "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
+    "type": "tutorial",
+    "tags": ["political science", "research methods", "analysis"],
+    "difficulty": "beginner"
+  },
+  {
+    "id": "131",
+    "title": "Thermodynamics Fundamentals",
+    "description": "Comprehensive course on thermodynamic principles and applications.",
+    "url": "https://www.coursera.org/learn/thermodynamics",
+    "type": "course",
+    "tags": ["mechanical engineering", "thermodynamics", "physics"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "132",
+    "title": "Machine Design Principles",
+    "description": "Advanced course on machine design and mechanical systems.",
+    "url": "https://www.edx.org/course/machine-design",
+    "type": "course",
+    "tags": ["mechanical engineering", "machine design", "mechanical systems"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "133",
+    "title": "Advanced Python Programming",
+    "description": "Deep dive into advanced Python concepts and techniques.",
+    "url": "https://realpython.com/tutorials/advanced/",
+    "type": "tutorial",
+    "tags": ["python", "programming", "advanced"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "134",
+    "title": "Data Structures and Algorithms",
+    "description": "Comprehensive course on fundamental data structures and algorithms.",
+    "url": "https://www.coursera.org/learn/data-structures",
+    "type": "course",
+    "tags": ["computer science", "data structures", "algorithms"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "135",
+    "title": "Microeconomics Theory",
+    "description": "Advanced course on microeconomic theory and applications.",
+    "url": "https://www.edx.org/course/microeconomics",
+    "type": "course",
+    "tags": ["economics", "microeconomics", "theory"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "136",
+    "title": "Macroeconomics Policy",
+    "description": "Course on macroeconomic policy and its applications.",
+    "url": "https://www.coursera.org/learn/macroeconomics",
+    "type": "course",
+    "tags": ["economics", "macroeconomics", "policy"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "137",
+    "title": "Constitutional Law Principles",
+    "description": "Advanced course on constitutional law and legal interpretation.",
+    "url": "https://www.edx.org/course/constitutional-law",
+    "type": "course",
+    "tags": ["law", "constitutional law", "legal principles"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "138",
+    "title": "International Relations Theory",
+    "description": "Comprehensive course on international relations theories and practices.",
+    "url": "https://www.coursera.org/learn/international-relations",
+    "type": "course",
+    "tags": ["political science", "international relations", "diplomacy"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "139",
+    "title": "Advanced Statistical Methods",
+    "description": "Course on advanced statistical techniques and applications.",
+    "url": "https://www.edx.org/course/advanced-statistics",
+    "type": "course",
+    "tags": ["statistics", "data science", "mathematics"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "140",
+    "title": "Medical Imaging Technologies",
+    "description": "Advanced course on medical imaging principles and technologies.",
+    "url": "https://www.coursera.org/learn/medical-imaging",
+    "type": "course",
+    "tags": ["biomedical engineering", "medical imaging", "technology"],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "141",
+    "title": "Fluid Mechanics Fundamentals",
+    "description": "Course on fluid mechanics principles and applications.",
+    "url": "https://www.edx.org/course/fluid-mechanics",
+    "type": "course",
+    "tags": ["mechanical engineering", "fluid mechanics", "physics"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "142",
+    "title": "Control Systems Engineering",
+    "description": "Advanced course on control systems design and analysis.",
+    "url": "https://www.coursera.org/learn/control-systems",
+    "type": "course",
+    "tags": ["electrical engineering", "control systems", "automation"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "143",
+    "title": "Database Design and Management",
+    "description": "Comprehensive course on database design principles and SQL.",
+    "url": "https://www.edx.org/course/database-design",
+    "type": "course",
+    "tags": ["computer science", "databases", "sql"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "144",
+    "title": "Web Development with React",
+    "description": "Advanced course on modern web development using React.",
+    "url": "https://www.coursera.org/learn/react-web-development",
+    "type": "course",
+    "tags": ["computer science", "web development", "react"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "145",
+    "title": "Software Engineering Principles",
+    "description": "Course on software engineering methodologies and best practices.",
+    "url": "https://www.edx.org/course/software-engineering",
+    "type": "course",
+    "tags": ["computer science", "software engineering", "development"],
+    "difficulty": "intermediate"
   }
 ]

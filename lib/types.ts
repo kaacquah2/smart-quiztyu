@@ -23,6 +23,13 @@ export interface Recommendation {
   type: string // video, article, exercise, etc.
   tags: string[]
   difficulty: string
+  // YouTube-specific properties
+  platform?: string
+  thumbnail?: string
+  channelTitle?: string
+  duration?: string
+  viewCount?: string
+  publishedAt?: string
 }
 
 export interface QuizSubmission {

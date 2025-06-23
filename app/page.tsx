@@ -1,28 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { PublicHeader } from "@/components/public-header"
 import { ArrowRight, BookOpen, Brain, GraduationCap, Users } from "lucide-react"
+import { ROUTES } from "@/lib/routes"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
-            Smart Quiz System
-          </Link>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Link href="/login">
-              <Button variant="outline">Login</Button>
-            </Link>
-            <Link href="/signup">
-              <Button>Sign Up</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
+    <>
+      <PublicHeader />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-background to-muted">
@@ -35,12 +20,12 @@ export default function Home() {
               students. Get personalized recommendations based on your performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/dashboard">
+              <Link href={ROUTES.DASHBOARD}>
                 <Button size="lg" className="gap-2">
                   Go to Dashboard <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/programs">
+              <Link href={ROUTES.PROGRAMS}>
                 <Button size="lg" variant="outline" className="gap-2">
                   Explore Programs <GraduationCap className="h-4 w-4" />
                 </Button>
@@ -134,12 +119,12 @@ export default function Home() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               Join thousands of students who are improving their academic performance with our Smart Quiz System.
             </p>
-            <Link href="/signup">
+            <Link href={ROUTES.SIGNUP}>
               <Button size="lg">Get Started Today</Button>
             </Link>
           </div>
         </section>
       </main>
-    </div>
+    </>
   )
 }

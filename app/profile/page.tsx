@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -12,16 +12,58 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch"
 import { Edit, Trash2, Upload } from "lucide-react"
 import { UserAvatar } from "@/components/user-avatar"
+import { useUserProfile } from "@/hooks/use-user-profile"
+import { toast } from "sonner"
 
 export default function ProfilePage() {
-  const [fullName, setFullName] = useState("John Doe")
-  const [email, setEmail] = useState("john.doe@example.com")
+  const { userProfile, loading, updateUserProfile } = useUserProfile()
+  const [fullName, setFullName] = useState("")
+  const [email, setEmail] = useState("")
   const [program, setProgram] = useState("computer-science")
   const [year, setYear] = useState("1")
   const [semester, setSemester] = useState("1")
   const [darkModeEmails, setDarkModeEmails] = useState(true)
   const [quizReminders, setQuizReminders] = useState(true)
   const [resourceNotifications, setResourceNotifications] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
+
+  // Update form fields when user profile data loads
+  useEffect(() => {
+    if (userProfile) {
+      setFullName(userProfile.name || "")
+      setEmail(userProfile.email || "")
+    }
+  }, [userProfile])
+
+  const handleSavePersonalInfo = async () => {
+    if (!userProfile) return
+
+    setIsSaving(true)
+    try {
+      await updateUserProfile({
+        name: fullName,
+        email: email,
+      })
+      toast.success("Profile updated successfully!")
+    } catch (error) {
+      toast.error("Failed to update profile")
+    } finally {
+      setIsSaving(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <>
+        <DashboardHeader />
+        <DashboardShell>
+          <div className="flex items-center justify-center h-64">
+            <div className="text-muted-foreground">Loading profile...</div>
+          </div>
+        </DashboardShell>
+      </>
+    )
+  }
 
   return (
     <>
@@ -34,11 +76,11 @@ export default function ProfilePage() {
           </div>
 
           <Tabs defaultValue="personal" className="space-y-4">
-            <TabsList>
-              <TabsTrigger value="personal">Personal Info</TabsTrigger>
-              <TabsTrigger value="academic">Academic Details</TabsTrigger>
-              <TabsTrigger value="preferences">Preferences</TabsTrigger>
-              <TabsTrigger value="security">Security</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 p-2">
+              <TabsTrigger value="personal" className="px-4 py-2">Personal Info</TabsTrigger>
+              <TabsTrigger value="academic" className="px-4 py-2">Academic Details</TabsTrigger>
+              <TabsTrigger value="preferences" className="px-4 py-2">Preferences</TabsTrigger>
+              <TabsTrigger value="security" className="px-4 py-2">Security</TabsTrigger>
             </TabsList>
 
             {/* Personal Info Tab */}
@@ -50,9 +92,10 @@ export default function ProfilePage() {
                 </CardHeader>
                 <CardContent className="flex flex-col items-center sm:flex-row sm:items-start gap-6">
                   <UserAvatar
-                    user={{ name: fullName, image: "/placeholder.svg?height=96&width=96" }}
+                    user={{ name: fullName || userProfile?.name, image: userProfile?.image }}
                     size="xl"
                     className="border"
+                    fallbackText={fullName ? fullName.substring(0, 2).toUpperCase() : "U"}
                   />
                   <div className="flex flex-col gap-4">
                     <div className="space-y-1">
@@ -79,15 +122,30 @@ export default function ProfilePage() {
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name</Label>
-                      <Input id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+                      <Input 
+                        id="fullName" 
+                        value={fullName} 
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="Enter your full name"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="displayName">Display Name</Label>
-                      <Input id="displayName" placeholder="How others will see you" defaultValue="JohnD" />
+                      <Input 
+                        id="displayName" 
+                        placeholder="How others will see you" 
+                        defaultValue={fullName ? fullName.split(' ')[0] : ""}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <Input 
+                        id="email" 
+                        type="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number (optional)</Label>
@@ -105,7 +163,9 @@ export default function ProfilePage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button>Save Changes</Button>
+                  <Button onClick={handleSavePersonalInfo} disabled={isSaving}>
+                    {isSaving ? "Saving..." : "Save Changes"}
+                  </Button>
                 </CardFooter>
               </Card>
             </TabsContent>

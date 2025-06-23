@@ -42,11 +42,11 @@ export default function AnalyticsLoading() {
           </div>
 
           <Tabs defaultValue="overview" className="space-y-4">
-            <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="courses">Courses</TabsTrigger>
-              <TabsTrigger value="topics">Topics</TabsTrigger>
-              <TabsTrigger value="activity">Activity</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 p-2">
+              <TabsTrigger value="overview" className="px-4 py-2">Overview</TabsTrigger>
+              <TabsTrigger value="courses" className="px-4 py-2">Courses</TabsTrigger>
+              <TabsTrigger value="topics" className="px-4 py-2">Topics</TabsTrigger>
+              <TabsTrigger value="activity" className="px-4 py-2">Activity</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-4">

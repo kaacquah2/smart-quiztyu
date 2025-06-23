@@ -125,7 +125,7 @@ export function ChartTooltip({ content, children }: ChartTooltipProps) {
             transform: "translate(-50%, -100%)",
           }}
         >
-          {typeof content === "function" ? content : content}
+          {typeof content === "function" ? content({}) : content}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

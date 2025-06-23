@@ -66,7 +66,7 @@ export function UserAvatar({ user, className, size = "md", fallbackText, childre
     <Avatar className={`${sizeClasses[size]} ${className}`}>
       {children || (
         <>
-          <AvatarImage src={user?.image || getUIAvatarsUrl()} alt={user?.name || "User avatar"} />
+          <AvatarImage src={user?.image || undefined} alt={user?.name || "User avatar"} />
           <AvatarFallback className={getColorClass()}>{getInitials()}</AvatarFallback>
         </>
       )}

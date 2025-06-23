@@ -1,221 +1,891 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useState, useEffect, use } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { DashboardHeader } from "@/components/dashboard-header"
-import type { Recommendation, Quiz } from "@/lib/types"
-import { ExternalLink } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { getCourseById } from "@/lib/program-data"
+import { Skeleton } from "@/components/ui/skeleton"
+import { 
+  CheckCircle, 
+  XCircle, 
+  Clock, 
+  TrendingUp, 
+  BookOpen,
+  ArrowLeft,
+  AlertCircle,
+  Play,
+  ExternalLink,
+  Lightbulb,
+  Target,
+  Calendar,
+  Video,
+  FileText,
+  Star,
+  Brain,
+  GraduationCap,
+  MessageSquare,
+  Focus,
+  Sparkles,
+  Flag
+} from "lucide-react"
+import { ROUTES, createQuizRoute } from "@/lib/routes"
 
-export default function ResultsPage({ params }: { params: { id: string } }) {
+interface QuizResult {
+  id: string
+  quizId: string
+  score: number
+  totalQuestions: number
+  timeSpent: number
+  answers: number[]
+  submittedAt: string
+  quiz: {
+    id: string
+    title: string
+    description: string
+    questions: Question[]
+    difficulty: string
+  }
+}
+
+interface Question {
+  id: string
+  text: string
+  options: string[]
+  correctAnswer: number
+  explanation?: string
+}
+
+interface StudyPlan {
+  courseTitle: string
+  currentLevel: string
+  targetScore: number
+  recommendations: any[]
+  studySteps: string[]
+  programId: string
+  personalizedAdvice?: string
+  focusAreas?: string[]
+  timeAllocation?: {
+    conceptReview: number
+    practiceProblems: number
+    advancedTopics: number
+    realWorldApplications: number
+  }
+  weeklyGoals?: string[]
+  resources?: {
+    primary: string[]
+    supplementary: string[]
+    practice: string[]
+  }
+  estimatedImprovement?: string
+  nextMilestone?: string
+  generatedBy?: string
+  enhanced?: boolean
+}
+
+interface Recommendation {
+  id: string
+  title: string
+  description: string
+  url: string
+  type: string
+  tags: string[]
+  difficulty: string
+  platform?: string
+  thumbnail?: string
+  channelTitle?: string
+  duration?: string
+  viewCount?: string
+  publishedAt?: string
+  reason?: string
+  priority?: number
+}
+
+export default function ResultsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const score = Number.parseInt(searchParams.get("score") || "0")
-  const total = Number.parseInt(searchParams.get("total") || "1")
-
-  const [quiz, setQuiz] = useState<Quiz | null>(null)
-  const [recommendations, setRecommendations] = useState<Recommendation[]>([])
+  const [result, setResult] = useState<QuizResult | null>(null)
   const [loading, setLoading] = useState(true)
-  const [previousScore, setPreviousScore] = useState<number | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const [courseTitle, setCourseTitle] = useState("")
+  const [studyPlan, setStudyPlan] = useState<StudyPlan | null>(null)
+  const [recommendations, setRecommendations] = useState<Recommendation[]>([])
+  const [youtubeVideos, setYoutubeVideos] = useState<Recommendation[]>([])
+  const [studyResources, setStudyResources] = useState<Recommendation[]>([])
+  const [aiRecommendations, setAiRecommendations] = useState<Recommendation[]>([])
+  const [loadingStudyPlan, setLoadingStudyPlan] = useState(false)
+  const [loadingRecommendations, setLoadingRecommendations] = useState(false)
 
   useEffect(() => {
-    // Get previous score from localStorage
-    const storedResult = localStorage.getItem(`quiz_${params.id}_result`)
-    if (storedResult) {
+    const fetchResult = async () => {
       try {
-        const parsedResult = JSON.parse(storedResult)
-        // Only use the previous score if it's not the current attempt
-        const currentTimestamp = new Date().getTime()
-        const resultTimestamp = new Date(parsedResult.timestamp).getTime()
-
-        // If the result is more than 1 minute old, consider it a previous attempt
-        if (currentTimestamp - resultTimestamp > 60000) {
-          setPreviousScore(parsedResult.score)
-        }
-      } catch (e) {
-        console.error("Error parsing previous result", e)
-      }
-    }
-
-    const fetchData = async () => {
-      try {
-        // Fetch quiz details
-        const quizResponse = await fetch(`/api/quizzes/${params.id}`)
-        if (!quizResponse.ok) throw new Error("Failed to fetch quiz")
-        const quizData = await quizResponse.json()
-        setQuiz(quizData)
-
-        // Try to get course title from program data
-        const course = getCourseById("computer-science", params.id)
-        if (course) {
-          setCourseTitle(course.title)
+        setLoading(true)
+        setError(null)
+        
+        const response = await fetch(`/api/quiz-results/${id}`)
+        if (response.ok) {
+          const data = await response.json()
+          setResult(data)
+          
+          // Fetch study plan and recommendations after getting quiz result
+          if (data) {
+            fetchStudyPlan(data.quizId, data.score, data.totalQuestions)
+            fetchRecommendations(data.quizId, data.score, data.totalQuestions)
+          }
         } else {
-          setCourseTitle(quizData.title)
+          throw new Error('Failed to fetch quiz result')
         }
-
-        // Fetch recommendations based on score
-        const recommendationsResponse = await fetch(
-          `/api/recommendations?quizId=${params.id}&score=${score}&total=${total}`,
-        )
-        if (!recommendationsResponse.ok) throw new Error("Failed to fetch recommendations")
-        const recommendationsData = await recommendationsResponse.json()
-        setRecommendations(recommendationsData)
-
-        setLoading(false)
       } catch (error) {
-        console.error("Error fetching data:", error)
+        console.error('Error fetching quiz result:', error)
+        setError(error instanceof Error ? error.message : 'Failed to fetch quiz result')
+      } finally {
         setLoading(false)
       }
     }
 
-    fetchData()
-  }, [params.id, score, total])
+    fetchResult()
+  }, [id])
+
+  const fetchStudyPlan = async (quizId: string, score: number, total: number) => {
+    try {
+      setLoadingStudyPlan(true)
+      
+      // Try Gemini study plan first (enhanced)
+      const geminiResponse = await fetch(`/api/study-plan?quizId=${quizId}&score=${score}&total=${total}&useGemini=true`)
+      if (geminiResponse.ok) {
+        const data = await geminiResponse.json()
+        setStudyPlan(data)
+        return
+      }
+      
+      // Fallback to basic study plan
+      const response = await fetch(`/api/study-plan?quizId=${quizId}&score=${score}&total=${total}&useGemini=false`)
+      if (response.ok) {
+        const data = await response.json()
+        setStudyPlan(data)
+      }
+    } catch (error) {
+      console.error('Error fetching study plan:', error)
+    } finally {
+      setLoadingStudyPlan(false)
+    }
+  }
+
+  const fetchRecommendations = async (quizId: string, score: number, total: number) => {
+    try {
+      setLoadingRecommendations(true)
+      
+      // Fetch combined recommendations (includes YouTube and curated resources)
+      const response = await fetch(`/api/recommendations?quizId=${quizId}&score=${score}&total=${total}&includeYouTube=true&includeCurated=true`)
+      if (response.ok) {
+        const data = await response.json()
+        
+        // Separate different types of recommendations
+        const youtube = data.filter((rec: Recommendation) => rec.platform === 'youtube')
+        const resources = data.filter((rec: Recommendation) => rec.platform !== 'youtube')
+        const aiRecs = data.filter((rec: Recommendation) => rec.reason && rec.reason.includes('%'))
+        
+        setYoutubeVideos(youtube)
+        setStudyResources(resources)
+        setAiRecommendations(aiRecs)
+        setRecommendations(data)
+      }
+    } catch (error) {
+      console.error('Error fetching recommendations:', error)
+    } finally {
+      setLoadingRecommendations(false)
+    }
+  }
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60)
+    const remainingSeconds = seconds % 60
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+  }
+
+  const getScorePercentage = () => {
+    if (!result) return 0
+    return Math.round((result.score / result.totalQuestions) * 100)
+  }
+
+  const getScoreColor = (percentage: number) => {
+    if (percentage >= 80) return "text-green-600"
+    if (percentage >= 60) return "text-yellow-600"
+    return "text-red-600"
+  }
+
+  const getScoreBadgeVariant = (percentage: number) => {
+    if (percentage >= 80) return "default"
+    if (percentage >= 60) return "secondary"
+    return "destructive"
+  }
+
+  const getWrongQuestions = () => {
+    if (!result) return []
+    return result.quiz.questions.filter((question, index) => {
+      const userAnswer = result.answers[index]
+      return userAnswer !== question.correctAnswer
+    })
+  }
+
+  const getResourceIcon = (type: string) => {
+    const lowerType = type.toLowerCase()
+    if (lowerType.includes("video")) return <Video className="h-4 w-4" />
+    if (lowerType.includes("article")) return <FileText className="h-4 w-4" />
+    if (lowerType.includes("course")) return <BookOpen className="h-4 w-4" />
+    if (lowerType.includes("practice")) return <Brain className="h-4 w-4" />
+    return <Lightbulb className="h-4 w-4" />
+  }
+
+  const getDifficultyColor = (difficulty: string) => {
+    const lower = difficulty.toLowerCase()
+    if (lower.includes("beginner")) return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300"
+    if (lower.includes("advanced")) return "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300"
+    return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300"
+  }
 
   if (loading) {
     return (
-      <>
-        <DashboardHeader />
-        <div className="container mx-auto px-4 py-8 flex justify-center items-center min-h-[60vh]">
-          <div className="text-center">
-            <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p>Loading results...</p>
-          </div>
+      <div className="flex flex-col min-h-screen items-center justify-center p-4">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p>Loading results...</p>
         </div>
-      </>
+      </div>
     )
   }
 
-  const percentage = Math.round((score / total) * 100)
-
-  // Determine emoji and message based on score
-  let emoji = "🎉"
-  let message = "Excellent work!"
-
-  if (percentage < 40) {
-    emoji = "😢"
-    message = "Keep practicing, you'll get better!"
-  } else if (percentage < 70) {
-    emoji = "🙂"
-    message = "Good effort, but there's room for improvement!"
-  } else if (percentage < 90) {
-    emoji = "😃"
-    message = "Great job!"
+  if (error || !result) {
+    return (
+      <div className="flex flex-col min-h-screen items-center justify-center p-4">
+        <Alert className="max-w-md">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>{error || "Result not found"}</AlertDescription>
+        </Alert>
+        <Button onClick={() => router.push(ROUTES.DASHBOARD)} className="mt-4">
+          Return to Dashboard
+        </Button>
+      </div>
+    )
   }
 
-  // Group recommendations by type
-  const recommendationsByType: Record<string, Recommendation[]> = {}
-  recommendations.forEach((rec) => {
-    if (!recommendationsByType[rec.type]) {
-      recommendationsByType[rec.type] = []
-    }
-    recommendationsByType[rec.type].push(rec)
-  })
+  const scorePercentage = getScorePercentage()
+  const wrongQuestions = getWrongQuestions()
 
   return (
-    <>
-      <DashboardHeader />
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid gap-6 md:grid-cols-2">
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" onClick={() => router.push(ROUTES.DASHBOARD)}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Dashboard
+            </Button>
+            <div>
+              <h1 className="text-lg font-semibold">Quiz Results</h1>
+              <p className="text-sm text-muted-foreground">{courseTitle}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-grow container max-w-6xl mx-auto p-4">
+        <div className="grid gap-6">
+          {/* Score Summary */}
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl">Quiz Results</CardTitle>
-              <CardDescription>{courseTitle || quiz?.title}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="text-center py-4">
-                <div className="text-6xl mb-2">{emoji}</div>
-                <h3 className="text-xl font-semibold">{message}</h3>
-                <p className="text-muted-foreground">
-                  You scored {score} out of {total}
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>Score</span>
-                  <span>{percentage}%</span>
-                </div>
-                <Progress value={percentage} className="h-2" />
-              </div>
-
-              {previousScore !== null && (
-                <div className="mt-4 p-4 bg-muted rounded-lg">
-                  <p className="text-sm font-medium">
-                    Previous attempt: {previousScore} out of {total} ({Math.round((previousScore / total) * 100)}%)
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {previousScore < score
-                      ? "You've improved! 🎉"
-                      : previousScore > score
-                        ? "You scored better before. Keep practicing!"
-                        : "Same score as before."}
-                  </p>
-                </div>
-              )}
-            </CardContent>
-            <CardFooter>
-              <Button onClick={() => router.push("/dashboard")} className="w-full">
-                Back to Dashboard
-              </Button>
-            </CardFooter>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">Personalized Recommendations</CardTitle>
-              <CardDescription>Resources to help you improve</CardDescription>
+              <CardDescription>
+                {result.quiz.title}
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              {Object.keys(recommendationsByType).length > 0 ? (
-                <Tabs defaultValue={Object.keys(recommendationsByType)[0]}>
-                  <TabsList className="w-full mb-4">
-                    {Object.keys(recommendationsByType).map((type) => (
-                      <TabsTrigger key={type} value={type} className="flex-1 capitalize">
-                        {type}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <div className="text-center">
+                  <div className={`text-3xl font-bold ${getScoreColor(scorePercentage)}`}>
+                    {result.score}/{result.totalQuestions}
+                  </div>
+                  <p className="text-sm text-muted-foreground">Score</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-3xl font-bold">
+                    {scorePercentage}%
+                  </div>
+                  <p className="text-sm text-muted-foreground">Percentage</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-3xl font-bold">
+                    {formatTime(result.timeSpent)}
+                  </div>
+                  <p className="text-sm text-muted-foreground">Time Spent</p>
+                </div>
+                
+                <div className="text-center">
+                  <Badge variant={getScoreBadgeVariant(scorePercentage)} className="text-lg px-4 py-2">
+                    {scorePercentage >= 80 ? "Excellent" : 
+                     scorePercentage >= 60 ? "Good" : "Needs Improvement"}
+                  </Badge>
+                  <p className="text-sm text-muted-foreground mt-2">Performance</p>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium">Progress</span>
+                  <span className="text-sm text-muted-foreground">{scorePercentage}%</span>
+                </div>
+                <Progress value={scorePercentage} className="h-3" />
+              </div>
+            </CardContent>
+          </Card>
 
-                  {Object.entries(recommendationsByType).map(([type, recs]) => (
-                    <TabsContent key={type} value={type} className="space-y-4">
-                      {recs.map((rec, index) => (
-                        <div key={index} className="p-4 border rounded-lg hover:bg-muted transition-colors">
-                          <h3 className="font-medium">{rec.title}</h3>
-                          <p className="text-sm text-muted-foreground mt-1">{rec.description}</p>
-                          <div className="mt-2">
-                            <a
-                              href={rec.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-primary inline-flex items-center gap-1 hover:underline"
+          {/* Wrong Questions Section */}
+          {wrongQuestions.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <XCircle className="h-5 w-5 text-red-500" />
+                  Questions You Got Wrong ({wrongQuestions.length})
+                </CardTitle>
+                <CardDescription>
+                  Review these questions and their correct answers to improve your understanding
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {wrongQuestions.map((question, index) => {
+                    const originalIndex = result.quiz.questions.findIndex(q => q.id === question.id)
+                    const userAnswer = result.answers[originalIndex]
+                    
+                    return (
+                      <div key={question.id} className="border rounded-lg p-4 border-red-200 bg-red-50/50 dark:border-red-800 dark:bg-red-950/20">
+                        <div className="flex items-start justify-between mb-3">
+                          <h4 className="font-medium">Question {originalIndex + 1}</h4>
+                          <Badge variant="destructive">Incorrect</Badge>
+                        </div>
+                        
+                        <p className="mb-4 font-medium">{question.text}</p>
+                        
+                        <div className="space-y-2">
+                          {question.options.map((option, optionIndex) => (
+                            <div
+                              key={optionIndex}
+                              className={`p-3 rounded-md border ${
+                                optionIndex === question.correctAnswer
+                                  ? "bg-green-50 border-green-200 dark:bg-green-950/20 dark:border-green-800"
+                                  : optionIndex === userAnswer
+                                  ? "bg-red-50 border-red-200 dark:bg-red-950/20 dark:border-red-800"
+                                  : "bg-muted/50"
+                              }`}
                             >
-                              View Resource <ExternalLink className="h-3 w-3" />
-                            </a>
+                              <div className="flex items-center gap-2">
+                                {optionIndex === question.correctAnswer && (
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                )}
+                                {optionIndex === userAnswer && (
+                                  <XCircle className="h-4 w-4 text-red-500" />
+                                )}
+                                <span className={`
+                                  ${optionIndex === question.correctAnswer ? "font-medium" : ""}
+                                  ${optionIndex === userAnswer ? "line-through" : ""}
+                                `}>
+                                  {option}
+                                </span>
+                                {optionIndex === question.correctAnswer && (
+                                  <Badge variant="outline" className="ml-auto text-xs">
+                                    Correct Answer
+                                  </Badge>
+                                )}
+                                {optionIndex === userAnswer && (
+                                  <Badge variant="destructive" className="ml-auto text-xs">
+                                    Your Answer
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {question.explanation && (
+                          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
+                            <p className="text-sm">
+                              <strong>Explanation:</strong> {question.explanation}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Study Plan Section */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                Personalized Study Plan
+                {studyPlan?.enhanced && (
+                  <Badge variant="secondary" className="ml-2">
+                    <Sparkles className="h-3 w-3 mr-1" />
+                    AI Enhanced
+                  </Badge>
+                )}
+              </CardTitle>
+              <CardDescription>
+                Based on your performance, here's a customized plan to help you improve
+                {studyPlan?.generatedBy && (
+                  <span className="block text-xs text-muted-foreground mt-1">
+                    Generated by {studyPlan.generatedBy}
+                  </span>
+                )}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {loadingStudyPlan ? (
+                <div className="space-y-4">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-4 w-1/2" />
+                </div>
+              ) : studyPlan ? (
+                <div className="space-y-6">
+                  {/* Basic Info */}
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="h-4 w-4 text-primary" />
+                        <h3 className="font-medium">{studyPlan.courseTitle}</h3>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="text-center p-3 bg-muted/50 rounded-lg">
+                          <div className="text-2xl font-bold text-primary">{studyPlan.currentLevel}</div>
+                          <p className="text-sm text-muted-foreground">Current Level</p>
+                        </div>
+                        <div className="text-center p-3 bg-muted/50 rounded-lg">
+                          <div className="text-2xl font-bold text-primary">{studyPlan.targetScore}%</div>
+                          <p className="text-sm text-muted-foreground">Target Score</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-medium flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        Study Steps
+                      </h4>
+                      <div className="space-y-2">
+                        {studyPlan.studySteps.map((step, index) => (
+                          <div key={index} className="flex items-start gap-2 p-2 bg-muted/30 rounded">
+                            <div className="flex-shrink-0 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+                              {index + 1}
+                            </div>
+                            <p className="text-sm">{step}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Enhanced Gemini Features */}
+                  {studyPlan.enhanced && (
+                    <>
+                      {/* Personalized Advice */}
+                      {studyPlan.personalizedAdvice && (
+                        <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                          <h4 className="font-medium flex items-center gap-2 mb-2">
+                            <MessageSquare className="h-4 w-4 text-blue-600" />
+                            Personalized Advice
+                          </h4>
+                          <p className="text-sm text-blue-800 dark:text-blue-200">{studyPlan.personalizedAdvice}</p>
+                        </div>
+                      )}
+
+                      {/* Focus Areas */}
+                      {studyPlan.focusAreas && studyPlan.focusAreas.length > 0 && (
+                        <div>
+                          <h4 className="font-medium flex items-center gap-2 mb-3">
+                            <Focus className="h-4 w-4" />
+                            Focus Areas
+                          </h4>
+                          <div className="grid gap-2 md:grid-cols-3">
+                            {studyPlan.focusAreas.map((area, index) => (
+                              <div key={index} className="p-3 bg-muted/30 rounded-lg">
+                                <p className="text-sm font-medium">{area}</p>
+                              </div>
+                            ))}
                           </div>
                         </div>
-                      ))}
-                    </TabsContent>
-                  ))}
-                </Tabs>
-              ) : (
-                <div className="text-center py-8">
-                  <p className="text-muted-foreground">No recommendations available</p>
+                      )}
+
+                      {/* Time Allocation */}
+                      {studyPlan.timeAllocation && (
+                        <div>
+                          <h4 className="font-medium flex items-center gap-2 mb-3">
+                            <Clock className="h-4 w-4" />
+                            Recommended Time Allocation
+                          </h4>
+                          <div className="grid gap-3 md:grid-cols-4">
+                            <div className="text-center p-3 bg-muted/30 rounded-lg">
+                              <div className="text-lg font-bold text-primary">{studyPlan.timeAllocation.conceptReview}%</div>
+                              <p className="text-xs text-muted-foreground">Concept Review</p>
+                            </div>
+                            <div className="text-center p-3 bg-muted/30 rounded-lg">
+                              <div className="text-lg font-bold text-primary">{studyPlan.timeAllocation.practiceProblems}%</div>
+                              <p className="text-xs text-muted-foreground">Practice Problems</p>
+                            </div>
+                            <div className="text-center p-3 bg-muted/30 rounded-lg">
+                              <div className="text-lg font-bold text-primary">{studyPlan.timeAllocation.advancedTopics}%</div>
+                              <p className="text-xs text-muted-foreground">Advanced Topics</p>
+                            </div>
+                            <div className="text-center p-3 bg-muted/30 rounded-lg">
+                              <div className="text-lg font-bold text-primary">{studyPlan.timeAllocation.realWorldApplications}%</div>
+                              <p className="text-xs text-muted-foreground">Real World Apps</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Weekly Goals */}
+                      {studyPlan.weeklyGoals && studyPlan.weeklyGoals.length > 0 && (
+                        <div>
+                          <h4 className="font-medium flex items-center gap-2 mb-3">
+                            <Target className="h-4 w-4" />
+                            Weekly Goals
+                          </h4>
+                          <div className="space-y-2">
+                            {studyPlan.weeklyGoals.map((goal, index) => (
+                              <div key={index} className="flex items-start gap-2 p-2 bg-muted/30 rounded">
+                                <div className="flex-shrink-0 w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-medium">
+                                  ✓
+                                </div>
+                                <p className="text-sm">{goal}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Resource Recommendations */}
+                      {studyPlan.resources && (
+                        <div>
+                          <h4 className="font-medium flex items-center gap-2 mb-3">
+                            <BookOpen className="h-4 w-4" />
+                            Recommended Resources
+                          </h4>
+                          <div className="grid gap-4 md:grid-cols-3">
+                            {studyPlan.resources.primary && studyPlan.resources.primary.length > 0 && (
+                              <div>
+                                <h5 className="font-medium text-sm mb-2 text-primary">Primary Resources</h5>
+                                <div className="space-y-1">
+                                  {studyPlan.resources.primary.map((resource, index) => (
+                                    <div key={index} className="text-sm p-2 bg-muted/20 rounded">
+                                      {resource}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {studyPlan.resources.supplementary && studyPlan.resources.supplementary.length > 0 && (
+                              <div>
+                                <h5 className="font-medium text-sm mb-2 text-blue-600">Supplementary</h5>
+                                <div className="space-y-1">
+                                  {studyPlan.resources.supplementary.map((resource, index) => (
+                                    <div key={index} className="text-sm p-2 bg-muted/20 rounded">
+                                      {resource}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {studyPlan.resources.practice && studyPlan.resources.practice.length > 0 && (
+                              <div>
+                                <h5 className="font-medium text-sm mb-2 text-green-600">Practice</h5>
+                                <div className="space-y-1">
+                                  {studyPlan.resources.practice.map((resource, index) => (
+                                    <div key={index} className="text-sm p-2 bg-muted/20 rounded">
+                                      {resource}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Progress Indicators */}
+                      <div className="grid gap-4 md:grid-cols-2">
+                        {studyPlan.estimatedImprovement && (
+                          <div className="p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+                            <h5 className="font-medium text-sm mb-1 text-green-700 dark:text-green-300">
+                              <TrendingUp className="h-4 w-4 inline mr-1" />
+                              Estimated Improvement
+                            </h5>
+                            <p className="text-sm text-green-800 dark:text-green-200">{studyPlan.estimatedImprovement}</p>
+                          </div>
+                        )}
+                        {studyPlan.nextMilestone && (
+                          <div className="p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
+                            <h5 className="font-medium text-sm mb-1 text-purple-700 dark:text-purple-300">
+                              <Flag className="h-4 w-4 inline mr-1" />
+                              Next Milestone
+                            </h5>
+                            <p className="text-sm text-purple-800 dark:text-purple-200">{studyPlan.nextMilestone}</p>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
+              ) : (
+                <p className="text-muted-foreground">Unable to generate study plan for this quiz.</p>
               )}
             </CardContent>
-            <CardFooter>
-              <Button variant="outline" onClick={() => router.push(`/quiz/${params.id}`)} className="w-full">
-                Retake Quiz
-              </Button>
-            </CardFooter>
           </Card>
+
+          {/* AI Recommendations and Resources */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Lightbulb className="h-5 w-5 text-primary" />
+                AI-Powered Recommendations & Resources
+              </CardTitle>
+              <CardDescription>
+                Personalized learning resources to help you improve based on your performance
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {loadingRecommendations ? (
+                <div className="space-y-4">
+                  <Skeleton className="h-32 w-full" />
+                  <Skeleton className="h-32 w-full" />
+                  <Skeleton className="h-32 w-full" />
+                </div>
+              ) : (
+                <Tabs defaultValue="all" className="space-y-4">
+                  <TabsList className="grid grid-cols-4 w-full">
+                    <TabsTrigger value="all">All Resources</TabsTrigger>
+                    <TabsTrigger value="youtube">YouTube Videos</TabsTrigger>
+                    <TabsTrigger value="ai">AI Recommendations</TabsTrigger>
+                    <TabsTrigger value="resources">Study Resources</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="all" className="space-y-4">
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      {recommendations.slice(0, 6).map((rec, index) => (
+                        <Card key={index} className="overflow-hidden">
+                          {rec.thumbnail && (
+                            <div className="relative h-32 bg-muted">
+                              <img 
+                                src={rec.thumbnail} 
+                                alt={rec.title}
+                                className="w-full h-full object-cover"
+                              />
+                              {rec.platform === 'youtube' && (
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <div className="bg-black/50 rounded-full p-2">
+                                    <Play className="h-6 w-6 text-white" />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                          <CardContent className="p-4">
+                            <div className="flex items-start justify-between mb-2">
+                              <div className="flex items-center gap-2">
+                                {getResourceIcon(rec.type)}
+                                <Badge variant="outline" className={getDifficultyColor(rec.difficulty)}>
+                                  {rec.difficulty}
+                                </Badge>
+                              </div>
+                              {rec.platform && (
+                                <Badge variant="secondary" className="text-xs">
+                                  {rec.platform}
+                                </Badge>
+                              )}
+                            </div>
+                            
+                            <h4 className="font-medium text-sm mb-1 line-clamp-2">{rec.title}</h4>
+                            <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{rec.description}</p>
+                            
+                            {rec.reason && (
+                              <p className="text-xs text-primary mb-3 italic">{rec.reason}</p>
+                            )}
+                            
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                                {rec.duration && <span>{rec.duration}</span>}
+                                {rec.viewCount && <span>• {rec.viewCount}</span>}
+                                {rec.channelTitle && <span>• {rec.channelTitle}</span>}
+                              </div>
+                              <Button size="sm" variant="outline" asChild>
+                                <a href={rec.url} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="h-3 w-3 mr-1" />
+                                  View
+                                </a>
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="youtube" className="space-y-4">
+                    {youtubeVideos.length > 0 ? (
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {youtubeVideos.map((video, index) => (
+                          <Card key={index} className="overflow-hidden">
+                            <div className="relative h-32 bg-muted">
+                              <img 
+                                src={video.thumbnail} 
+                                alt={video.title}
+                                className="w-full h-full object-cover"
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="bg-black/50 rounded-full p-2">
+                                  <Play className="h-6 w-6 text-white" />
+                                </div>
+                              </div>
+                            </div>
+                            <CardContent className="p-4">
+                              <h4 className="font-medium text-sm mb-1 line-clamp-2">{video.title}</h4>
+                              <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{video.description}</p>
+                              
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                                  {video.duration && <span>{video.duration}</span>}
+                                  {video.viewCount && <span>• {video.viewCount}</span>}
+                                  {video.channelTitle && <span>• {video.channelTitle}</span>}
+                                </div>
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={video.url} target="_blank" rel="noopener noreferrer">
+                                    <Play className="h-3 w-3 mr-1" />
+                                    Watch
+                                  </a>
+                                </Button>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-muted-foreground text-center py-8">
+                        No YouTube videos available for this topic.
+                      </p>
+                    )}
+                  </TabsContent>
+
+                  <TabsContent value="ai" className="space-y-4">
+                    {aiRecommendations.length > 0 ? (
+                      <div className="space-y-4">
+                        {aiRecommendations.map((rec, index) => (
+                          <div key={index} className="flex items-center gap-4 p-4 border rounded-lg">
+                            {getResourceIcon(rec.type)}
+                            <div className="flex-1">
+                              <h4 className="font-medium">{rec.title}</h4>
+                              <p className="text-sm text-muted-foreground">{rec.description}</p>
+                              {rec.reason && (
+                                <p className="text-sm text-primary mt-1 italic">{rec.reason}</p>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="outline" className={getDifficultyColor(rec.difficulty)}>
+                                {rec.difficulty}
+                              </Badge>
+                              <Button size="sm" variant="outline" asChild>
+                                <a href={rec.url} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="h-3 w-3 mr-1" />
+                                  View
+                                </a>
+                              </Button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-muted-foreground text-center py-8">
+                        No AI recommendations available for this quiz.
+                      </p>
+                    )}
+                  </TabsContent>
+
+                  <TabsContent value="resources" className="space-y-4">
+                    {studyResources.length > 0 ? (
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {studyResources.map((resource, index) => (
+                          <Card key={index} className="overflow-hidden">
+                            <CardContent className="p-4">
+                              <div className="flex items-start justify-between mb-2">
+                                <div className="flex items-center gap-2">
+                                  {getResourceIcon(resource.type)}
+                                  <Badge variant="outline" className={getDifficultyColor(resource.difficulty)}>
+                                    {resource.difficulty}
+                                  </Badge>
+                                </div>
+                                {resource.platform && (
+                                  <Badge variant="secondary" className="text-xs">
+                                    {resource.platform}
+                                  </Badge>
+                                )}
+                              </div>
+                              
+                              <h4 className="font-medium text-sm mb-1 line-clamp-2">{resource.title}</h4>
+                              <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{resource.description}</p>
+                              
+                              {resource.reason && (
+                                <p className="text-xs text-primary mb-3 italic">{resource.reason}</p>
+                              )}
+                              
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-1">
+                                  <Star className="h-3 w-3 text-yellow-500 fill-current" />
+                                  <span className="text-xs text-muted-foreground">4.5</span>
+                                </div>
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                                    <ExternalLink className="h-3 w-3 mr-1" />
+                                    Study
+                                  </a>
+                                </Button>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-muted-foreground text-center py-8">
+                        No study resources available for this topic.
+                      </p>
+                    )}
+                  </TabsContent>
+                </Tabs>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button onClick={() => router.push(createQuizRoute(result.quizId))} className="w-full">
+              Retake Quiz
+            </Button>
+            <Button variant="outline" onClick={() => router.push(ROUTES.DASHBOARD)} className="w-full">
+              Return to Dashboard
+            </Button>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

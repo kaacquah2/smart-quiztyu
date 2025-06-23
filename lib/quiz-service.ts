@@ -34,6 +34,32 @@ export async function getQuizById(id: string): Promise<Quiz | null> {
   }
 }
 
+// Get a specific quiz by ID with random questions
+export async function getQuizWithRandomQuestions(
+  id: string, 
+  questionCount: number = 5
+): Promise<Quiz | null> {
+  const quiz = await prisma.quiz.findUnique({
+    where: { id },
+    include: {
+      questions: true
+    }
+  })
+  
+  if (!quiz) return null
+  
+  // Shuffle questions and take the requested number
+  const shuffledQuestions = quiz.questions
+    .sort(() => 0.5 - Math.random())
+    .slice(0, Math.min(questionCount, quiz.questions.length))
+  
+  return {
+    ...quiz,
+    questions: shuffledQuestions,
+    questionCount: shuffledQuestions.length
+  }
+}
+
 // Submit a quiz and calculate the score
 export async function submitQuiz(submission: QuizSubmission, userId: string): Promise<QuizResult> {
   const quiz = await getQuizById(submission.quizId)
@@ -62,7 +88,7 @@ export async function submitQuiz(submission: QuizSubmission, userId: string): Pr
   })
 
   // Save submission and result to database
-  const quizSubmission = await prisma.quizSubmission.create({
+  const _quizSubmission = await prisma.quizSubmission.create({
     data: {
       userId,
       quizId: submission.quizId,
@@ -114,14 +140,15 @@ export async function getRecommendations(
     difficulty = "advanced"
   }
 
-  // Filter recommendations by quiz tags and appropriate difficulty
+  // Filter recommendations by quiz tags, course ID, and appropriate difficulty
   return allRecommendations.filter((rec) => {
     // Match by quiz tags
     const matchesTags = quiz.tags?.some((tag) => rec.tags.includes(tag)) || false
-
+    // Match by course/quiz ID
+    const matchesCourseId = rec.tags.includes(quiz.id)
     // Match by difficulty (show easier content for low scores, more advanced for high scores)
     const matchesDifficulty = rec.difficulty === difficulty
 
-    return matchesTags && matchesDifficulty
+    return (matchesTags || matchesCourseId) && matchesDifficulty
   })
 }
