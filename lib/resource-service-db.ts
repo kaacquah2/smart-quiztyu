@@ -1,7 +1,5 @@
-import { PrismaClient } from './generated/prisma'
+import { prisma } from './prisma'
 import { getCourseById, programs } from "./program-data"
-
-const prisma = new PrismaClient()
 
 export interface ResourceRecommendation {
   id: string

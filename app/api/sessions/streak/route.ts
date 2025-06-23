@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@/lib/generated/prisma';
+import { prisma } from '@/lib/prisma';
 import { startOfDay, endOfDay, subDays, isSameDay } from 'date-fns';
-
-const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest) {
   try {

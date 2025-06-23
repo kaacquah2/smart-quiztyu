@@ -1,7 +1,5 @@
 import type { Quiz, Recommendation, QuizSubmission, QuizResult } from "./types"
-import { PrismaClient } from "./generated/prisma"
-
-const prisma = new PrismaClient()
+import { prisma } from "./prisma"
 
 // Get all quizzes (without questions for the listing page)
 export async function getQuizzes(): Promise<Omit<Quiz, "questions">[]> {

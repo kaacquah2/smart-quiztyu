@@ -1,9 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from "next-auth"
-import { PrismaClient } from "@/lib/generated/prisma"
+import { prisma } from "@/lib/prisma"
 import { authOptions } from "@/lib/auth-options"
-
-const prisma = new PrismaClient()
 
 // Define the type for user with location fields
 type UserWithLocation = {

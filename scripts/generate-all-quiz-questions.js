@@ -1,5 +1,6 @@
 require('dotenv').config()
-const { PrismaClient } = require('../lib/generated/prisma')
+const fs = require('fs')
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 

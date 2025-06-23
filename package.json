@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:sse": "node test-sse.js",
-    "test:sse:auth": "node test-sse-authenticated.js"
+    "test:sse:auth": "node test-sse-authenticated.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",

@@ -1,4 +1,4 @@
-const { PrismaClient } = require('../lib/generated/prisma')
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
@@ -437,7 +437,7 @@ async function checkQuizCoverage() {
       const totalCourses = programs.reduce((sum, program) => 
         sum + program.years.reduce((yearSum, year) => 
           yearSum + year.semesters.reduce((semesterSum, semester) => 
-            semesterSum + semester.courses.length, 0), 0), 0
+            semesterSum + semester.courses.length, 0), 0
       )
 
       console.log('📊 Summary:')
