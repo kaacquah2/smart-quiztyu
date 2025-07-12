@@ -11,10 +11,10 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { CalendarIcon, TrendingUp, TrendingDown, Target, Clock, _RefreshCw, AlertCircle } from "lucide-react"
+import { CalendarIcon, TrendingUp, TrendingDown, Target, Clock, RefreshCw, AlertCircle } from "lucide-react"
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
-import { _ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { useAnalytics } from "@/hooks/use-analytics"
 import { useOffline } from "@/hooks/use-offline"
 import {
@@ -87,7 +87,6 @@ export default function AnalyticsPage() {
   const { 
     analytics, 
     charts, 
-    _userActivity, 
     loading, 
     error, 
     refreshData, 

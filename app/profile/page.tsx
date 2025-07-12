@@ -14,12 +14,22 @@ import { Edit, Trash2, Upload } from "lucide-react"
 import { UserAvatar } from "@/components/user-avatar"
 import { useUserProfile } from "@/hooks/use-user-profile"
 import { toast } from "sonner"
+import useSWR from "swr"
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
+interface Program {
+  id: string
+  title: string
+  description: string
+}
 
 export default function ProfilePage() {
   const { userProfile, loading, updateUserProfile } = useUserProfile()
+  const { data: programs, error: programsError } = useSWR<Program[]>("/api/programs", fetcher)
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
-  const [program, setProgram] = useState("computer-science")
+  const [program, setProgram] = useState("")
   const [year, setYear] = useState("1")
   const [semester, setSemester] = useState("1")
   const [darkModeEmails, setDarkModeEmails] = useState(true)
@@ -186,14 +196,11 @@ export default function ProfilePage() {
                           <SelectValue placeholder="Select program" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="computer-science">BSc. Computer Science</SelectItem>
-                          <SelectItem value="electrical-engineering">
-                            BSc. Electrical and Electronic Engineering
-                          </SelectItem>
-                          <SelectItem value="business-admin">BSc. Business Administration</SelectItem>
-                          <SelectItem value="civil-engineering">BSc. Civil Engineering</SelectItem>
-                          <SelectItem value="nursing">BSc. Nursing</SelectItem>
-                          <SelectItem value="agriculture">BSc. Agriculture</SelectItem>
+                          {programs?.map((p) => (
+                            <SelectItem key={p.id} value={p.id}>
+                              {p.title}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>

@@ -55,7 +55,7 @@ interface Question {
   id: string
   text: string
   options: string[]
-  correctAnswer: number
+  correctAnswer: string
   explanation?: string
 }
 
@@ -84,6 +84,7 @@ interface StudyPlan {
   nextMilestone?: string
   generatedBy?: string
   enhanced?: boolean
+  personalizedSchedule?: { session: number; topic: string }[]
 }
 
 interface Recommendation {
@@ -102,6 +103,8 @@ interface Recommendation {
   publishedAt?: string
   reason?: string
   priority?: number
+  personalizedSession?: { session: number; topic: string }
+  personalizedAdvice?: string
 }
 
 export default function ResultsPage({ params }: { params: Promise<{ id: string }> }) {
@@ -227,7 +230,7 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
     if (!result) return []
     return result.quiz.questions.filter((question, index) => {
       const userAnswer = result.answers[index]
-      return userAnswer !== question.correctAnswer
+      return userAnswer !== parseInt(question.correctAnswer)
     })
   }
 
@@ -355,71 +358,240 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
                   Questions You Got Wrong ({wrongQuestions.length})
                 </CardTitle>
                 <CardDescription>
-                  Review these questions and their correct answers to improve your understanding
+                  Review these questions with detailed explanations, study plans, and learning resources to improve your understanding
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {wrongQuestions.map((question, index) => {
                     const originalIndex = result.quiz.questions.findIndex(q => q.id === question.id)
                     const userAnswer = result.answers[originalIndex]
                     
                     return (
-                      <div key={question.id} className="border rounded-lg p-4 border-red-200 bg-red-50/50 dark:border-red-800 dark:bg-red-950/20">
-                        <div className="flex items-start justify-between mb-3">
-                          <h4 className="font-medium">Question {originalIndex + 1}</h4>
-                          <Badge variant="destructive">Incorrect</Badge>
+                      <div key={question.id} className="border rounded-lg p-6 border-red-200 bg-red-50/50 dark:border-red-800 dark:bg-red-950/20">
+                        {/* Question Header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <h4 className="font-semibold text-lg">Question {originalIndex + 1}</h4>
+                          <Badge variant="destructive" className="text-sm">Incorrect</Badge>
                         </div>
                         
-                        <p className="mb-4 font-medium">{question.text}</p>
-                        
-                        <div className="space-y-2">
-                          {question.options.map((option, optionIndex) => (
-                            <div
-                              key={optionIndex}
-                              className={`p-3 rounded-md border ${
-                                optionIndex === question.correctAnswer
-                                  ? "bg-green-50 border-green-200 dark:bg-green-950/20 dark:border-green-800"
-                                  : optionIndex === userAnswer
-                                  ? "bg-red-50 border-red-200 dark:bg-red-950/20 dark:border-red-800"
-                                  : "bg-muted/50"
-                              }`}
-                            >
-                              <div className="flex items-center gap-2">
-                                {optionIndex === question.correctAnswer && (
-                                  <CheckCircle className="h-4 w-4 text-green-500" />
-                                )}
-                                {optionIndex === userAnswer && (
-                                  <XCircle className="h-4 w-4 text-red-500" />
-                                )}
-                                <span className={`
-                                  ${optionIndex === question.correctAnswer ? "font-medium" : ""}
-                                  ${optionIndex === userAnswer ? "line-through" : ""}
-                                `}>
-                                  {option}
-                                </span>
-                                {optionIndex === question.correctAnswer && (
-                                  <Badge variant="outline" className="ml-auto text-xs">
-                                    Correct Answer
-                                  </Badge>
-                                )}
-                                {optionIndex === userAnswer && (
-                                  <Badge variant="destructive" className="ml-auto text-xs">
-                                    Your Answer
-                                  </Badge>
-                                )}
+                        {/* Question Text */}
+                        <div className="mb-6">
+                          <p className="text-lg font-medium mb-4">{question.text}</p>
+                          
+                          {/* Answer Options */}
+                          <div className="space-y-3">
+                            {question.options.map((option, optionIndex) => (
+                              <div
+                                key={optionIndex}
+                                className={`p-4 rounded-lg border-2 ${
+                                  optionIndex === parseInt(question.correctAnswer)
+                                    ? "bg-green-50 border-green-300 dark:bg-green-950/30 dark:border-green-700"
+                                    : optionIndex === userAnswer
+                                    ? "bg-red-50 border-red-300 dark:bg-red-950/30 dark:border-red-700"
+                                    : "bg-muted/50 border-muted"
+                                }`}
+                              >
+                                <div className="flex items-center gap-3">
+                                  {optionIndex === parseInt(question.correctAnswer) && (
+                                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                                  )}
+                                  {optionIndex === userAnswer && (
+                                    <XCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                                  )}
+                                  <span className={`
+                                    ${optionIndex === parseInt(question.correctAnswer) ? "font-semibold text-green-800 dark:text-green-200" : ""}
+                                    ${optionIndex === userAnswer ? "line-through text-red-600 dark:text-red-400" : ""}
+                                  `}>
+                                    {option}
+                                  </span>
+                                  <div className="ml-auto flex gap-2">
+                                    {optionIndex === parseInt(question.correctAnswer) && (
+                                      <Badge variant="outline" className="bg-green-100 text-green-800 border-green-300 dark:bg-green-900/30 dark:text-green-200 dark:border-green-700">
+                                        ✓ Correct Answer
+                                      </Badge>
+                                    )}
+                                    {optionIndex === userAnswer && (
+                                      <Badge variant="destructive" className="text-xs">
+                                        ✗ Your Answer
+                                      </Badge>
+                                    )}
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                        
+
+                        {/* Explanation Section */}
                         {question.explanation && (
-                          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-                            <p className="text-sm">
-                              <strong>Explanation:</strong> {question.explanation}
-                            </p>
+                          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                            <h5 className="font-semibold text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-2">
+                              <Lightbulb className="h-4 w-4" />
+                              Explanation
+                            </h5>
+                            <p className="text-blue-700 dark:text-blue-300">{question.explanation}</p>
                           </div>
                         )}
+
+                        {/* Quick Study Plan for This Question */}
+                        <div className="mb-6 p-4 bg-purple-50 dark:bg-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                          <h5 className="font-semibold text-purple-800 dark:text-purple-200 mb-3 flex items-center gap-2">
+                            <Target className="h-4 w-4" />
+                            Study Plan for This Topic
+                          </h5>
+                          <div className="space-y-2">
+                            <div className="flex items-start gap-2">
+                              <div className="flex-shrink-0 w-5 h-5 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium mt-0.5">
+                                1
+                              </div>
+                              <p className="text-sm text-purple-700 dark:text-purple-300">Review the core concepts related to this question</p>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <div className="flex-shrink-0 w-5 h-5 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium mt-0.5">
+                                2
+                              </div>
+                              <p className="text-sm text-purple-700 dark:text-purple-300">Practice similar problems to reinforce understanding</p>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <div className="flex-shrink-0 w-5 h-5 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium mt-0.5">
+                                3
+                              </div>
+                              <p className="text-sm text-purple-700 dark:text-purple-300">Watch educational videos on this topic</p>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <div className="flex-shrink-0 w-5 h-5 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-medium mt-0.5">
+                                4
+                              </div>
+                              <p className="text-sm text-purple-700 dark:text-purple-300">Take a practice quiz focusing on this area</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Related Resources and Recommendations */}
+                        <div className="mb-6">
+                          <h5 className="font-semibold mb-3 flex items-center gap-2">
+                            <BookOpen className="h-4 w-4" />
+                            Learning Resources for This Topic
+                          </h5>
+                          
+                          {/* YouTube Videos */}
+                          {youtubeVideos.length > 0 && (
+                            <div className="mb-4">
+                              <h6 className="font-medium text-sm mb-2 flex items-center gap-2 text-red-700 dark:text-red-300">
+                                <Video className="h-4 w-4" />
+                                YouTube Videos
+                              </h6>
+                              <div className="grid gap-3 md:grid-cols-2">
+                                {youtubeVideos.slice(0, 2).map((video, videoIndex) => (
+                                  <div key={videoIndex} className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border">
+                                    {video.thumbnail && (
+                                      <div className="relative w-16 h-12 bg-muted rounded overflow-hidden flex-shrink-0">
+                                        <img 
+                                          src={video.thumbnail} 
+                                          alt={video.title}
+                                          className="w-full h-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                          <div className="bg-black/50 rounded-full p-1">
+                                            <Play className="h-3 w-3 text-white" />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
+                                    <div className="flex-1 min-w-0">
+                                      <p className="font-medium text-sm line-clamp-2">{video.title}</p>
+                                      <p className="text-xs text-muted-foreground">{video.channelTitle}</p>
+                                      <p className="text-xs text-muted-foreground">{video.duration}</p>
+                                    </div>
+                                    <Button size="sm" variant="outline" asChild>
+                                      <a href={video.url} target="_blank" rel="noopener noreferrer">
+                                        <Play className="h-3 w-3 mr-1" />
+                                        Watch
+                                      </a>
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Study Resources */}
+                          {studyResources.length > 0 && (
+                            <div className="mb-4">
+                              <h6 className="font-medium text-sm mb-2 flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                                <FileText className="h-4 w-4" />
+                                Study Resources
+                              </h6>
+                              <div className="grid gap-2">
+                                {studyResources.slice(0, 3).map((resource, resourceIndex) => (
+                                  <div key={resourceIndex} className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border">
+                                    <div className="flex items-center gap-3">
+                                      {getResourceIcon(resource.type)}
+                                      <div>
+                                        <p className="font-medium text-sm">{resource.title}</p>
+                                        <p className="text-xs text-muted-foreground">{resource.description}</p>
+                                      </div>
+                                    </div>
+                                    <Button size="sm" variant="outline" asChild>
+                                      <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="h-3 w-3 mr-1" />
+                                        Study
+                                      </a>
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* AI Recommendations */}
+                          {aiRecommendations.length > 0 && (
+                            <div>
+                              <h6 className="font-medium text-sm mb-2 flex items-center gap-2 text-green-700 dark:text-green-300">
+                                <Brain className="h-4 w-4" />
+                                AI Recommendations
+                              </h6>
+                              <div className="grid gap-2">
+                                {aiRecommendations.slice(0, 2).map((rec, recIndex) => (
+                                  <div key={recIndex} className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border">
+                                    <div className="flex items-center gap-3">
+                                      {getResourceIcon(rec.type)}
+                                      <div>
+                                        <p className="font-medium text-sm">{rec.title}</p>
+                                        {rec.reason && (
+                                          <p className="text-xs text-primary italic">{rec.reason}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                    <Button size="sm" variant="outline" asChild>
+                                      <a href={rec.url} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="h-3 w-3 mr-1" />
+                                        View
+                                      </a>
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Action Buttons for This Question */}
+                        <div className="flex flex-wrap gap-2">
+                          <Button size="sm" variant="outline" onClick={() => router.push(createQuizRoute(result.quizId))}>
+                            <BookOpen className="h-3 w-3 mr-1" />
+                            Practice Similar Questions
+                          </Button>
+                          <Button size="sm" variant="outline" onClick={() => window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(question.text), '_blank')}>
+                            <Video className="h-3 w-3 mr-1" />
+                            Search YouTube
+                          </Button>
+                          <Button size="sm" variant="outline" onClick={() => window.open('https://www.google.com/search?q=' + encodeURIComponent(question.text), '_blank')}>
+                            <ExternalLink className="h-3 w-3 mr-1" />
+                            Search Web
+                          </Button>
+                        </div>
                       </div>
                     )
                   })}
@@ -427,6 +599,97 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
               </CardContent>
             </Card>
           )}
+
+          {/* All Questions with Correct Answers Section */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                Complete Quiz Review ({result.quiz.questions.length} Questions)
+              </CardTitle>
+              <CardDescription>
+                Review all questions with their correct answers to understand what you got right and what you need to improve
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {result.quiz.questions.map((question, index) => {
+                  const userAnswer = result.answers[index]
+                  const isCorrect = userAnswer === parseInt(question.correctAnswer)
+                  
+                  return (
+                    <div key={question.id} className={`border rounded-lg p-4 ${
+                      isCorrect 
+                        ? "border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-950/20" 
+                        : "border-red-200 bg-red-50/50 dark:border-red-800 dark:bg-red-950/20"
+                    }`}>
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-medium">Question {index + 1}</h4>
+                        <Badge variant={isCorrect ? "default" : "destructive"}>
+                          {isCorrect ? "Correct" : "Incorrect"}
+                        </Badge>
+                      </div>
+                      
+                      <p className="mb-4 font-medium">{question.text}</p>
+                      
+                      <div className="space-y-2">
+                        {question.options.map((option, optionIndex) => (
+                          <div
+                            key={optionIndex}
+                            className={`p-3 rounded-md border ${
+                              optionIndex === parseInt(question.correctAnswer)
+                                ? "bg-green-50 border-green-200 dark:bg-green-950/20 dark:border-green-800"
+                                : optionIndex === userAnswer && !isCorrect
+                                ? "bg-red-50 border-red-200 dark:bg-red-950/20 dark:border-red-800"
+                                : "bg-muted/50"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              {optionIndex === parseInt(question.correctAnswer) && (
+                                <CheckCircle className="h-4 w-4 text-green-500" />
+                              )}
+                              {optionIndex === userAnswer && !isCorrect && (
+                                <XCircle className="h-4 w-4 text-red-500" />
+                              )}
+                              <span className={`
+                                ${optionIndex === parseInt(question.correctAnswer) ? "font-medium" : ""}
+                                ${optionIndex === userAnswer && !isCorrect ? "line-through" : ""}
+                              `}>
+                                {option}
+                              </span>
+                              {optionIndex === parseInt(question.correctAnswer) && (
+                                <Badge variant="outline" className="ml-auto text-xs">
+                                  Correct Answer
+                                </Badge>
+                              )}
+                              {optionIndex === userAnswer && !isCorrect && (
+                                <Badge variant="destructive" className="ml-auto text-xs">
+                                  Your Answer
+                                </Badge>
+                              )}
+                              {optionIndex === userAnswer && isCorrect && (
+                                <Badge variant="default" className="ml-auto text-xs">
+                                  Your Answer ✓
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {question.explanation && (
+                        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-md">
+                          <p className="text-sm">
+                            <strong>Explanation:</strong> {question.explanation}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Study Plan Section */}
           <Card>
@@ -645,6 +908,21 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
                           </div>
                         )}
                       </div>
+                      {studyPlan.personalizedSchedule && studyPlan.personalizedSchedule.length > 0 && (
+                        <div className="p-4 bg-yellow-50 dark:bg-yellow-950/20 rounded-lg mt-4">
+                          <h4 className="font-medium flex items-center gap-2 mb-2">
+                            <Calendar className="h-4 w-4 text-yellow-600" />
+                            Personalized Study Schedule
+                          </h4>
+                          <ul className="list-decimal ml-6 space-y-1">
+                            {studyPlan.personalizedSchedule.map((session, idx) => (
+                              <li key={idx} className="text-sm text-yellow-800 dark:text-yellow-200">
+                                Session {session.session}: {session.topic}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
@@ -721,6 +999,12 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
                             
                             {rec.reason && (
                               <p className="text-xs text-primary mb-3 italic">{rec.reason}</p>
+                            )}
+                            {rec.personalizedSession && (
+                              <p className="text-xs text-yellow-700 mb-1">Personalized Session: Session {rec.personalizedSession.session} - {rec.personalizedSession.topic}</p>
+                            )}
+                            {rec.personalizedAdvice && (
+                              <p className="text-xs text-yellow-800 italic mb-1">Personalized Advice: {rec.personalizedAdvice}</p>
                             )}
                             
                             <div className="flex items-center justify-between">

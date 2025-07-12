@@ -25,7 +25,9 @@ import {
   AlertCircle,
   MapPin,
   Globe,
-  Filter
+  Filter,
+  Share2,
+  MoreHorizontal
 } from "lucide-react"
 import { format, subHours, subDays } from "date-fns"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -34,8 +36,19 @@ import { useUserProfile } from "@/hooks/use-user-profile"
 import { useUsers } from "@/hooks/use-users"
 import { useSocial } from "@/hooks/use-social"
 import { useOffline } from "@/hooks/use-offline"
+import useSWR from "swr"
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
+interface Program {
+  id: string
+  title: string
+  description: string
+}
 
 export default function SocialPage() {
+  const { data: programs, error: programsError } = useSWR<Program[]>("/api/programs", fetcher)
+  
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedFilter, setSelectedFilter] = useState("all")
   const [showNotifications, setShowNotifications] = useState(false)
@@ -48,7 +61,7 @@ export default function SocialPage() {
   
   // Use real social data
   const { 
-    activities, 
+    activities,
     leaderboard, 
     studyGroups, 
     loading, 
@@ -449,9 +462,11 @@ export default function SocialPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Programs</SelectItem>
-                          <SelectItem value="computer-science">Computer Science</SelectItem>
-                          <SelectItem value="engineering">Engineering</SelectItem>
-                          <SelectItem value="business">Business</SelectItem>
+                          {programs?.map((program) => (
+                            <SelectItem key={program.id} value={program.id}>
+                              {program.title}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                       <Button

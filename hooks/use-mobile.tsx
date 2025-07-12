@@ -1,15 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
-
-const MOBILE_BREAKPOINT = 768
+import { CONFIG } from "@/lib/config"
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState<boolean>(false)
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      setIsMobile(window.innerWidth < CONFIG.UI.MOBILE_BREAKPOINT)
     }
 
     // Initial check

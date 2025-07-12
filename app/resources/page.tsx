@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { DashboardShell } from "@/components/dashboard-shell"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,9 +11,13 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Bookmark, ExternalLink, Search, ThumbsUp, Youtube, ChevronDown, ChevronRight } from "lucide-react"
-import { programs, getProgramById, getCourseById } from "@/lib/program-data"
-import { getResourcesForCourse, getResourcesForProgram } from "@/lib/resource-service"
+import { Bookmark, ExternalLink, Search, ThumbsUp, Youtube, ChevronDown, ChevronRight, Star, Clock, Users, Filter, BookOpen, Video, FileText, Globe, Eye } from "lucide-react"
+import useSWR from "swr"
+import type { Program } from "@/lib/program-service"
+import { Suspense } from "react"
+import { Metadata } from "next"
+import { Label } from "@/components/ui/label"
+import { Skeleton } from "@/components/ui/skeleton"
 
 // Platform icons and colors
 const platformIcons: Record<string, { icon: React.ReactNode; color: string }> = {
@@ -71,23 +75,79 @@ const platformIcons: Record<string, { icon: React.ReactNode; color: string }> = 
   },
 }
 
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
+interface Resource {
+  id: string
+  title: string
+  description: string
+  url: string
+  platform: string
+  type: string
+  category: string
+  tags: string[]
+  duration: string
+  rating: number
+  views?: number
+  lessons?: number
+  videos?: number
+  courseIds: string[]
+}
+
 export default function ResourcesPage() {
+  const searchParams = useSearchParams()
+  const initialProgramId = searchParams.get('programId') || "all"
+  
+  const { data: programs, error: programError } = useSWR<Program[]>("/api/programs", fetcher)
+  
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedProgram, setSelectedProgram] = useState("all")
+  const [selectedProgram, setSelectedProgram] = useState(initialProgramId)
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedPlatform, setSelectedPlatform] = useState("all")
   const [selectedType, setSelectedType] = useState("all")
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set())
-  const [resources, setResources] = useState<any[]>([])
+  const [resources, setResources] = useState<Resource[]>([])
   const [loading, setLoading] = useState(true)
+  const [categories, setCategories] = useState<string[]>([])
+  const [platforms, setPlatforms] = useState<string[]>([])
+  const [types, setTypes] = useState<string[]>([])
 
-  // Fetch resources on component mount
+  // Fetch resources from the new API
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        // Since getResourcesForProgram from resource-service is synchronous, we can call it directly
-        const fetchedResources = getResourcesForProgram("computer-science")
-        setResources(fetchedResources)
+        setLoading(true)
+        const params = new URLSearchParams()
+        if (selectedProgram !== "all") {
+          params.append('programId', selectedProgram)
+        }
+        if (selectedCategory !== "all") {
+          params.append('category', selectedCategory)
+        }
+        if (selectedPlatform !== "all") {
+          params.append('platform', selectedPlatform)
+        }
+        if (selectedType !== "all") {
+          params.append('type', selectedType)
+        }
+        
+        const response = await fetch(`/api/resources?${params.toString()}`)
+        if (response.ok) {
+          const data = await response.json()
+          setResources(data.resources || [])
+          
+          // Extract unique values for filters
+          const uniqueCategories = Array.from(new Set(data.resources.map((r: Resource) => r.category))) as string[]
+          const uniquePlatforms = Array.from(new Set(data.resources.map((r: Resource) => r.platform))) as string[]
+          const uniqueTypes = Array.from(new Set(data.resources.map((r: Resource) => r.type))) as string[]
+          
+          setCategories(uniqueCategories)
+          setPlatforms(uniquePlatforms)
+          setTypes(uniqueTypes)
+        } else {
+          console.error('Failed to fetch resources')
+          setResources([])
+        }
       } catch (error) {
         console.error("Error fetching resources:", error)
         setResources([])
@@ -97,25 +157,16 @@ export default function ResourcesPage() {
     }
 
     fetchResources()
-  }, [])
+  }, [selectedProgram, selectedCategory, selectedPlatform, selectedType])
 
-  // Extract unique categories, platforms, types from DB data
-  const categories = Array.from(new Set(resources.map((r) => r.category)))
-  const platforms = Array.from(new Set(resources.map((r) => r.platform)))
-  const types = Array.from(new Set(resources.map((r) => r.type)))
-
-  // Filter resources based on search query and filters
+  // Filter resources based on search query
   const filteredResources = resources.filter((resource) => {
     const matchesSearch =
       resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       resource.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    const matchesCategory = selectedCategory === "all" || resource.category === selectedCategory
-    const matchesPlatform = selectedPlatform === "all" || resource.platform === selectedPlatform
-    const matchesType = selectedType === "all" || resource.type === selectedType
-
-    return matchesSearch && matchesCategory && matchesPlatform && matchesType
+    return matchesSearch
   })
 
   // Function to get resources for a specific course
@@ -137,7 +188,7 @@ export default function ResourcesPage() {
   }
 
   // Get all courses from all programs
-  const allCourses = programs.flatMap(program => 
+  const allCourses = programs?.flatMap(program => 
     program.years.flatMap(year => 
       year.semesters.flatMap(semester => 
         semester.courses.map(course => ({
@@ -149,12 +200,38 @@ export default function ResourcesPage() {
         }))
       )
     )
-  )
+  ) || []
 
   // Filter courses by selected program
   const filteredCourses = selectedProgram === "all" 
     ? allCourses 
     : allCourses.filter(course => course.programId === selectedProgram)
+
+  if (programError) {
+    return (
+      <>
+        <DashboardHeader />
+        <DashboardShell>
+          <div className="flex items-center justify-center h-64">
+            <p className="text-muted-foreground">Failed to load programs.</p>
+          </div>
+        </DashboardShell>
+      </>
+    )
+  }
+
+  if (!programs) {
+    return (
+      <>
+        <DashboardHeader />
+        <DashboardShell>
+          <div className="flex items-center justify-center h-64">
+            <p className="text-muted-foreground">Loading programs...</p>
+          </div>
+        </DashboardShell>
+      </>
+    )
+  }
 
   if (loading) {
     return (
@@ -194,239 +271,103 @@ export default function ResourcesPage() {
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-              <div>
-                <Select value={selectedProgram} onValueChange={setSelectedProgram}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select program" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Programs</SelectItem>
-                    {programs.map((program) => (
-                      <SelectItem key={program.id} value={program.id}>
-                        {program.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Categories</SelectItem>
-                    {categories.map((category) => (
-                      <SelectItem key={category} value={category}>
-                        {category
-                          .split("-")
-                          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                          .join(" ")}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select platform" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Platforms</SelectItem>
-                    {platforms.map((platform) => (
-                      <SelectItem key={platform} value={platform}>
-                        {platform
-                          .split("-")
-                          .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-                          .join(" ")}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Select value={selectedType} onValueChange={setSelectedType}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Types</SelectItem>
-                    {types.map((type) => (
-                      <SelectItem key={type} value={type}>
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Select value={selectedProgram} onValueChange={setSelectedProgram}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select Program" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Programs</SelectItem>
+                  {programs.map((program) => (
+                    <SelectItem key={program.id} value={program.id}>
+                      {program.title}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Platform" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Platforms</SelectItem>
+                  {platforms.map((platform) => (
+                    <SelectItem key={platform} value={platform}>
+                      {platform}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={selectedType} onValueChange={setSelectedType}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Types</SelectItem>
+                  {types.map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
-          <Tabs defaultValue="by-course" className="space-y-4">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 p-2">
-              <TabsTrigger value="by-course" className="px-4 py-2">By Course</TabsTrigger>
-              <TabsTrigger value="all" className="px-4 py-2">All Resources</TabsTrigger>
-              <TabsTrigger value="recommended" className="px-4 py-2">Recommended</TabsTrigger>
-              <TabsTrigger value="popular" className="px-4 py-2">Most Popular</TabsTrigger>
-            </TabsList>
+          {/* Resources by Course */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Resources by Course</h2>
+            
+            {filteredCourses.map((course) => {
+              const courseResources = getResourcesForCourse(course.id)
+              const isExpanded = expandedCourses.has(course.id)
+              
+              if (courseResources.length === 0) return null
 
-            <TabsContent value="by-course" className="space-y-6">
-              {filteredCourses.length > 0 ? (
-                filteredCourses.map((course) => {
-                  const courseResources = getResourcesForCourse(course.id)
-                  const hasResources = courseResources.length > 0
-                  const isExpanded = expandedCourses.has(course.id)
-
-                  return (
-                    <Card key={course.id} className="overflow-hidden">
-                      <CardHeader 
-                        className="cursor-pointer hover:bg-muted/50 transition-colors"
-                        onClick={() => toggleCourseExpansion(course.id)}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex-1">
-                            <CardTitle className="text-lg">{course.title}</CardTitle>
-                            <CardDescription className="mt-1">
-                              {course.description} • {course.programTitle} • Year {course.year}, Semester {course.semester}
-                            </CardDescription>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            {hasResources && (
-                              <Badge variant="secondary">
-                                {courseResources.length} resource{courseResources.length !== 1 ? 's' : ''}
-                              </Badge>
-                            )}
-                            {hasResources ? (
-                              isExpanded ? (
-                                <ChevronDown className="h-4 w-4" />
-                              ) : (
-                                <ChevronRight className="h-4 w-4" />
-                              )
-                            ) : (
-                              <span className="text-sm text-muted-foreground">No resources</span>
-                            )}
-                          </div>
-                        </div>
-                      </CardHeader>
-                      
-                      {isExpanded && hasResources && (
-                        <CardContent className="pt-0">
-                          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                            {courseResources.map((resource) => (
-                              <ResourceCard key={resource.id} resource={resource} />
-                            ))}
-                          </div>
-                        </CardContent>
-                      )}
-                    </Card>
-                  )
-                })
-              ) : (
-                <div className="text-center py-8">
-                  <p className="text-muted-foreground">No courses found matching your criteria.</p>
-                  <Button
-                    variant="link"
-                    onClick={() => {
-                      setSearchQuery("")
-                      setSelectedProgram("all")
-                      setSelectedCategory("all")
-                      setSelectedPlatform("all")
-                      setSelectedType("all")
-                    }}
+              return (
+                <div key={course.id} className="border rounded-lg p-4">
+                  <div 
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleCourseExpansion(course.id)}
                   >
-                    Clear filters
-                  </Button>
+                    <div>
+                      <h3 className="font-semibold">{course.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {course.programTitle} • Year {course.year}, Semester {course.semester}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="secondary">{courseResources.length} resources</Badge>
+                      {isExpanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                    </div>
+                  </div>
+                  
+                  {isExpanded && (
+                    <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      {courseResources.map((resource) => (
+                        <ResourceCard key={resource.id} resource={resource} />
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </TabsContent>
-
-            <TabsContent value="all" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {filteredResources.length > 0 ? (
-                  filteredResources.map((resource) => <ResourceCard key={resource.id} resource={resource} />)
-                ) : (
-                  <div className="col-span-full text-center py-8">
-                    <p className="text-muted-foreground">No resources found matching your criteria.</p>
-                    <Button
-                      variant="link"
-                      onClick={() => {
-                        setSearchQuery("")
-                        setSelectedCategory("all")
-                        setSelectedPlatform("all")
-                        setSelectedType("all")
-                      }}
-                    >
-                      Clear filters
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="recommended" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {filteredResources
-                  .filter((r) => r.rating >= 4.7)
-                  .slice(0, 6)
-                  .map((resource) => (
-                    <ResourceCard key={resource.id} resource={resource} />
-                  ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="popular" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {filteredResources
-                  .sort((a, b) => (b.views || 0) - (a.views || 0))
-                  .slice(0, 6)
-                  .map((resource) => (
-                    <ResourceCard key={resource.id} resource={resource} />
-                  ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-
-          {/* Featured Resources Section */}
-          <div className="mt-8">
-            <h2 className="text-2xl font-bold mb-4">Featured YouTube Courses</h2>
-            <div className="grid gap-4 md:grid-cols-2">
-              {filteredResources
-                .filter((r) => r.platform === "youtube" && r.type === "video")
-                .slice(0, 2)
-                .map((resource) => (
-                  <div key={resource.id} className="rounded-lg overflow-hidden border">
-                    <div className="aspect-video w-full">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={resource.url.replace("watch?v=", "embed/")}
-                        title={resource.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold">{resource.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{resource.description}</p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <Badge variant="outline" className={platformIcons[resource.platform].color}>
-                          <span className="flex items-center gap-1">
-                            {platformIcons[resource.platform].icon}
-                            {resource.platform
-                              .split("-")
-                              .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-                              .join(" ")}
-                          </span>
-                        </Badge>
-                        <Badge variant="outline">{resource.duration}</Badge>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
+              )
+            })}
           </div>
         </div>
       </DashboardShell>
@@ -434,53 +375,73 @@ export default function ResourcesPage() {
   )
 }
 
-// Resource Card Component
-function ResourceCard({ resource }: { resource: any }) {
+function ResourceCard({ resource }: { resource: Resource }) {
+  const platformIcon = platformIcons[resource.platform.toLowerCase()] || {
+    icon: <ExternalLink className="h-4 w-4" />,
+    color: "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300",
+  }
+
   return (
-    <Card className="h-full flex flex-col">
-      <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <CardTitle className="text-lg">{resource.title}</CardTitle>
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-            <Bookmark className="h-4 w-4" />
-            <span className="sr-only">Save resource</span>
-          </Button>
+    <Card className="h-full hover:bg-muted/50 transition-colors">
+      <CardHeader className="pb-3">
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-2">
+            <div className={`p-1 rounded ${platformIcon.color}`}>
+              {platformIcon.icon}
+            </div>
+            <Badge variant="outline" className="text-xs">
+              {resource.platform}
+            </Badge>
+          </div>
+          <div className="flex items-center gap-1 text-sm text-muted-foreground">
+            <Star className="h-3 w-3 fill-current" />
+            <span>{resource.rating.toFixed(1)}</span>
+          </div>
         </div>
-        <CardDescription className="line-clamp-2">{resource.description}</CardDescription>
+        <CardTitle className="text-base">{resource.title}</CardTitle>
+        <CardDescription className="text-sm line-clamp-2">
+          {resource.description}
+        </CardDescription>
       </CardHeader>
-      <CardContent className="pb-2 flex-grow">
-        <div className="flex flex-wrap gap-2 mb-2">
-          <Badge variant="outline" className={platformIcons[resource.platform].color}>
-            <span className="flex items-center gap-1">
-              {platformIcons[resource.platform].icon}
-              {resource.platform
-                .split("-")
-                .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
-            </span>
-          </Badge>
-          <Badge variant="outline">{resource.type.charAt(0).toUpperCase() + resource.type.slice(1)}</Badge>
-          <Badge variant="outline">{resource.duration}</Badge>
-        </div>
-        <div className="flex flex-wrap gap-1 mt-2">
-          {resource.tags.slice(0, 3).map((tag: string) => (
-            <span
-              key={tag}
-              className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-muted-foreground"
-            >
+      <CardContent className="pb-3">
+        <div className="flex flex-wrap gap-1 mb-3">
+          {resource.tags.slice(0, 3).map((tag) => (
+            <Badge key={tag} variant="secondary" className="text-xs">
               {tag}
-            </span>
+            </Badge>
           ))}
+          {resource.tags.length > 3 && (
+            <Badge variant="secondary" className="text-xs">
+              +{resource.tags.length - 3} more
+            </Badge>
+          )}
+        </div>
+        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          {resource.duration && (
+            <div className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              <span>{resource.duration}</span>
+            </div>
+          )}
+          {resource.views && (
+            <div className="flex items-center gap-1">
+              <Users className="h-3 w-3" />
+              <span>{resource.views.toLocaleString()} views</span>
+            </div>
+          )}
+          {resource.lessons && (
+            <div className="flex items-center gap-1">
+              <Bookmark className="h-3 w-3" />
+              <span>{resource.lessons} lessons</span>
+            </div>
+          )}
         </div>
       </CardContent>
-      <CardFooter className="pt-2 flex justify-between items-center">
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-          <ThumbsUp className="h-3.5 w-3.5" />
-          <span>{resource.rating}/5</span>
-        </div>
-        <Button size="sm" className="gap-1" asChild>
+      <CardFooter className="pt-0">
+        <Button asChild className="w-full">
           <a href={resource.url} target="_blank" rel="noopener noreferrer">
-            View <ExternalLink className="h-3.5 w-3.5" />
+            <ExternalLink className="h-4 w-4 mr-2" />
+            Open Resource
           </a>
         </Button>
       </CardFooter>

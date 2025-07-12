@@ -1,4 +1,6 @@
 // Centralized routing configuration for the Smart Quiz System
+import { CONFIG } from './config'
+
 export const ROUTES = {
   // Public routes
   HOME: '/',
@@ -89,14 +91,15 @@ export const API_ROUTES = {
   RECOMMENDATIONS: '/api/recommendations',
   YOUTUBE_RECOMMENDATIONS: '/api/youtube-recommendations',
   AI_RECOMMENDATIONS: '/api/ai-recommendations',
+  DEEPSEEK_RECOMMENDATIONS: '/api/deepseek-recommendations',
   STUDY_PLAN: '/api/study-plan',
 } as const
 
-// External service URLs
+// External service URLs - now using configuration
 export const EXTERNAL_URLS = {
-  YOUTUBE_API: 'https://www.googleapis.com/youtube/v3',
-  GEMINI_API: 'https://generativelanguage.googleapis.com/v1beta/models',
-  UI_AVATARS: 'https://ui-avatars.com/api',
+  YOUTUBE_API: CONFIG.API.YOUTUBE_BASE_URL,
+  GEMINI_API: CONFIG.API.GEMINI_BASE_URL,
+  UI_AVATARS: CONFIG.API.UI_AVATARS_URL,
 } as const
 
 // Helper functions

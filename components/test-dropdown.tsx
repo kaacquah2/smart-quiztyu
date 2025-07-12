@@ -1,20 +1,28 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { programs } from "@/lib/program-data"
+import useSWR from "swr"
+import type { Program } from "@/lib/program-service"
+import { ChevronDownIcon } from "@heroicons/react/24/outline"
 
-export function TestDropdown() {
-  const [selectedProgram, setSelectedProgram] = useState("computer-science")
-  const [selectedYear, setSelectedYear] = useState("1")
-  const [selectedSemester, setSelectedSemester] = useState("1")
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-  // Get current program data
-  const currentProgram = programs.find(p => p.id === selectedProgram)
-  const currentYear = currentProgram?.years.find(y => y.year.toString() === selectedYear)
-  const currentSemester = currentYear?.semesters.find(s => s.semester.toString() === selectedSemester)
+export default function TestDropdown() {
+  const { data: programs, error } = useSWR<Program[]>("/api/programs", fetcher)
+  const [selectedProgram, setSelectedProgram] = useState("")
+  const [selectedYear, setSelectedYear] = useState("")
+  const [selectedSemester, setSelectedSemester] = useState("")
+  const [selectedCourse, setSelectedCourse] = useState("")
+
+  if (error) return <div>Failed to load programs.</div>
+  if (!programs) return <div>Loading programs...</div>
+
+  const currentProgram = programs.find((p: any) => p.id === selectedProgram)
+  const currentYear = currentProgram?.years.find((y: any) => y.year.toString() === selectedYear)
+  const currentSemester = currentYear?.semesters.find((s: any) => s.semester.toString() === selectedSemester)
 
   return (
     <div className="p-4 space-y-4 border border-red-500">
@@ -29,7 +37,7 @@ export function TestDropdown() {
             </SelectTrigger>
             <SelectContent>
               {programs && programs.length > 0 ? (
-                programs.map((program) => (
+                programs.map((program: any) => (
                   <SelectItem key={program.id} value={program.id}>
                     {program.title}
                   </SelectItem>
@@ -51,7 +59,7 @@ export function TestDropdown() {
             </SelectTrigger>
             <SelectContent>
               {currentProgram && currentProgram.years.length > 0 ? (
-                currentProgram.years.map((year) => (
+                currentProgram.years.map((year: any) => (
                   <SelectItem key={year.year} value={year.year.toString()}>
                     Year {year.year}
                   </SelectItem>
@@ -73,7 +81,7 @@ export function TestDropdown() {
             </SelectTrigger>
             <SelectContent>
               {currentYear && currentYear.semesters.length > 0 ? (
-                currentYear.semesters.map((semester) => (
+                currentYear.semesters.map((semester: any) => (
                   <SelectItem key={semester.semester} value={semester.semester.toString()}>
                     Semester {semester.semester}
                   </SelectItem>
@@ -88,29 +96,8 @@ export function TestDropdown() {
         </div>
       </div>
 
-      <div className="p-3 bg-muted rounded-md">
-        <p className="text-sm">
-          <strong>Selected:</strong> Program: {selectedProgram}, Year: {selectedYear}, Semester: {selectedSemester}
-        </p>
-        <p className="text-sm">
-          <strong>Data:</strong> Programs: {programs.length}, Current Program Years: {currentProgram?.years.length || 0}, Current Year Semesters: {currentYear?.semesters.length || 0}
-        </p>
-        <p className="text-sm">
-          <strong>Courses:</strong> {currentSemester?.courses.length || 0} courses available
-        </p>
-      </div>
-
       <Button onClick={() => {
-        console.log('Test dropdowns with real data - Current state:', { 
-          selectedProgram, 
-          selectedYear, 
-          selectedSemester,
-          programsCount: programs.length,
-          currentProgram: currentProgram?.title,
-          currentYear: currentYear?.year,
-          currentSemester: currentSemester?.semester,
-          coursesCount: currentSemester?.courses.length
-        })
+        // No debug info or console.log
       }}>
         Log State
       </Button>

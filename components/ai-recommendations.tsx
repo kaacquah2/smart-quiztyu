@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Video, FileText, Lightbulb, ExternalLink, Code, GraduationCap, Clock, Star, TrendingUp } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { programs } from "@/lib/program-data"
 import { generateAIRecommendations, getResourcesForCourse } from "@/lib/resource-service"
 import { Skeleton } from "@/components/ui/skeleton"
+import useSWR from "swr"
+import type { Program } from "@/lib/program-service"
+import { cn } from "@/lib/utils"
 
 interface AIRecommendationsProps {
   userId?: string
@@ -33,17 +35,23 @@ interface CourseRecommendation {
   priority: number
 }
 
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
 export function AIRecommendations({ 
   userId = "user123", 
   selectedProgram = "all",
   selectedYear = "all",
   selectedSemester = "all"
 }: AIRecommendationsProps) {
+  const { data: programs, error: programsError } = useSWR<Program[]>("/api/programs", fetcher)
   const [courseRecommendations, setCourseRecommendations] = useState<CourseRecommendation[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState("all-courses")
   const [userQuizHistory, setUserQuizHistory] = useState<any[]>([])
+
+  if (programsError) return <div>Failed to load programs.</div>
+  if (!programs) return <div>Loading programs...</div>
 
   // Get all courses from all programs
   const getAllCourses = () => {
@@ -119,7 +127,7 @@ export function AIRecommendations({
           )
         } else {
           // Generate general recommendations for courses without quiz history
-          const resources = getResourcesForCourse(course.id)
+          const resources = await getResourcesForCourse(course.id)
           courseRecommendations = resources
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 3)

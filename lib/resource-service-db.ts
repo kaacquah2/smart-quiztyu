@@ -1,5 +1,5 @@
 import { prisma } from './prisma'
-import { getCourseById, programs } from "./program-data"
+import { getAllPrograms, getCourseById, type Program, type Course } from "./program-service"
 
 export interface ResourceRecommendation {
   id: string
@@ -57,6 +57,11 @@ const quizToCourseMapping: Record<string, string> = {
   "big-data-analytics": "big-data-analytics",
   "cybersecurity": "cybersecurity",
   "advanced-web": "advanced-web",
+  
+  // Computer Science University Electives
+  "university-elective-1": "university-elective-1",
+  "university-elective-2": "university-elective-2",
+  "university-elective-3": "university-elective-3",
   
   // Electrical Engineering courses
   "physics": "physics",
@@ -118,6 +123,10 @@ const quizToCourseMapping: Record<string, string> = {
   "digital-marketing": "digital-marketing",
   "business-analytics": "business-analytics",
   
+  // Business Administration University Electives
+  "university-elective-ba-1": "university-elective-ba-1",
+  "university-elective-ba-2": "university-elective-ba-2",
+  
   // Nursing courses
   "anatomy-physiology": "anatomy-physiology",
   "anatomy-physiology-1": "anatomy-physiology-1",
@@ -135,6 +144,15 @@ const quizToCourseMapping: Record<string, string> = {
   "nursing-research": "nursing-research",
   "geriatric-nursing": "geriatric-nursing",
   "critical-care-nursing": "critical-care-nursing",
+  
+  // Nursing University Electives
+  "university-elective-nursing-1": "university-elective-nursing-1",
+  "university-elective-nursing-2": "university-elective-nursing-2",
+  "university-elective-nursing-3": "university-elective-nursing-3",
+  
+  // Mechanical Engineering University Electives
+  "university-elective-me-1": "university-elective-me-1",
+  "university-elective-me-2": "university-elective-me-2",
 }
 
 // Get resources for a specific course from database
@@ -291,19 +309,25 @@ export async function getResourcesForProgram(programId: string) {
   }
 }
 
-// Find which program a course belongs to
-function findProgramByCourseId(courseId: string): string | null {
-  for (const program of programs) {
-    for (const year of program.years) {
-      for (const semester of year.semesters) {
-        const course = semester.courses.find(c => c.id === courseId)
-        if (course) {
-          return program.id
+// Helper function to find which program a course belongs to
+async function findProgramByCourseId(courseId: string): Promise<string | null> {
+  try {
+    const programs = await getAllPrograms()
+    for (const program of programs) {
+      for (const year of program.years) {
+        for (const semester of year.semesters) {
+          const course = semester.courses.find(c => c.id === courseId)
+          if (course) {
+            return program.id
+          }
         }
       }
     }
+    return null
+  } catch (error) {
+    console.error("Error finding program by course ID:", error)
+    return null
   }
-  return null
 }
 
 // Get personalized study plan based on quiz performance
@@ -319,14 +343,14 @@ export async function generateStudyPlan(quizId: string, score: number, totalQues
   let actualProgramId = programId
   if (!actualProgramId) {
     // Try to find the program based on the course ID
-    actualProgramId = findProgramByCourseId(courseId) || "computer-science"
+    actualProgramId = await findProgramByCourseId(courseId) || "computer-science"
   }
 
   const course = getCourseById(actualProgramId, courseId)
   const _resources = await getResourcesForCourse(courseId)
 
   const plan = {
-    courseTitle: course?.title || "Unknown Course",
+    courseTitle: (await course)?.title || "Unknown Course",
     currentLevel: percentage < 40 ? "Beginner" : percentage < 70 ? "Intermediate" : "Advanced",
     targetScore: Math.min(100, percentage + 20),
     recommendations: await generateAIRecommendations(quizId, score, totalQuestions),

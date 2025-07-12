@@ -2,14 +2,16 @@
 
 // Inspired by react-hot-toast library
 import * as React from "react"
+import { CONFIG } from "@/lib/config"
 
 import type {
   ToastActionElement,
   ToastProps,
 } from "@/components/ui/toast"
 
-const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+// Use configuration values instead of hardcoded constants
+const TOAST_LIMIT = CONFIG.UI.TOAST_LIMIT
+const TOAST_REMOVE_DELAY = CONFIG.UI.TOAST_REMOVE_DELAY
 
 type ToasterToast = ToastProps & {
   id: string

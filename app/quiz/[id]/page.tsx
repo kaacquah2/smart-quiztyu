@@ -25,7 +25,7 @@ interface Question {
   id: string
   text: string
   options: string[]
-  correctAnswer: number
+  correctAnswer: string
   explanation?: string
 }
 
@@ -172,7 +172,7 @@ export default function QuizPage({ params }: { params: Promise<{ id: string }> }
     if (!quiz) return 0
     let correct = 0
     quiz.questions.forEach((question, index) => {
-      if (answers[index] === question.correctAnswer) {
+      if (answers[index] === parseInt(question.correctAnswer)) {
         correct++
       }
     })
@@ -285,7 +285,7 @@ export default function QuizPage({ params }: { params: Promise<{ id: string }> }
                   </Label>
                   {isSubmitted && (
                     <div className="ml-2">
-                      {index === currentQuestion.correctAnswer ? (
+                      {index === parseInt(currentQuestion.correctAnswer) ? (
                         <CheckCircle className="h-4 w-4 text-green-500" />
                       ) : answers[currentQuestionIndex] === index ? (
                         <XCircle className="h-4 w-4 text-red-500" />

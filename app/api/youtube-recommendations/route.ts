@@ -1,14 +1,15 @@
-import { NextResponse } from "next/server"
-import { youtubeService } from "@/lib/youtube-service"
-import { getQuizById } from "@/lib/quiz-service"
+import { NextRequest, NextResponse } from 'next/server'
+import { youtubeService } from '@/lib/youtube-service'
+import { getQuizById } from '@/lib/quiz-service'
+import { CONFIG } from '@/lib/config'
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const quizId = searchParams.get("quizId")
-    const score = Number.parseInt(searchParams.get("score") || "0")
-    const total = Number.parseInt(searchParams.get("total") || "1")
-    const maxResults = Number.parseInt(searchParams.get("maxResults") || "5")
+    const quizId = searchParams.get('quizId')
+    const score = parseInt(searchParams.get('score') || '0')
+    const total = parseInt(searchParams.get('total') || '10')
+    const maxResults = parseInt(searchParams.get('maxResults') || CONFIG.YOUTUBE.DEFAULT_MAX_RESULTS.toString())
 
     if (!quizId) {
       return NextResponse.json({ error: "Quiz ID is required" }, { status: 400 })
@@ -22,32 +23,30 @@ export async function GET(request: Request) {
       }, { status: 200 })
     }
 
-    // Get quiz details to understand the topic
     const quiz = await getQuizById(quizId)
     if (!quiz) {
       return NextResponse.json({ error: "Quiz not found" }, { status: 404 })
     }
 
     const percentage = (score / total) * 100
-
-    // Determine difficulty based on performance
-    let difficulty: 'beginner' | 'intermediate' | 'advanced'
-    if (percentage < 40) {
-      difficulty = 'beginner'
-    } else if (percentage < 70) {
+    let difficulty: 'beginner' | 'intermediate' | 'advanced' = 'beginner'
+    
+    if (percentage >= 80) {
+      difficulty = 'advanced'
+    } else if (percentage >= 60) {
       difficulty = 'intermediate'
     } else {
-      difficulty = 'advanced'
+      difficulty = 'beginner'
     }
 
-    // Build enhanced query from title, tags, and description
+    // Build enhanced query from title, tags, and description using configuration
     const queryParts = [quiz.title, quiz.tags?.join(' '), quiz.description].filter(Boolean)
     let enhancedQuery = queryParts.join(' ').replace(/[^\w\s-]/g, '').replace(/\s+/g, ' ').trim()
-    if (enhancedQuery.length > 120) {
+    if (enhancedQuery.length > CONFIG.API.MAX_QUERY_LENGTH) {
       const base = [quiz.title, quiz.tags?.join(' ')].filter(Boolean).join(' ')
-      const remaining = 120 - base.length
+      const remaining = CONFIG.API.MAX_QUERY_LENGTH - base.length
       enhancedQuery = base + ' ' + (quiz.description ? quiz.description.slice(0, Math.max(0, remaining)) : '')
-      enhancedQuery = enhancedQuery.slice(0, 120)
+      enhancedQuery = enhancedQuery.slice(0, CONFIG.API.MAX_QUERY_LENGTH)
       enhancedQuery = enhancedQuery.replace(/[^\w\s-]/g, '').replace(/\s+/g, ' ').trim()
     }
     if (!enhancedQuery) {
@@ -102,7 +101,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const { topic, difficulty = 'beginner', maxResults = 5, type = 'educational', quizId } = await request.json()
+    const { topic, difficulty = 'beginner', maxResults = CONFIG.YOUTUBE.DEFAULT_MAX_RESULTS, type = 'educational', quizId } = await request.json()
 
     if (!topic && !quizId) {
       return NextResponse.json({ error: "Topic or quizId is required" }, { status: 400 })
@@ -124,11 +123,11 @@ export async function POST(request: Request) {
       if (quiz) {
         const queryParts = [quiz.title, quiz.tags?.join(' '), quiz.description].filter(Boolean)
         enhancedQuery = queryParts.join(' ').replace(/[^\w\s-]/g, '').replace(/\s+/g, ' ').trim()
-        if (enhancedQuery.length > 120) {
+        if (enhancedQuery.length > CONFIG.API.MAX_QUERY_LENGTH) {
           const base = [quiz.title, quiz.tags?.join(' ')].filter(Boolean).join(' ')
-          const remaining = 120 - base.length
+          const remaining = CONFIG.API.MAX_QUERY_LENGTH - base.length
           enhancedQuery = base + ' ' + (quiz.description ? quiz.description.slice(0, Math.max(0, remaining)) : '')
-          enhancedQuery = enhancedQuery.slice(0, 120)
+          enhancedQuery = enhancedQuery.slice(0, CONFIG.API.MAX_QUERY_LENGTH)
           enhancedQuery = enhancedQuery.replace(/[^\w\s-]/g, '').replace(/\s+/g, ' ').trim()
         }
         if (!enhancedQuery) {

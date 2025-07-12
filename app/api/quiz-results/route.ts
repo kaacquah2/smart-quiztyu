@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     answers.forEach((answer: number, index: number) => {
       const question = quiz.questions[index]
-      if (question && answer === question.correctAnswer) {
+      if (question && answer.toString() === question.correctAnswer.toString()) {
         score++
         correctAnswers.push(index)
       } else {
@@ -58,7 +58,9 @@ export async function POST(request: NextRequest) {
             score: score,
             totalQuestions: quiz.questions.length,
             correctAnswers: correctAnswers,
-            incorrectAnswers: incorrectAnswers
+            incorrectAnswers: incorrectAnswers,
+            percentage: Math.round((score / quiz.questions.length) * 100),
+            passed: score >= Math.ceil(quiz.questions.length * 0.6)
           }
         }
       },

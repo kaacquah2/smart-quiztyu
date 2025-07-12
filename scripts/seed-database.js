@@ -5,7 +5,7 @@ const path = require('path')
 const prisma = new PrismaClient()
 
 // Program data - copied from lib/program-data.ts
-const programs = [
+let programs = [
   {
     id: "computer-science",
     title: "BSc. Computer Science",
@@ -465,8 +465,861 @@ const programs = [
         ]
       }
     ]
+  },
+  {
+    id: "mathematics",
+    title: "BSc. Mathematics",
+    description: "Study of pure and applied mathematics, including analysis, algebra, and statistics.",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "calculus-1", title: "Calculus I", description: "Limits, derivatives, and integrals of functions of one variable." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "mechanical-engineering",
+    title: "BSc. Mechanical Engineering",
+    description: "Study of mechanical systems, thermodynamics, and manufacturing processes",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-me", title: "Introduction to Mechanical Engineering", description: "Fundamentals of mechanical engineering and its applications" },
+              { id: "math-for-me-1", title: "Mathematics for Mechanical Engineers I", description: "Mathematical foundations for mechanical engineering" },
+              { id: "physics-for-me", title: "Physics for Mechanical Engineers", description: "Physics principles for mechanical engineering applications" },
+              { id: "intro-to-programming-me", title: "Introduction to Programming", description: "Basics of programming for mechanical engineers" },
+              { id: "basic-mechanical-principles", title: "Basic Mechanical Principles", description: "Fundamentals of mechanics and thermodynamics" },
+              { id: "communication-skills-me", title: "Communication Skills", description: "Effective communication in technical contexts" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "mechanics-1", title: "Mechanics I", description: "Introduction to statics and dynamics of rigid bodies" },
+              { id: "math-for-me-2", title: "Mathematics for Mechanical Engineers II", description: "Advanced mathematical concepts for mechanical engineering" },
+              { id: "materials-science", title: "Materials Science", description: "Introduction to materials science and engineering" },
+              { id: "thermal-engineering", title: "Thermal Engineering", description: "Introduction to heat transfer and thermodynamics" },
+              { id: "technical-drawing-me", title: "Technical Drawing and CAD", description: "Engineering drawing and computer-aided design" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "mechanics-2", title: "Mechanics II", description: "Advanced dynamics and vibrations of mechanical systems" },
+              { id: "fluid-mechanics", title: "Fluid Mechanics", description: "Introduction to fluid mechanics and its applications" },
+              { id: "machine-design", title: "Machine Design", description: "Introduction to machine design and analysis" },
+              { id: "engineering-math-me", title: "Engineering Mathematics", description: "Applied mathematics for mechanical engineering" },
+              { id: "measurements-instrumentation-me", title: "Electrical Measurements and Instrumentation", description: "Techniques for mechanical measurements" },
+              { id: "engineering-economics-me", title: "Engineering Economics", description: "Economic analysis for mechanical engineering decisions" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "control-systems-me", title: "Control Systems Engineering", description: "Analysis and design of control systems" },
+              { id: "power-systems-me", title: "Power Systems I", description: "Introduction to electrical power systems" },
+              { id: "digital-electronics-me", title: "Digital Electronics", description: "Analysis and design of digital electronic circuits" },
+              { id: "electric-machines-2-me", title: "Electric Machines II", description: "Advanced electric machines and transformers" },
+              { id: "numerical-methods-me", title: "Numerical Methods for Engineers", description: "Computational methods for engineering problems" },
+              { id: "engineering-ethics-me", title: "Engineering Ethics and Professionalism", description: "Ethics and professional practice in engineering" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "microprocessors-me", title: "Microprocessors and Microcontrollers", description: "Architecture and programming of microprocessors" },
+              { id: "communication-systems-me", title: "Communication Systems", description: "Principles of analog and digital communication" },
+              { id: "power-electronics-me", title: "Power Electronics", description: "Electronic conversion and control of electric power" },
+              { id: "electromagnetic-fields-me", title: "Electromagnetic Fields and Waves", description: "Advanced electromagnetic theory" },
+              { id: "engineering-design-me", title: "Engineering Design Project", description: "Team-based engineering design project" },
+              { id: "technical-elective-1-me", title: "Technical Elective I", description: "Specialized mechanical engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "digital-signal-processing-me", title: "Digital Signal Processing", description: "Processing and analysis of digital signals" },
+              { id: "power-systems-2-me", title: "Power Systems II", description: "Advanced power systems analysis and operation" },
+              { id: "renewable-energy-me", title: "Renewable Energy Systems", description: "Solar, wind, and other renewable energy technologies" },
+              { id: "embedded-systems-me", title: "Embedded Systems", description: "Design of embedded computing systems" },
+              { id: "industrial-electronics-me", title: "Industrial Electronics and Automation", description: "Electronic systems for industrial applications" },
+              { id: "technical-elective-2-me", title: "Technical Elective II", description: "Specialized mechanical engineering topic" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "power-system-protection-me", title: "Power System Protection and Switchgear", description: "Protection of power systems from faults" },
+              { id: "high-voltage-engineering-me", title: "High Voltage Engineering", description: "Principles of high voltage generation and testing" },
+              { id: "wireless-communication-me", title: "Wireless and Mobile Communication", description: "Principles of wireless communication systems" },
+              { id: "vlsi-design-me", title: "VLSI Design", description: "Design of very large scale integrated circuits" },
+              { id: "research-project-1-me", title: "Final Year Research Project I", description: "First part of the final year research project" },
+              { id: "technical-elective-3-me", title: "Technical Elective III", description: "Specialized mechanical engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "research-project-2-me", title: "Final Year Research Project II", description: "Second part of the final year research project" },
+              { id: "power-system-operation-me", title: "Power System Operation and Control", description: "Operation, control, and economics of power systems" },
+              { id: "antenna-wave-propagation-me", title: "Antennas and Wave Propagation", description: "Principles of electromagnetic wave radiation and reception" },
+              { id: "instrumentation-control-me", title: "Advanced Instrumentation and Control", description: "Advanced measurement and control systems" },
+              { id: "technical-elective-4-me", title: "Technical Elective IV", description: "Specialized mechanical engineering topic" },
+              { id: "internship-ee-me", title: "Industrial Internship", description: "Practical industrial experience in electrical engineering" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "civil-engineering",
+    title: "BSc. Civil Engineering",
+    description: "Study of infrastructure, construction, and environmental engineering",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-ce", title: "Introduction to Civil Engineering", description: "Fundamentals of civil engineering and its applications" },
+              { id: "math-for-ce-1", title: "Mathematics for Civil Engineers I", description: "Mathematical foundations for civil engineering" },
+              { id: "physics-for-ce", title: "Physics for Civil Engineers", description: "Physics principles for civil engineering applications" },
+              { id: "intro-to-programming-ce", title: "Introduction to Programming", description: "Basics of programming for civil engineers" },
+              { id: "basic-civil-principles", title: "Basic Civil Principles", description: "Fundamentals of civil engineering and construction" },
+              { id: "communication-skills-ce", title: "Communication Skills", description: "Effective communication in technical contexts" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "structural-analysis", title: "Structural Analysis", description: "Introduction to structural analysis and design" },
+              { id: "math-for-ce-2", title: "Mathematics for Civil Engineers II", description: "Advanced mathematical concepts for civil engineering" },
+              { id: "materials-science-ce", title: "Materials Science", description: "Introduction to materials science and engineering" },
+              { id: "geotechnical-engineering", title: "Geotechnical Engineering", description: "Introduction to geotechnical engineering and soil mechanics" },
+              { id: "technical-drawing-ce", title: "Technical Drawing and CAD", description: "Engineering drawing and computer-aided design" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "structural-design", title: "Structural Design", description: "Introduction to structural design and analysis" },
+              { id: "fluid-mechanics-ce", title: "Fluid Mechanics", description: "Introduction to fluid mechanics and its applications" },
+              { id: "transportation-engineering", title: "Transportation Engineering", description: "Introduction to transportation systems and highways" },
+              { id: "engineering-math-ce", title: "Engineering Mathematics", description: "Applied mathematics for civil engineering" },
+              { id: "measurements-instrumentation-ce", title: "Electrical Measurements and Instrumentation", description: "Techniques for civil engineering measurements" },
+              { id: "engineering-economics-ce", title: "Engineering Economics", description: "Economic analysis for civil engineering decisions" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "control-systems-ce", title: "Control Systems Engineering", description: "Analysis and design of control systems" },
+              { id: "power-systems-ce", title: "Power Systems I", description: "Introduction to electrical power systems" },
+              { id: "digital-electronics-ce", title: "Digital Electronics", description: "Analysis and design of digital electronic circuits" },
+              { id: "electric-machines-2-ce", title: "Electric Machines II", description: "Advanced electric machines and transformers" },
+              { id: "numerical-methods-ce", title: "Numerical Methods for Engineers", description: "Computational methods for engineering problems" },
+              { id: "engineering-ethics-ce", title: "Engineering Ethics and Professionalism", description: "Ethics and professional practice in engineering" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "microprocessors-ce", title: "Microprocessors and Microcontrollers", description: "Architecture and programming of microprocessors" },
+              { id: "communication-systems-ce", title: "Communication Systems", description: "Principles of analog and digital communication" },
+              { id: "power-electronics-ce", title: "Power Electronics", description: "Electronic conversion and control of electric power" },
+              { id: "electromagnetic-fields-ce", title: "Electromagnetic Fields and Waves", description: "Advanced electromagnetic theory" },
+              { id: "engineering-design-ce", title: "Engineering Design Project", description: "Team-based engineering design project" },
+              { id: "technical-elective-1-ce", title: "Technical Elective I", description: "Specialized civil engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "digital-signal-processing-ce", title: "Digital Signal Processing", description: "Processing and analysis of digital signals" },
+              { id: "power-systems-2-ce", title: "Power Systems II", description: "Advanced power systems analysis and operation" },
+              { id: "renewable-energy-ce", title: "Renewable Energy Systems", description: "Solar, wind, and other renewable energy technologies" },
+              { id: "embedded-systems-ce", title: "Embedded Systems", description: "Design of embedded computing systems" },
+              { id: "industrial-electronics-ce", title: "Industrial Electronics and Automation", description: "Electronic systems for industrial applications" },
+              { id: "technical-elective-2-ce", title: "Technical Elective II", description: "Specialized civil engineering topic" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "power-system-protection-ce", title: "Power System Protection and Switchgear", description: "Protection of power systems from faults" },
+              { id: "high-voltage-engineering-ce", title: "High Voltage Engineering", description: "Principles of high voltage generation and testing" },
+              { id: "wireless-communication-ce", title: "Wireless and Mobile Communication", description: "Principles of wireless communication systems" },
+              { id: "vlsi-design-ce", title: "VLSI Design", description: "Design of very large scale integrated circuits" },
+              { id: "research-project-1-ce", title: "Final Year Research Project I", description: "First part of the final year research project" },
+              { id: "technical-elective-3-ce", title: "Technical Elective III", description: "Specialized civil engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "research-project-2-ce", title: "Final Year Research Project II", description: "Second part of the final year research project" },
+              { id: "power-system-operation-ce", title: "Power System Operation and Control", description: "Operation, control, and economics of power systems" },
+              { id: "antenna-wave-propagation-ce", title: "Antennas and Wave Propagation", description: "Principles of electromagnetic wave radiation and reception" },
+              { id: "instrumentation-control-ce", title: "Advanced Instrumentation and Control", description: "Advanced measurement and control systems" },
+              { id: "technical-elective-4-ce", title: "Technical Elective IV", description: "Specialized civil engineering topic" },
+              { id: "internship-ee-ce", title: "Industrial Internship", description: "Practical industrial experience in electrical engineering" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "chemical-engineering",
+    title: "BSc. Chemical Engineering",
+    description: "Study of chemical processes, reactions, and industrial applications",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-che", title: "Introduction to Chemical Engineering", description: "Fundamentals of chemical engineering and its applications" },
+              { id: "math-for-che-1", title: "Mathematics for Chemical Engineers I", description: "Mathematical foundations for chemical engineering" },
+              { id: "physics-for-che", title: "Physics for Chemical Engineers", description: "Physics principles for chemical engineering applications" },
+              { id: "intro-to-programming-che", title: "Introduction to Programming", description: "Basics of programming for chemical engineers" },
+              { id: "basic-chemical-principles", title: "Basic Chemical Principles", description: "Fundamentals of chemical engineering and processes" },
+              { id: "communication-skills-che", title: "Communication Skills", description: "Effective communication in technical contexts" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "chemical-reaction-engineering", title: "Chemical Reaction Engineering", description: "Introduction to chemical reaction engineering and kinetics" },
+              { id: "math-for-che-2", title: "Mathematics for Chemical Engineers II", description: "Advanced mathematical concepts for chemical engineering" },
+              { id: "materials-science-che", title: "Materials Science", description: "Introduction to materials science and engineering" },
+              { id: "process-design", title: "Process Design", description: "Introduction to process design and optimization" },
+              { id: "technical-drawing-che", title: "Technical Drawing and CAD", description: "Engineering drawing and computer-aided design" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "process-control", title: "Process Control", description: "Introduction to process control and instrumentation" },
+              { id: "fluid-mechanics-che", title: "Fluid Mechanics", description: "Introduction to fluid mechanics and its applications" },
+              { id: "transportation-engineering-che", title: "Transportation Engineering", description: "Introduction to transportation systems and highways" },
+              { id: "engineering-math-che", title: "Engineering Mathematics", description: "Applied mathematics for chemical engineering" },
+              { id: "measurements-instrumentation-che", title: "Electrical Measurements and Instrumentation", description: "Techniques for chemical engineering measurements" },
+              { id: "engineering-economics-che", title: "Engineering Economics", description: "Economic analysis for chemical engineering decisions" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "control-systems-che", title: "Control Systems Engineering", description: "Analysis and design of control systems" },
+              { id: "power-systems-che", title: "Power Systems I", description: "Introduction to electrical power systems" },
+              { id: "digital-electronics-che", title: "Digital Electronics", description: "Analysis and design of digital electronic circuits" },
+              { id: "electric-machines-2-che", title: "Electric Machines II", description: "Advanced electric machines and transformers" },
+              { id: "numerical-methods-che", title: "Numerical Methods for Engineers", description: "Computational methods for engineering problems" },
+              { id: "engineering-ethics-che", title: "Engineering Ethics and Professionalism", description: "Ethics and professional practice in engineering" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "microprocessors-che", title: "Microprocessors and Microcontrollers", description: "Architecture and programming of microprocessors" },
+              { id: "communication-systems-che", title: "Communication Systems", description: "Principles of analog and digital communication" },
+              { id: "power-electronics-che", title: "Power Electronics", description: "Electronic conversion and control of electric power" },
+              { id: "electromagnetic-fields-che", title: "Electromagnetic Fields and Waves", description: "Advanced electromagnetic theory" },
+              { id: "engineering-design-che", title: "Engineering Design Project", description: "Team-based engineering design project" },
+              { id: "technical-elective-1-che", title: "Technical Elective I", description: "Specialized chemical engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "digital-signal-processing-che", title: "Digital Signal Processing", description: "Processing and analysis of digital signals" },
+              { id: "power-systems-2-che", title: "Power Systems II", description: "Advanced power systems analysis and operation" },
+              { id: "renewable-energy-che", title: "Renewable Energy Systems", description: "Solar, wind, and other renewable energy technologies" },
+              { id: "embedded-systems-che", title: "Embedded Systems", description: "Design of embedded computing systems" },
+              { id: "industrial-electronics-che", title: "Industrial Electronics and Automation", description: "Electronic systems for industrial applications" },
+              { id: "technical-elective-2-che", title: "Technical Elective II", description: "Specialized chemical engineering topic" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "power-system-protection-che", title: "Power System Protection and Switchgear", description: "Protection of power systems from faults" },
+              { id: "high-voltage-engineering-che", title: "High Voltage Engineering", description: "Principles of high voltage generation and testing" },
+              { id: "wireless-communication-che", title: "Wireless and Mobile Communication", description: "Principles of wireless communication systems" },
+              { id: "vlsi-design-che", title: "VLSI Design", description: "Design of very large scale integrated circuits" },
+              { id: "research-project-1-che", title: "Final Year Research Project I", description: "First part of the final year research project" },
+              { id: "technical-elective-3-che", title: "Technical Elective III", description: "Specialized chemical engineering topic" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "research-project-2-che", title: "Final Year Research Project II", description: "Second part of the final year research project" },
+              { id: "power-system-operation-che", title: "Power System Operation and Control", description: "Operation, control, and economics of power systems" },
+              { id: "antenna-wave-propagation-che", title: "Antennas and Wave Propagation", description: "Principles of electromagnetic wave radiation and reception" },
+              { id: "instrumentation-control-che", title: "Advanced Instrumentation and Control", description: "Advanced measurement and control systems" },
+              { id: "technical-elective-4-che", title: "Technical Elective IV", description: "Specialized chemical engineering topic" },
+              { id: "internship-ee-che", title: "Industrial Internship", description: "Practical industrial experience in electrical engineering" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "architecture",
+    title: "BSc. Architecture",
+    description: "Study of architectural design, history, and building technology",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-arch", title: "Introduction to Architecture", description: "Fundamentals of architectural design and drawing" },
+              { id: "history-of-architecture", title: "History of Architecture", description: "Study of architectural styles and historical periods" },
+              { id: "building-materials", title: "Building Materials", description: "Introduction to construction materials and their properties" },
+              { id: "structural-principles", title: "Structural Principles", description: "Fundamentals of structural engineering and design" },
+              { id: "urban-design", title: "Urban Design", description: "Principles of urban planning and design" },
+              { id: "university-elective-arch-1", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "architecture-design-1", title: "Architecture Design I", description: "Introduction to architectural design and drawing" },
+              { id: "history-of-architecture-2", title: "History of Architecture II", description: "Advanced study of architectural styles and periods" },
+              { id: "building-technology", title: "Building Technology", description: "Introduction to building construction and technology" },
+              { id: "structural-analysis", title: "Structural Analysis", description: "Advanced analysis of building structures" },
+              { id: "urban-planning-1", title: "Urban Planning I", description: "Introduction to urban planning and design principles" },
+              { id: "university-elective-arch-2", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "architecture-design-2", title: "Architecture Design II", description: "Advanced architectural design and drawing" },
+              { id: "building-technology-2", title: "Building Technology II", description: "Advanced building construction and technology" },
+              { id: "structural-design", title: "Structural Design", description: "Advanced structural analysis and design" },
+              { id: "urban-planning-2", title: "Urban Planning II", description: "Advanced urban planning and design" },
+              { id: "architectural-history", title: "Architectural History", description: "Study of architectural history and theory" },
+              { id: "university-elective-arch-3", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "capstone-project-arch", title: "Capstone Project in Architecture", description: "Final architectural design project" },
+              { id: "professional-practice", title: "Professional Practice", description: "Integration of theoretical knowledge with practical experience" },
+              { id: "architectural-theory", title: "Architectural Theory", description: "Study of architectural theories and principles" },
+              { id: "sustainable-design", title: "Sustainable Design", description: "Principles of sustainable architectural design" },
+              { id: "university-elective-arch-4", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "medicine",
+    title: "MBChB. Medicine",
+    description: "Study of medical sciences, clinical practice, and patient care",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-med", title: "Introduction to Medicine", description: "Fundamentals of medical sciences and clinical practice" },
+              { id: "anatomy-physiology-med", title: "Anatomy and Physiology", description: "Study of human body systems and physiology" },
+              { id: "pathology", title: "Pathology", description: "Introduction to medical pathology and disease processes" },
+              { id: "pharmacology", title: "Pharmacology", description: "Introduction to drug action and therapeutic principles" },
+              { id: "medical-ethics", title: "Medical Ethics", description: "Ethical principles and professional conduct in medicine" },
+              { id: "university-elective-med-1", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-1", title: "Clinical Skills I", description: "Basic clinical skills and patient interaction" },
+              { id: "medical-microbiology", title: "Medical Microbiology", description: "Study of microorganisms and their role in medicine" },
+              { id: "community-health", title: "Community Health", description: "Introduction to public health and community medicine" },
+              { id: "basic-clinical-skills", title: "Basic Clinical Skills", description: "Practical skills in patient assessment and care" },
+              { id: "university-elective-med-2", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-2", title: "Clinical Skills II", description: "Advanced clinical skills and patient care" },
+              { id: "medical-parasitology", title: "Medical Parasitology", description: "Study of parasites and their role in medicine" },
+              { id: "emergency-medicine", title: "Emergency Medicine", description: "Principles and management of emergency situations" },
+              { id: "basic-clinical-skills-2", title: "Basic Clinical Skills II", description: "Advanced practical skills in patient assessment and care" },
+              { id: "university-elective-med-3", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-3", title: "Clinical Skills III", description: "Specialized clinical skills and patient care" },
+              { id: "medical-entomology", title: "Medical Entomology", description: "Study of insects and their role in medicine" },
+              { id: "infectious-diseases", title: "Infectious Diseases", description: "Principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-3", title: "Basic Clinical Skills III", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-4", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-4", title: "Clinical Skills IV", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology", title: "Medical Zoology", description: "Study of animals and their role in medicine" },
+              { id: "neurology", title: "Neurology", description: "Principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-4", title: "Basic Clinical Skills IV", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-5", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-5", title: "Clinical Skills V", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany", title: "Medical Botany", description: "Study of plants and their role in medicine" },
+              { id: "psychiatry", title: "Psychiatry", description: "Principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-5", title: "Basic Clinical Skills V", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-6", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-6", title: "Clinical Skills VI", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-2", title: "Medical Entomology II", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-2", title: "Infectious Diseases II", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-6", title: "Basic Clinical Skills VI", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-7", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-7", title: "Clinical Skills VII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-2", title: "Medical Zoology II", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-2", title: "Neurology II", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-7", title: "Basic Clinical Skills VII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-8", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 5,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-8", title: "Clinical Skills VIII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-2", title: "Medical Botany II", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-2", title: "Psychiatry II", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-8", title: "Basic Clinical Skills VIII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-9", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-9", title: "Clinical Skills IX", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-3", title: "Medical Entomology III", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-3", title: "Infectious Diseases III", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-9", title: "Basic Clinical Skills IX", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-10", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 6,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-10", title: "Clinical Skills X", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-3", title: "Medical Zoology III", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-3", title: "Neurology III", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-10", title: "Basic Clinical Skills X", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-11", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-11", title: "Clinical Skills XI", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-3", title: "Medical Botany III", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-3", title: "Psychiatry III", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-11", title: "Basic Clinical Skills XI", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-12", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 7,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-12", title: "Clinical Skills XII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-4", title: "Medical Entomology IV", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-4", title: "Infectious Diseases IV", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-12", title: "Basic Clinical Skills XII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-13", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-13", title: "Clinical Skills XIII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-4", title: "Medical Zoology IV", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-4", title: "Neurology IV", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-13", title: "Basic Clinical Skills XIII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-14", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 8,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-14", title: "Clinical Skills XIV", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-4", title: "Medical Botany IV", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-4", title: "Psychiatry IV", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-14", title: "Basic Clinical Skills XIV", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-15", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-15", title: "Clinical Skills XV", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-5", title: "Medical Entomology V", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-5", title: "Infectious Diseases V", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-15", title: "Basic Clinical Skills XV", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-16", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 9,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-16", title: "Clinical Skills XVI", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-5", title: "Medical Zoology V", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-5", title: "Neurology V", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-16", title: "Basic Clinical Skills XVI", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-17", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-17", title: "Clinical Skills XVII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-5", title: "Medical Botany V", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-5", title: "Psychiatry V", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-17", title: "Basic Clinical Skills XVII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-18", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 10,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-18", title: "Clinical Skills XVIII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-6", title: "Medical Entomology VI", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-6", title: "Infectious Diseases VI", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-18", title: "Basic Clinical Skills XVIII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-19", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-19", title: "Clinical Skills XIX", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-6", title: "Medical Zoology VI", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-6", title: "Neurology VI", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-19", title: "Basic Clinical Skills XIX", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-20", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 11,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-20", title: "Clinical Skills XX", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-6", title: "Medical Botany VI", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-6", title: "Psychiatry VI", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-20", title: "Basic Clinical Skills XX", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-21", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-21", title: "Clinical Skills XXI", description: "Advanced clinical skills and patient care" },
+              { id: "medical-entomology-7", title: "Medical Entomology VII", description: "Advanced study of insects and their role in medicine" },
+              { id: "infectious-diseases-7", title: "Infectious Diseases VII", description: "Advanced principles and management of infectious diseases" },
+              { id: "basic-clinical-skills-21", title: "Basic Clinical Skills XXI", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-22", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 12,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "clinical-skills-22", title: "Clinical Skills XXII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-zoology-7", title: "Medical Zoology VII", description: "Advanced study of animals and their role in medicine" },
+              { id: "neurology-7", title: "Neurology VII", description: "Advanced principles and management of neurological disorders" },
+              { id: "basic-clinical-skills-22", title: "Basic Clinical Skills XXII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-23", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "clinical-skills-23", title: "Clinical Skills XXIII", description: "Advanced clinical skills and patient care" },
+              { id: "medical-botany-7", title: "Medical Botany VII", description: "Advanced study of plants and their role in medicine" },
+              { id: "psychiatry-7", title: "Psychiatry VII", description: "Advanced principles and management of mental health disorders" },
+              { id: "basic-clinical-skills-23", title: "Basic Clinical Skills XXIII", description: "Advanced specialized clinical skills" },
+              { id: "university-elective-med-24", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "law",
+    title: "LLB. Law",
+    description: "Study of legal systems, jurisprudence, and legal practice",
+    years: [
+      {
+        year: 1,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "intro-law", title: "Introduction to Law", description: "Fundamentals of legal systems and legal reasoning" },
+              { id: "legal-methods", title: "Legal Methods", description: "Introduction to legal research, writing, and analysis" },
+              { id: "contract-law", title: "Contract Law", description: "Introduction to contract formation, interpretation, and breach" },
+              { id: "tort-law", title: "Tort Law", description: "Introduction to civil wrongs and liability" },
+              { id: "university-elective-law-1", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "criminal-law", title: "Criminal Law", description: "Introduction to criminal offenses and defenses" },
+              { id: "property-law", title: "Property Law", description: "Introduction to ownership, transfer, and encumbrances" },
+              { id: "constitutional-law", title: "Constitutional Law", description: "Introduction to the legal system and fundamental rights" },
+              { id: "university-elective-law-2", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 2,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "contract-law-2", title: "Contract Law II", description: "Advanced study of contract formation, interpretation, and breach" },
+              { id: "tort-law-2", title: "Tort Law II", description: "Advanced study of civil wrongs and liability" },
+              { id: "criminal-law-2", title: "Criminal Law II", description: "Advanced study of criminal offenses and defenses" },
+              { id: "property-law-2", title: "Property Law II", description: "Advanced study of ownership, transfer, and encumbrances" },
+              { id: "constitutional-law-2", title: "Constitutional Law II", description: "Advanced study of the legal system and fundamental rights" },
+              { id: "university-elective-law-3", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "international-law", title: "International Law", description: "Introduction to international legal systems and treaties" },
+              { id: "legal-writing-2", title: "Legal Writing II", description: "Advanced legal research, writing, and analysis" },
+              { id: "legal-skills", title: "Legal Skills", description: "Practical legal skills in negotiation, drafting, and advocacy" },
+              { id: "university-elective-law-4", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 3,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "contract-law-3", title: "Contract Law III", description: "Advanced study of contract formation, interpretation, and breach" },
+              { id: "tort-law-3", title: "Tort Law III", description: "Advanced study of civil wrongs and liability" },
+              { id: "criminal-law-3", title: "Criminal Law III", description: "Advanced study of criminal offenses and defenses" },
+              { id: "property-law-3", title: "Property Law III", description: "Advanced study of ownership, transfer, and encumbrances" },
+              { id: "constitutional-law-3", title: "Constitutional Law III", description: "Advanced study of the legal system and fundamental rights" },
+              { id: "university-elective-law-5", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "international-law-2", title: "International Law II", description: "Advanced study of international legal systems and treaties" },
+              { id: "legal-writing-3", title: "Legal Writing III", description: "Advanced legal research, writing, and analysis" },
+              { id: "legal-skills-2", title: "Legal Skills II", description: "Advanced practical legal skills in negotiation, drafting, and advocacy" },
+              { id: "university-elective-law-6", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      },
+      {
+        year: 4,
+        semesters: [
+          {
+            semester: 1,
+            courses: [
+              { id: "contract-law-4", title: "Contract Law IV", description: "Advanced study of contract formation, interpretation, and breach" },
+              { id: "tort-law-4", title: "Tort Law IV", description: "Advanced study of civil wrongs and liability" },
+              { id: "criminal-law-4", title: "Criminal Law IV", description: "Advanced study of criminal offenses and defenses" },
+              { id: "property-law-4", title: "Property Law IV", description: "Advanced study of ownership, transfer, and encumbrances" },
+              { id: "constitutional-law-4", title: "Constitutional Law IV", description: "Advanced study of the legal system and fundamental rights" },
+              { id: "university-elective-law-7", title: "University Elective/General Education", description: "General education course" }
+            ]
+          },
+          {
+            semester: 2,
+            courses: [
+              { id: "international-law-3", title: "International Law III", description: "Advanced study of international legal systems and treaties" },
+              { id: "legal-writing-4", title: "Legal Writing IV", description: "Advanced legal research, writing, and analysis" },
+              { id: "legal-skills-3", title: "Legal Skills III", description: "Advanced practical legal skills in negotiation, drafting, and advocacy" },
+              { id: "university-elective-law-8", title: "University Elective/General Education", description: "General education course" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
+
+// Prefix all course IDs with their program ID for uniqueness
+function prefixCourseIds(programs) {
+  return programs.map(program => ({
+    ...program,
+    years: program.years.map(year => ({
+      ...year,
+      semesters: year.semesters.map(semester => ({
+        ...semester,
+        courses: semester.courses.map(course => ({
+          ...course,
+          id: `${program.id}-${course.id}`
+        }))
+      }))
+    }))
+  }))
+}
+
+programs = prefixCourseIds(programs)
 
 // Quiz questions data - we'll generate this for all courses
 const quizQuestions = {
@@ -818,6 +1671,33 @@ const quizQuestions = {
       ],
       correctAnswer: "Classification predicts categories, regression predicts continuous values"
     }
+  ],
+  "calculus-1": [
+    {
+      text: "What is the derivative of sin(x)?",
+      options: ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+      correctAnswer: "cos(x)"
+    },
+    {
+      text: "What is the integral of 1/x dx?",
+      options: ["ln|x| + C", "x^2/2 + C", "e^x + C", "1/(x^2) + C"],
+      correctAnswer: "ln|x| + C"
+    },
+    {
+      text: "What is the limit of (sin(x)/x) as x approaches 0?",
+      options: ["0", "1", "Infinity", "Does not exist"],
+      correctAnswer: "1"
+    },
+    {
+      text: "Which rule is used to differentiate a product of two functions?",
+      options: ["Product Rule", "Quotient Rule", "Chain Rule", "Power Rule"],
+      correctAnswer: "Product Rule"
+    },
+    {
+      text: "What is the area under the curve y = x from x = 0 to x = 2?",
+      options: ["2", "4", "1", "None of the above"],
+      correctAnswer: "2"
+    }
   ]
 }
 
@@ -870,9 +1750,56 @@ async function seedDatabase() {
     await prisma.question.deleteMany()
     await prisma.quiz.deleteMany()
     await prisma.recommendation.deleteMany()
+    await prisma.course.deleteMany()
+    await prisma.semester.deleteMany()
+    await prisma.year.deleteMany()
+    await prisma.program.deleteMany()
+
+    // Seed programs, years, semesters, and courses
+    console.log('Seeding programs, years, semesters, and courses...')
+    for (const programData of programs) {
+      const program = await prisma.program.create({
+        data: {
+          id: programData.id,
+          title: programData.title,
+          description: programData.description
+        }
+      })
+
+      for (const yearData of programData.years) {
+        const year = await prisma.year.create({
+          data: {
+            year: yearData.year,
+            programId: program.id
+          }
+        })
+
+        for (const semesterData of yearData.semesters) {
+          const semester = await prisma.semester.create({
+            data: {
+              semester: semesterData.semester,
+              yearId: year.id
+            }
+          })
+
+          for (const courseData of semesterData.courses) {
+            await prisma.course.create({
+              data: {
+                id: courseData.id,
+                title: courseData.title,
+                description: courseData.description,
+                semesterId: semester.id
+              }
+            })
+          }
+        }
+      }
+    }
 
     // Seed recommendations
     console.log('Seeding recommendations...')
+    // Temporarily skip recommendations to focus on programs
+    /*
     const recommendationsData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/recommendations.json'), 'utf8'))
     
     for (const rec of recommendationsData) {
@@ -888,6 +1815,7 @@ async function seedDatabase() {
         }
       })
     }
+    */
 
     // Seed quizzes for all courses
     console.log('Seeding quizzes for all courses...')
@@ -897,17 +1825,17 @@ async function seedDatabase() {
       for (const year of program.years) {
         for (const semester of year.semesters) {
           for (const course of semester.courses) {
-            const questions = generateQuizQuestions(course.id, course.title)
+            const questions = generateQuizQuestions(course.id.replace(`${program.id}-`, ''), course.title)
             
-            // Create quiz
+            // Create quiz with proper courseId linking
             const quiz = await prisma.quiz.create({
               data: {
-                id: course.id,
                 title: course.title,
                 description: course.description || `Quiz for ${course.title}`,
                 difficulty: year.year === 1 ? "Beginner" : year.year === 2 ? "Intermediate" : "Advanced",
                 timeLimit: 15,
-                tags: [program.id, `year-${year.year}`, `semester-${semester.semester}`]
+                tags: [program.id, `year-${year.year}`, `semester-${semester.semester}`],
+                courseId: course.id  // Link the quiz to the course
               }
             })
 
@@ -918,6 +1846,7 @@ async function seedDatabase() {
                   text: questionData.text,
                   options: questionData.options,
                   correctAnswer: questionData.correctAnswer,
+                  explanation: questionData.explanation || `This question tests understanding of ${course.title}`,
                   quizId: quiz.id
                 }
               })
@@ -932,7 +1861,7 @@ async function seedDatabase() {
 
     console.log(`\nDatabase seeding completed successfully!`)
     console.log(`Created ${quizCount} quizzes with questions`)
-    console.log(`Created ${recommendationsData.length} recommendations`)
+    // console.log(`Created ${recommendationsData.length} recommendations`)
 
   } catch (error) {
     console.error('Error seeding database:', error)

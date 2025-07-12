@@ -2,6 +2,34 @@
 
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import useSWR from "swr"
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
+interface Program {
+  id: string
+  title: string
+  description: string
+  years: Year[]
+}
+
+interface Year {
+  id: string
+  year: number
+  semesters: Semester[]
+}
+
+interface Semester {
+  id: string
+  semester: number
+  courses: Course[]
+}
+
+interface Course {
+  id: string
+  title: string
+  description: string
+}
 
 interface ProgramSelectorProps {
   selectedProgram: string
@@ -20,6 +48,16 @@ export function ProgramSelector({
   onYearChange,
   onSemesterChange,
 }: ProgramSelectorProps) {
+  const { data: programs, error, isLoading } = useSWR<Program[]>("/api/programs", fetcher)
+
+  if (error) return <div>Failed to load programs.</div>
+  if (isLoading) return <div>Loading programs...</div>
+  if (!programs) return <div>No programs available.</div>
+
+  const currentProgram = programs.find(p => p.id === selectedProgram)
+  const currentYear = currentProgram?.years.find(y => y.year.toString() === selectedYear)
+  const currentSemester = currentYear?.semesters.find(s => s.semester.toString() === selectedSemester)
+
   return (
     <div className="grid gap-4 md:grid-cols-3">
       <div className="space-y-2">
@@ -29,12 +67,11 @@ export function ProgramSelector({
             <SelectValue placeholder="Select program" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="computer-science">BSc. Computer Science</SelectItem>
-            <SelectItem value="electrical-engineering">BSc. Electrical and Electronic Engineering</SelectItem>
-            <SelectItem value="business-admin">BSc. Business Administration</SelectItem>
-            <SelectItem value="civil-engineering">BSc. Civil Engineering</SelectItem>
-            <SelectItem value="nursing">BSc. Nursing</SelectItem>
-            <SelectItem value="agriculture">BSc. Agriculture</SelectItem>
+            {programs.map((program) => (
+              <SelectItem key={program.id} value={program.id}>
+                {program.title}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
@@ -45,10 +82,11 @@ export function ProgramSelector({
             <SelectValue placeholder="Select year" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="1">Year 1</SelectItem>
-            <SelectItem value="2">Year 2</SelectItem>
-            <SelectItem value="3">Year 3</SelectItem>
-            <SelectItem value="4">Year 4</SelectItem>
+            {currentProgram?.years.map((year) => (
+              <SelectItem key={year.id} value={year.year.toString()}>
+                Year {year.year}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
@@ -59,8 +97,11 @@ export function ProgramSelector({
             <SelectValue placeholder="Select semester" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="1">Semester 1</SelectItem>
-            <SelectItem value="2">Semester 2</SelectItem>
+            {currentYear?.semesters.map((semester) => (
+              <SelectItem key={semester.id} value={semester.semester.toString()}>
+                Semester {semester.semester}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>

@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { MapPin, Save, CheckCircle, Loader2 } from "lucide-react"
-import { API_ROUTES } from "@/lib/routes"
+import { CONFIG } from "@/lib/config"
 
 interface LocationData {
   city?: string | null
@@ -21,64 +22,45 @@ interface LocationData {
 }
 
 export function LocationSettings() {
+  const { data: session } = useSession()
+  const { toast } = useToast()
   const [location, setLocation] = useState<LocationData>({})
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [success, setSuccess] = useState(false)
-  const { toast } = useToast()
 
   useEffect(() => {
     const fetchLocation = async () => {
+      if (!session?.user?.id) return
+
       try {
-        setLoading(true)
-        const response = await fetch(API_ROUTES.USERS_LOCATION)
-        
+        const response = await fetch('/api/users/location')
         if (response.ok) {
           const data = await response.json()
-          setLocation(data.location || {})
+          setLocation(data)
         }
       } catch (error) {
         console.error("Error fetching location:", error)
-        toast({
-          title: "Error",
-          description: "Failed to load your location information",
-          variant: "destructive",
-        })
       } finally {
         setLoading(false)
       }
     }
 
     fetchLocation()
-  }, [toast])
+  }, [session?.user?.id])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    if (!location.city || !location.country) {
-      toast({
-        title: "Missing Information",
-        description: "Please provide at least your city and country",
-        variant: "destructive",
-      })
-      return
-    }
+    if (!session?.user?.id) return
 
+    setSaving(true)
     try {
-      setSaving(true)
-      const response = await fetch(API_ROUTES.USERS_LOCATION, {
-        method: "PUT",
+      const response = await fetch('/api/users/location', {
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          city: location.city,
-          country: location.country,
-          region: location.region,
-          timezone: location.timezone,
-          latitude: location.coordinates?.lat,
-          longitude: location.coordinates?.lng,
-        }),
+        body: JSON.stringify(location),
       })
 
       if (response.ok) {
@@ -88,8 +70,8 @@ export function LocationSettings() {
           description: "Your location has been updated successfully",
         })
         
-        // Reset success state after 3 seconds
-        setTimeout(() => setSuccess(false), 3000)
+        // Reset success state after configured duration
+        setTimeout(() => setSuccess(false), CONFIG.PERFORMANCE.SUCCESS_MESSAGE_DURATION)
       } else {
         const error = await response.json()
         throw new Error(error.error || "Failed to update location")

@@ -1,5 +1,6 @@
-import { programs } from "./program-data"
+import { getAllPrograms, getCourseById, type Program, type Course } from "./program-service"
 import { getResourcesForCourse } from "./resource-service"
+import { cacheService } from "./cache-service"
 
 export interface GeminiStudyPlan {
   courseTitle: string
@@ -37,8 +38,10 @@ export interface QuizContext {
   difficulty?: string
 }
 
-// Generate personalized study plan using Gemini AI
-export async function generateGeminiStudyPlan(quizContext: QuizContext): Promise<GeminiStudyPlan | null> {
+// Generate personalized study plan using Gemini AI with caching
+export async function generateGeminiStudyPlan(quizContext: QuizContext, userId?: string): Promise<GeminiStudyPlan | null> {
+  const startTime = Date.now()
+  
   try {
     // Check if Gemini API key is configured
     if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === "your-gemini-api-key-here") {
@@ -46,11 +49,34 @@ export async function generateGeminiStudyPlan(quizContext: QuizContext): Promise
       return generateBasicStudyPlan(quizContext)
     }
 
+    // Try to get from cache first
+    const cached = await cacheService.getCachedStudyPlan(
+      quizContext,
+      'gemini',
+      userId,
+      quizContext.courseId
+    )
+
+    if (cached) {
+      // Log cache hit
+      await cacheService.logAPICall({
+        userId,
+        apiProvider: 'gemini',
+        endpoint: 'study-plan',
+        success: true,
+        cacheHit: true,
+        responseTime: Date.now() - startTime
+      })
+
+      return cached.studyPlan as GeminiStudyPlan
+    }
+
     const percentage = (quizContext.score / quizContext.totalQuestions) * 100
-    const courseResources = getResourcesForCourse(quizContext.courseId)
+    const courseResources = await getResourcesForCourse(quizContext.courseId)
+    const course = await getCourseById(quizContext.programId, quizContext.courseId)
     
     // Create comprehensive prompt for Gemini
-    const prompt = createStudyPlanPrompt(quizContext, courseResources, percentage)
+    const prompt = createStudyPlanPrompt(quizContext, courseResources, percentage, course)
     
     // Call Gemini API
     const model = process.env.GEMINI_MODEL || "gemini-2.0-flash"
@@ -77,6 +103,18 @@ export async function generateGeminiStudyPlan(quizContext: QuizContext): Promise
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}))
       console.error("Gemini API error:", errorData.error?.message || response.statusText)
+      
+      // Log failed API call
+      await cacheService.logAPICall({
+        userId,
+        apiProvider: 'gemini',
+        endpoint: 'study-plan',
+        success: false,
+        cacheHit: false,
+        responseTime: Date.now() - startTime,
+        errorMessage: errorData.error?.message || response.statusText
+      })
+      
       return generateBasicStudyPlan(quizContext)
     }
 
@@ -86,35 +124,130 @@ export async function generateGeminiStudyPlan(quizContext: QuizContext): Promise
     // Parse Gemini response
     const studyPlan = parseGeminiResponse(text, quizContext)
     
+    // Cache the successful response
+    await cacheService.cacheStudyPlan(
+      quizContext,
+      'gemini',
+      {
+        studyPlan,
+        quizContext,
+        confidence: calculateStudyPlanConfidence(studyPlan, percentage),
+        generatedBy: 'Gemini AI'
+      },
+      userId,
+      quizContext.courseId
+    )
+
+    // Log successful API call
+    await cacheService.logAPICall({
+      userId,
+      apiProvider: 'gemini',
+      endpoint: 'study-plan',
+      success: true,
+      cacheHit: false,
+      responseTime: Date.now() - startTime,
+      cost: estimateGeminiCost(text),
+      tokens: estimateGeminiTokens(prompt, text)
+    })
+    
     return studyPlan
   } catch (error) {
     console.error("Error generating Gemini study plan:", error)
+    
+    // Log failed API call
+    await cacheService.logAPICall({
+      userId,
+      apiProvider: 'gemini',
+      endpoint: 'study-plan',
+      success: false,
+      cacheHit: false,
+      responseTime: Date.now() - startTime,
+      errorMessage: error instanceof Error ? error.message : 'Unknown error'
+    })
+    
     return generateBasicStudyPlan(quizContext)
   }
 }
 
-function createStudyPlanPrompt(quizContext: QuizContext, courseResources: any[], percentage: number): string {
-  const course = getCourseById(quizContext.programId, quizContext.courseId)
+/**
+ * Calculate study plan confidence based on various factors
+ */
+function calculateStudyPlanConfidence(studyPlan: GeminiStudyPlan, percentage: number): number {
+  let confidence = 70 // Base confidence
+
+  // Factor in study plan completeness
+  if (studyPlan.studySteps.length >= 5) confidence += 10
+  if (studyPlan.focusAreas.length >= 3) confidence += 10
+  if (studyPlan.weeklyGoals.length >= 3) confidence += 10
+
+  // Factor in performance level
+  if (percentage > 80) confidence += 5
+  else if (percentage > 60) confidence += 10
+  else confidence += 15 // Higher confidence for lower performers (more room for improvement)
+
+  // Factor in resource recommendations
+  const totalResources = studyPlan.resources.primary.length + 
+                        studyPlan.resources.supplementary.length + 
+                        studyPlan.resources.practice.length
+  if (totalResources >= 5) confidence += 5
+
+  return Math.min(100, confidence)
+}
+
+/**
+ * Estimate Gemini API cost
+ */
+function estimateGeminiCost(responseText: string): number {
+  // Rough estimation: $0.0005 per 1K characters for Gemini
+  const estimatedChars = responseText.length
+  return (estimatedChars / 1000) * 0.0005
+}
+
+/**
+ * Estimate Gemini token count
+ */
+function estimateGeminiTokens(prompt: string, response: string): number {
+  // Rough estimation: 1 token ≈ 4 characters
+  const totalChars = prompt.length + response.length
+  return Math.round(totalChars / 4)
+}
+
+function createStudyPlanPrompt(quizContext: QuizContext, courseResources: any[], percentage: number, course?: any): string {
   const availableResources = courseResources.map(r => ({
     title: r.title,
     type: r.type,
-    difficulty: r.tags.find(tag => ['beginner', 'intermediate', 'advanced'].includes(tag.toLowerCase())) || 'intermediate',
+    difficulty: r.tags.find((tag: string) => ['beginner', 'intermediate', 'advanced'].includes(tag.toLowerCase())) || 'intermediate',
     rating: r.rating,
     duration: r.duration
   }))
 
-  return `
-You are an expert educational AI assistant. Generate a comprehensive, personalized study plan for a student based on their quiz performance.
+  // Enhanced context analysis
+  const performanceAnalysis = buildDetailedPerformanceAnalysis(quizContext, percentage)
+  const learningInsights = analyzeLearningInsights(quizContext)
+  const resourceContext = buildResourceContext(availableResources)
+  const courseContext = buildCourseContext(course, quizContext)
 
-STUDENT PERFORMANCE:
+  return `
+You are an expert educational AI assistant. Generate a comprehensive, personalized study plan for a student based on their detailed quiz performance and learning patterns.
+
+STUDENT PERFORMANCE DATA:
 - Course: ${quizContext.courseTitle}
 - Quiz Score: ${quizContext.score}/${quizContext.totalQuestions} (${percentage.toFixed(1)}%)
 - Program: ${quizContext.programId}
 - Time Spent: ${quizContext.timeSpent || 'Unknown'} seconds
 - Difficulty Level: ${quizContext.difficulty || 'Standard'}
 
-AVAILABLE RESOURCES:
-${availableResources.map(r => `- ${r.title} (${r.type}, ${r.difficulty}, ${r.rating}/5, ${r.duration})`).join('\n')}
+DETAILED PERFORMANCE ANALYSIS:
+${performanceAnalysis}
+
+LEARNING INSIGHTS:
+${learningInsights}
+
+COURSE CONTEXT:
+${courseContext}
+
+AVAILABLE RESOURCES: ${availableResources.length} curated resources
+${resourceContext}
 
 TASK: Create a detailed study plan in the following JSON format:
 
@@ -124,11 +257,11 @@ TASK: Create a detailed study plan in the following JSON format:
   "targetScore": ${Math.min(100, percentage + 20)},
   "programId": "${quizContext.programId}",
   "studySteps": [
-    "5 specific, actionable study steps tailored to the student's performance level"
+    "5 specific, actionable study steps tailored to the student's performance level and learning patterns"
   ],
-  "personalizedAdvice": "2-3 sentences of personalized advice based on their score",
+  "personalizedAdvice": "2-3 sentences of personalized advice based on their detailed performance analysis",
   "focusAreas": [
-    "3 specific areas the student should focus on based on their performance"
+    "3 specific areas the student should focus on based on their performance and learning insights"
   ],
   "timeAllocation": {
     "conceptReview": 25,
@@ -140,25 +273,198 @@ TASK: Create a detailed study plan in the following JSON format:
     "3 specific weekly goals to achieve the target score"
   ],
   "resources": {
-    "primary": ["3 most important resource titles"],
+    "primary": ["3 most important resource titles based on performance gaps"],
     "supplementary": ["2 additional helpful resource titles"],
     "practice": ["2 practice-focused resource titles"]
   },
   "estimatedImprovement": "Expected improvement with this plan (e.g., '15-20% improvement in 2 weeks')",
-  "nextMilestone": "Next achievement to aim for (e.g., 'Master intermediate concepts')"
+  "nextMilestone": "Next achievement to aim for (e.g., 'Master intermediate concepts')",
+  "studySchedule": {
+    "recommendedSessionsPerWeek": 3,
+    "sessionDuration": 45,
+    "breakFrequency": 15,
+    "optimalTimeOfDay": "morning/afternoon/evening"
+  },
+  "learningStrategies": [
+    "2-3 specific learning strategies based on the student's performance patterns"
+  ],
+  "confidence": ${Math.min(100, Math.max(0, percentage + 20))}
 }
 
 GUIDELINES:
 - If score < 40%: Focus on foundational concepts, basic terminology, and building confidence
 - If score 40-70%: Focus on practice problems, concept connections, and filling knowledge gaps
 - If score > 70%: Focus on advanced applications, real-world projects, and mastery
-- Make advice specific to the course subject matter
+- Consider the student's time management patterns and efficiency
+- Address specific learning gaps identified in the performance analysis
+- Make advice specific to the course subject matter and student's learning style
 - Ensure study steps are actionable and time-bound
 - Consider the student's current level when recommending resources
 - Be encouraging but realistic about improvement expectations
+- Include strategies for improving time management if needed
 
 Respond only with the JSON object, no additional text.
 `
+}
+
+/**
+ * Build detailed performance analysis for enhanced context
+ */
+function buildDetailedPerformanceAnalysis(quizContext: QuizContext, percentage: number): string {
+  const timePerQuestion = quizContext.timeSpent ? quizContext.timeSpent / quizContext.totalQuestions : 0
+  const timeEfficiency = timePerQuestion > 0 ? percentage / (timePerQuestion / 60) : 0
+  
+  let analysis = `- Overall Performance: ${percentage.toFixed(1)}%
+- Questions Attempted: ${quizContext.totalQuestions}
+- Time per Question: ${timePerQuestion > 0 ? `${Math.round(timePerQuestion)}s` : 'Unknown'}
+- Time Efficiency: ${timeEfficiency > 0 ? `${Math.round(timeEfficiency * 100) / 100} points per minute` : 'Unknown'}`
+
+  // Add difficulty-specific analysis if available
+  if (quizContext.difficulty) {
+    analysis += `\n- Quiz Difficulty: ${quizContext.difficulty}`
+  }
+
+  // Add incorrect answers analysis if available
+  if (quizContext.incorrectAnswers && quizContext.incorrectAnswers.length > 0) {
+    analysis += `\n- Incorrect Answers: ${quizContext.incorrectAnswers.length} out of ${quizContext.totalQuestions}`
+  }
+
+  // Performance level assessment
+  let performanceLevel = 'Intermediate'
+  if (percentage < 40) performanceLevel = 'Beginner'
+  else if (percentage > 80) performanceLevel = 'Advanced'
+  
+  analysis += `\n- Performance Level: ${performanceLevel}
+- Efficiency Rating: ${timeEfficiency > 2.0 ? 'High' : timeEfficiency > 1.0 ? 'Medium' : 'Low'}`
+
+  return analysis
+}
+
+/**
+ * Analyze learning insights from quiz context
+ */
+function analyzeLearningInsights(quizContext: QuizContext): string {
+  const percentage = (quizContext.score / quizContext.totalQuestions) * 100
+  const timePerQuestion = quizContext.timeSpent ? quizContext.timeSpent / quizContext.totalQuestions : 0
+  
+  let insights = []
+
+  // Time management insights
+  if (timePerQuestion > 0) {
+    if (timePerQuestion < 30) {
+      insights.push('May be rushing through questions - consider slowing down')
+    } else if (timePerQuestion > 120) {
+      insights.push('Taking time to think through problems - good for accuracy')
+    } else {
+      insights.push('Balanced time management approach')
+    }
+  }
+
+  // Performance insights
+  if (percentage < 50) {
+    insights.push('Needs foundational concept review')
+  } else if (percentage < 70) {
+    insights.push('Has basic understanding but needs practice')
+  } else {
+    insights.push('Strong grasp of concepts - ready for advanced topics')
+  }
+
+  // Learning style indicators
+  if (quizContext.incorrectAnswers && quizContext.incorrectAnswers.length > 0) {
+    insights.push('May benefit from targeted practice on specific topics')
+  }
+
+  return insights.length > 0 ? insights.join('\n- ') : 'Standard learning patterns observed'
+}
+
+/**
+ * Build resource context for better recommendations
+ */
+function buildResourceContext(availableResources: any[]): string {
+  if (availableResources.length === 0) return "No specific resources available"
+
+  const resourceTypes = availableResources.reduce((acc, resource) => {
+    acc[resource.type] = (acc[resource.type] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+
+  const difficultyLevels = availableResources.reduce((acc, resource) => {
+    acc[resource.difficulty] = (acc[resource.difficulty] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+
+  const highQualityResources = availableResources.filter(r => r.rating && r.rating > 4.0).length
+  const avgDuration = Math.round(availableResources.reduce((sum, r) => sum + (parseInt(r.duration) || 45), 0) / availableResources.length)
+
+  return `
+Resource Distribution:
+- Types: ${Object.entries(resourceTypes).map(([type, count]) => `${type}: ${count}`).join(', ')}
+- Difficulty Levels: ${Object.entries(difficultyLevels).map(([diff, count]) => `${diff}: ${count}`).join(', ')}
+- High-Quality Resources (4+ rating): ${highQualityResources}
+- Average Duration: ${avgDuration} minutes`
+}
+
+/**
+ * Build course context for better personalization
+ */
+function buildCourseContext(course: any, quizContext: QuizContext): string {
+  if (!course) return "Course information not available"
+
+  const yearLevel = quizContext.programId.includes('1') ? 'First Year' : 
+                   quizContext.programId.includes('2') ? 'Second Year' : 'Advanced'
+  
+  const semesterFocus = quizContext.programId.includes('1') ? 'Foundation building' : 
+                       quizContext.programId.includes('2') ? 'Intermediate concepts' : 'Advanced applications'
+
+  return `- Course Level: ${yearLevel}
+- Semester Focus: ${semesterFocus}
+- Course Type: ${getCourseType(course.title)}
+- Typical Prerequisites: ${getPrerequisites(course.title)}
+- Expected Outcomes: ${getExpectedOutcomes(course.title)}`
+}
+
+/**
+ * Get course type for context
+ */
+function getCourseType(courseTitle: string): string {
+  const title = courseTitle.toLowerCase()
+  
+  if (title.includes('programming') || title.includes('coding')) return 'Programming/Development'
+  if (title.includes('algorithm') || title.includes('data structure')) return 'Computer Science Theory'
+  if (title.includes('database') || title.includes('sql')) return 'Database Management'
+  if (title.includes('web') || title.includes('frontend') || title.includes('backend')) return 'Web Development'
+  if (title.includes('network') || title.includes('security')) return 'Networking/Security'
+  if (title.includes('math') || title.includes('calculus') || title.includes('algebra')) return 'Mathematics'
+  
+  return 'General Computing'
+}
+
+/**
+ * Get prerequisites for course
+ */
+function getPrerequisites(courseTitle: string): string {
+  const title = courseTitle.toLowerCase()
+  
+  if (title.includes('advanced') || title.includes('2')) return 'Basic programming concepts'
+  if (title.includes('algorithm') || title.includes('data structure')) return 'Programming fundamentals, basic math'
+  if (title.includes('database')) return 'Basic programming, data concepts'
+  if (title.includes('web')) return 'HTML, CSS, basic programming'
+  
+  return 'None specified'
+}
+
+/**
+ * Get expected outcomes for course
+ */
+function getExpectedOutcomes(courseTitle: string): string {
+  const title = courseTitle.toLowerCase()
+  
+  if (title.includes('programming')) return 'Ability to write and debug code'
+  if (title.includes('algorithm')) return 'Problem-solving skills, algorithm design'
+  if (title.includes('database')) return 'Database design and management skills'
+  if (title.includes('web')) return 'Web development and deployment skills'
+  
+  return 'Subject matter proficiency'
 }
 
 function parseGeminiResponse(text: string, quizContext: QuizContext): GeminiStudyPlan {
@@ -241,20 +547,6 @@ function generateBasicStudyPlan(quizContext: QuizContext): GeminiStudyPlan {
     estimatedImprovement: "10-15% improvement with consistent study",
     nextMilestone: "Achieve intermediate level proficiency"
   }
-}
-
-// Helper function to get course by ID
-function getCourseById(programId: string, courseId: string) {
-  const program = programs.find(p => p.id === programId)
-  if (!program) return null
-  
-  for (const year of program.years) {
-    for (const semester of year.semesters) {
-      const course = semester.courses.find(c => c.id === courseId)
-      if (course) return course
-    }
-  }
-  return null
 }
 
 // Generate study plan for multiple courses

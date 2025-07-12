@@ -77,7 +77,7 @@ export async function submitQuiz(submission: QuizSubmission, userId: string): Pr
       throw new Error(`Question at index ${questionIndex} not found`)
     }
 
-    if (question.correctAnswer === answer) {
+    if (parseInt(question.correctAnswer) === answer) {
       score++
       correctAnswers.push(questionIndex)
     } else {
@@ -96,7 +96,9 @@ export async function submitQuiz(submission: QuizSubmission, userId: string): Pr
           score,
           totalQuestions: quiz.questions.length,
           correctAnswers,
-          incorrectAnswers
+          incorrectAnswers,
+          percentage: Math.round((score / quiz.questions.length) * 100),
+          passed: score >= Math.ceil(quiz.questions.length * 0.6)
         }
       }
     },

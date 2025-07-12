@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         id: user.id,
         name: user.name,
         email: user.email,
-        program: user.program
+        programId: user.programId
       }
     })
   } catch (error) {

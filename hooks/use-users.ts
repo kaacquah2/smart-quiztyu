@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useMemo } from "react"
 import { useSession } from "next-auth/react"
 
 interface UserLocation {
@@ -43,6 +43,14 @@ export function useUsers(filters: UseUsersFilters = {}) {
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+
+  // Memoize the filters to prevent unnecessary re-renders
+  const memoizedFilters = useMemo(() => filters, [
+    filters.location,
+    filters.country,
+    filters.region,
+    filters.program
+  ])
 
   const fetchUsers = useCallback(async (filterParams: UseUsersFilters = {}) => {
     try {
@@ -96,8 +104,8 @@ export function useUsers(filters: UseUsersFilters = {}) {
       return
     }
 
-    fetchUsers(filters)
-  }, [session?.user?.id, status, fetchUsers, filters])
+    fetchUsers(memoizedFilters)
+  }, [session?.user?.id, status, fetchUsers, memoizedFilters])
 
   const toggleFollow = (userId: string) => {
     setUsers(prev => prev.map(user => 
@@ -106,7 +114,7 @@ export function useUsers(filters: UseUsersFilters = {}) {
   }
 
   const refreshUsers = () => {
-    fetchUsers(filters)
+    fetchUsers(memoizedFilters)
   }
 
   return {

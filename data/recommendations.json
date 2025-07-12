@@ -5,7 +5,11 @@
     "description": "A comprehensive introduction to fundamental computer science concepts",
     "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
     "type": "video",
-    "tags": ["computer science", "fundamentals", "theory"],
+    "tags": [
+      "computer science",
+      "fundamentals",
+      "theory"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -14,7 +18,11 @@
     "description": "A fast-paced introduction to key computer science topics",
     "url": "https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo",
     "type": "video",
-    "tags": ["computer science", "fundamentals", "theory"],
+    "tags": [
+      "computer science",
+      "fundamentals",
+      "theory"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -23,7 +31,11 @@
     "description": "Learn about fundamental algorithms and data structures",
     "url": "https://www.geeksforgeeks.org/data-structures/",
     "type": "article",
-    "tags": ["computer science", "algorithms", "data structures"],
+    "tags": [
+      "computer science",
+      "algorithms",
+      "data structures"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -32,7 +44,11 @@
     "description": "Essential mathematical concepts for computer science",
     "url": "https://www.coursera.org/learn/discrete-mathematics",
     "type": "course",
-    "tags": ["mathematics", "computer science", "logic"],
+    "tags": [
+      "mathematics",
+      "computer science",
+      "logic"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -41,7 +57,11 @@
     "description": "Learn the fundamentals of Python programming",
     "url": "https://www.w3schools.com/python/",
     "type": "tutorial",
-    "tags": ["python", "programming", "computer science"],
+    "tags": [
+      "python",
+      "programming",
+      "computer science"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -50,7 +70,11 @@
     "description": "Comprehensive guide to data structures in Python",
     "url": "https://realpython.com/python-data-structures/",
     "type": "article",
-    "tags": ["python", "programming", "data structures"],
+    "tags": [
+      "python",
+      "programming",
+      "data structures"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -59,7 +83,11 @@
     "description": "Hands-on exercises to improve your Python skills",
     "url": "https://www.practicepython.org/",
     "type": "exercise",
-    "tags": ["python", "programming", "practice"],
+    "tags": [
+      "python",
+      "programming",
+      "practice"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -68,7 +96,11 @@
     "description": "Deep dive into advanced Python programming techniques",
     "url": "https://realpython.com/tutorials/advanced/",
     "type": "article",
-    "tags": ["python", "programming", "advanced"],
+    "tags": [
+      "python",
+      "programming",
+      "advanced"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -77,7 +109,11 @@
     "description": "Essential mathematical concepts for computer science students",
     "url": "https://mml-book.github.io/",
     "type": "book",
-    "tags": ["mathematics", "computer science", "theory"],
+    "tags": [
+      "mathematics",
+      "computer science",
+      "theory"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -86,7 +122,11 @@
     "description": "Learn probability and statistics concepts relevant to computer science",
     "url": "https://www.edx.org/course/probability-and-statistics-in-data-science-using-p",
     "type": "course",
-    "tags": ["mathematics", "statistics", "probability"],
+    "tags": [
+      "mathematics",
+      "statistics",
+      "probability"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -95,7 +135,11 @@
     "description": "Essential linear algebra concepts for computer science applications",
     "url": "https://www.khanacademy.org/math/linear-algebra",
     "type": "course",
-    "tags": ["mathematics", "linear algebra", "computer science"],
+    "tags": [
+      "mathematics",
+      "linear algebra",
+      "computer science"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -104,7 +148,11 @@
     "description": "Practice problems to develop your computational thinking skills",
     "url": "https://www.cs.cmu.edu/~CompThink/",
     "type": "exercise",
-    "tags": ["computer science", "problem solving", "logic"],
+    "tags": [
+      "computer science",
+      "problem solving",
+      "logic"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -113,7 +161,11 @@
     "description": "Comprehensive introduction to computer networking concepts",
     "url": "https://gaia.cs.umass.edu/kurose_ross/index.php",
     "type": "book",
-    "tags": ["networking", "computer science", "protocols"],
+    "tags": [
+      "networking",
+      "computer science",
+      "protocols"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -122,7 +174,11 @@
     "description": "Essential web security concepts every developer should know",
     "url": "https://www.hacksplaining.com/lessons",
     "type": "interactive",
-    "tags": ["web development", "security", "computer science"],
+    "tags": [
+      "web development",
+      "security",
+      "computer science"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -131,7 +187,11 @@
     "description": "Comprehensive guide to database systems and SQL",
     "url": "https://www.postgresql.org/docs/online-resources/",
     "type": "tutorial",
-    "tags": ["databases", "sql", "computer science"],
+    "tags": [
+      "databases",
+      "sql",
+      "computer science"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -140,7 +200,11 @@
     "description": "Fast-paced introduction to machine learning with TensorFlow",
     "url": "https://developers.google.com/machine-learning/crash-course",
     "type": "course",
-    "tags": ["machine learning", "artificial intelligence", "data science"],
+    "tags": [
+      "machine learning",
+      "artificial intelligence",
+      "data science"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -149,7 +213,11 @@
     "description": "Fundamental concepts of operating systems",
     "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
     "type": "book",
-    "tags": ["operating systems", "computer science", "systems"],
+    "tags": [
+      "operating systems",
+      "computer science",
+      "systems"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -158,7 +226,11 @@
     "description": "Clear explanation of blockchain technology and its applications",
     "url": "https://andersbrownworth.com/blockchain/",
     "type": "interactive",
-    "tags": ["blockchain", "cryptography", "distributed systems"],
+    "tags": [
+      "blockchain",
+      "cryptography",
+      "distributed systems"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -167,7 +239,11 @@
     "description": "Overview of software engineering principles and practices",
     "url": "https://www.coursera.org/learn/introduction-to-software-engineering",
     "type": "course",
-    "tags": ["software engineering", "development", "project management"],
+    "tags": [
+      "software engineering",
+      "development",
+      "project management"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -176,7 +252,11 @@
     "description": "Programming challenges to improve algorithm skills",
     "url": "https://codeforces.com/problemset",
     "type": "exercise",
-    "tags": ["algorithms", "competitive programming", "problem solving"],
+    "tags": [
+      "algorithms",
+      "competitive programming",
+      "problem solving"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -185,7 +265,11 @@
     "description": "In-depth exploration of computer architecture concepts",
     "url": "https://www.coursera.org/learn/comparch",
     "type": "course",
-    "tags": ["computer architecture", "hardware", "systems"],
+    "tags": [
+      "computer architecture",
+      "hardware",
+      "systems"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -194,7 +278,11 @@
     "description": "Common design patterns and their applications",
     "url": "https://refactoring.guru/design-patterns",
     "type": "article",
-    "tags": ["design patterns", "software engineering", "object-oriented programming"],
+    "tags": [
+      "design patterns",
+      "software engineering",
+      "object-oriented programming"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -203,7 +291,11 @@
     "description": "Learn AI concepts using Python programming",
     "url": "https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python",
     "type": "course",
-    "tags": ["artificial intelligence", "python", "machine learning"],
+    "tags": [
+      "artificial intelligence",
+      "python",
+      "machine learning"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -212,7 +304,11 @@
     "description": "Learn ethical hacking and penetration testing techniques",
     "url": "https://www.cybrary.it/course/ethical-hacking/",
     "type": "course",
-    "tags": ["cybersecurity", "ethical hacking", "network security"],
+    "tags": [
+      "cybersecurity",
+      "ethical hacking",
+      "network security"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -221,7 +317,11 @@
     "description": "Create games using the Unity game engine",
     "url": "https://learn.unity.com/",
     "type": "tutorial",
-    "tags": ["game development", "unity", "programming"],
+    "tags": [
+      "game development",
+      "unity",
+      "programming"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -230,7 +330,11 @@
     "description": "Fundamentals of cloud computing technologies",
     "url": "https://aws.amazon.com/training/learn-about/cloud-computing/",
     "type": "course",
-    "tags": ["cloud computing", "aws", "distributed systems"],
+    "tags": [
+      "cloud computing",
+      "aws",
+      "distributed systems"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -239,7 +343,11 @@
     "description": "Build cross-platform mobile apps with React Native",
     "url": "https://reactnative.dev/docs/tutorial",
     "type": "tutorial",
-    "tags": ["mobile development", "react native", "javascript"],
+    "tags": [
+      "mobile development",
+      "react native",
+      "javascript"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -248,7 +356,11 @@
     "description": "Introduction to data science and big data processing",
     "url": "https://www.edx.org/professional-certificate/harvardx-data-science",
     "type": "course",
-    "tags": ["data science", "big data", "analytics"],
+    "tags": [
+      "data science",
+      "big data",
+      "analytics"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -257,7 +369,11 @@
     "description": "Learn about DevOps culture, practices, and tools",
     "url": "https://www.coursera.org/learn/devops-culture-and-mindset",
     "type": "course",
-    "tags": ["devops", "continuous integration", "automation"],
+    "tags": [
+      "devops",
+      "continuous integration",
+      "automation"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -266,7 +382,11 @@
     "description": "Introduction to IoT concepts and applications",
     "url": "https://www.coursera.org/learn/iot",
     "type": "course",
-    "tags": ["iot", "embedded systems", "networking"],
+    "tags": [
+      "iot",
+      "embedded systems",
+      "networking"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -275,7 +395,12 @@
     "description": "A great resource for learning Python from scratch.",
     "url": "https://www.learnpython.org/",
     "type": "tutorial",
-    "tags": ["python", "intro-to-python", "programming", "beginner"],
+    "tags": [
+      "python",
+      "intro-to-python",
+      "programming",
+      "beginner"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -284,7 +409,12 @@
     "description": "Interactive visualizations for common data structures.",
     "url": "https://visualgo.net/en",
     "type": "interactive",
-    "tags": ["data-structures", "algorithms", "computer science", "intermediate"],
+    "tags": [
+      "data-structures",
+      "algorithms",
+      "computer science",
+      "intermediate"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -293,7 +423,12 @@
     "description": "Tips and strategies for clear business communication.",
     "url": "https://www.mindtools.com/CommSkll/CommunicationIntro.htm",
     "type": "article",
-    "tags": ["business-communication", "business", "communication", "beginner"],
+    "tags": [
+      "business-communication",
+      "business",
+      "communication",
+      "beginner"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -302,7 +437,12 @@
     "description": "Video series covering the basics of human anatomy and physiology.",
     "url": "https://www.youtube.com/playlist?list=PL3EED4C1D684D3ADF",
     "type": "video",
-    "tags": ["anatomy-physiology-1", "nursing", "health", "beginner"],
+    "tags": [
+      "anatomy-physiology-1",
+      "nursing",
+      "health",
+      "beginner"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -311,7 +451,11 @@
     "description": "A beginner-friendly introduction to the field of mechanical engineering.",
     "url": "https://www.youtube.com/watch?v=G6h6gC6K5lA",
     "type": "video",
-    "tags": ["mechanical engineering", "introduction", "engineering"],
+    "tags": [
+      "mechanical engineering",
+      "introduction",
+      "engineering"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -320,7 +464,11 @@
     "description": "Comprehensive MIT OpenCourseWare course covering the basics of mechanical engineering.",
     "url": "https://ocw.mit.edu/courses/mechanical-engineering/2-001-mechanics-materials-i-fall-2006/",
     "type": "course",
-    "tags": ["mechanical engineering", "mechanics", "materials"],
+    "tags": [
+      "mechanical engineering",
+      "mechanics",
+      "materials"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -329,7 +477,11 @@
     "description": "Step-by-step tutorial for learning AutoCAD, a key tool in mechanical engineering design.",
     "url": "https://www.youtube.com/watch?v=h0g6r3g4h9o",
     "type": "tutorial",
-    "tags": ["mechanical engineering", "CAD", "design"],
+    "tags": [
+      "mechanical engineering",
+      "CAD",
+      "design"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -338,7 +490,11 @@
     "description": "A beginner-friendly introduction to the field of electrical engineering.",
     "url": "https://www.youtube.com/watch?v=GvQ_mGzWbds",
     "type": "video",
-    "tags": ["electrical engineering", "introduction", "engineering"],
+    "tags": [
+      "electrical engineering",
+      "introduction",
+      "engineering"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -347,7 +503,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on circuits and electronics.",
     "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-002-circuits-and-electronics-spring-2007/",
     "type": "course",
-    "tags": ["electrical engineering", "circuits", "electronics"],
+    "tags": [
+      "electrical engineering",
+      "circuits",
+      "electronics"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -356,7 +516,11 @@
     "description": "Step-by-step tutorial for beginners on using a breadboard for circuit prototyping.",
     "url": "https://www.youtube.com/watch?v=6WReFkfrUIk",
     "type": "tutorial",
-    "tags": ["electrical engineering", "breadboard", "circuits"],
+    "tags": [
+      "electrical engineering",
+      "breadboard",
+      "circuits"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -365,7 +529,11 @@
     "description": "A beginner-friendly introduction to the field of biomedical engineering.",
     "url": "https://www.youtube.com/watch?v=Q1bIA7U5q0o",
     "type": "video",
-    "tags": ["biomedical engineering", "introduction", "engineering"],
+    "tags": [
+      "biomedical engineering",
+      "introduction",
+      "engineering"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -374,7 +542,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on biomedical engineering principles.",
     "url": "https://ocw.mit.edu/courses/biological-engineering/20-010j-introduction-to-biological-engineering-spring-2006/",
     "type": "course",
-    "tags": ["biomedical engineering", "biological engineering", "medical devices"],
+    "tags": [
+      "biomedical engineering",
+      "biological engineering",
+      "medical devices"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -383,7 +555,11 @@
     "description": "Step-by-step tutorial on designing medical devices for beginners.",
     "url": "https://www.youtube.com/watch?v=6QbG6w2lQ1A",
     "type": "tutorial",
-    "tags": ["biomedical engineering", "medical devices", "design"],
+    "tags": [
+      "biomedical engineering",
+      "medical devices",
+      "design"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -392,7 +568,11 @@
     "description": "A beginner-friendly introduction to the field of biological science.",
     "url": "https://www.youtube.com/watch?v=wJuJxOq7xEI",
     "type": "video",
-    "tags": ["biological science", "biology", "introduction"],
+    "tags": [
+      "biological science",
+      "biology",
+      "introduction"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -401,7 +581,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on biological science principles.",
     "url": "https://ocw.mit.edu/courses/biology/7-01sc-fundamentals-of-biology-fall-2011/",
     "type": "course",
-    "tags": ["biological science", "biology", "fundamentals"],
+    "tags": [
+      "biological science",
+      "biology",
+      "fundamentals"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -410,7 +594,11 @@
     "description": "Step-by-step tutorial on essential laboratory techniques for biology students.",
     "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
     "type": "tutorial",
-    "tags": ["biological science", "laboratory", "techniques"],
+    "tags": [
+      "biological science",
+      "laboratory",
+      "techniques"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -419,7 +607,11 @@
     "description": "A beginner-friendly introduction to the field of data science.",
     "url": "https://www.youtube.com/watch?v=ua-CiDNNj30",
     "type": "video",
-    "tags": ["data science", "introduction", "analytics"],
+    "tags": [
+      "data science",
+      "introduction",
+      "analytics"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -428,7 +620,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on data science principles.",
     "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0002-introduction-to-computational-thinking-and-data-science-fall-2016/",
     "type": "course",
-    "tags": ["data science", "computational thinking", "python"],
+    "tags": [
+      "data science",
+      "computational thinking",
+      "python"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -437,7 +633,11 @@
     "description": "Step-by-step tutorial on using Python for data science projects.",
     "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
     "type": "tutorial",
-    "tags": ["data science", "python", "pandas"],
+    "tags": [
+      "data science",
+      "python",
+      "pandas"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -446,7 +646,11 @@
     "description": "A beginner-friendly introduction to the field of actuarial science.",
     "url": "https://www.youtube.com/watch?v=6QbG6w2lQ1A",
     "type": "video",
-    "tags": ["actuarial science", "introduction", "risk management"],
+    "tags": [
+      "actuarial science",
+      "introduction",
+      "risk management"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -455,7 +659,11 @@
     "description": "Comprehensive course on actuarial science principles and practices.",
     "url": "https://www.coursera.org/learn/actuarial-science",
     "type": "course",
-    "tags": ["actuarial science", "risk assessment", "insurance"],
+    "tags": [
+      "actuarial science",
+      "risk assessment",
+      "insurance"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -464,7 +672,11 @@
     "description": "Tutorial on statistical methods used in actuarial science.",
     "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
     "type": "tutorial",
-    "tags": ["actuarial science", "statistics", "risk modeling"],
+    "tags": [
+      "actuarial science",
+      "statistics",
+      "risk modeling"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -473,7 +685,11 @@
     "description": "A beginner-friendly introduction to the field of economics.",
     "url": "https://www.youtube.com/watch?v=3ez10ADR_gM",
     "type": "video",
-    "tags": ["economics", "introduction", "social science"],
+    "tags": [
+      "economics",
+      "introduction",
+      "social science"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -482,7 +698,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on microeconomic principles.",
     "url": "https://ocw.mit.edu/courses/economics/14-01sc-principles-of-microeconomics-fall-2011/",
     "type": "course",
-    "tags": ["economics", "microeconomics", "principles"],
+    "tags": [
+      "economics",
+      "microeconomics",
+      "principles"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -491,7 +711,11 @@
     "description": "Step-by-step tutorial on basic economic analysis techniques.",
     "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
     "type": "tutorial",
-    "tags": ["economics", "analysis", "methods"],
+    "tags": [
+      "economics",
+      "analysis",
+      "methods"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -500,7 +724,11 @@
     "description": "A beginner-friendly introduction to the field of geography.",
     "url": "https://www.youtube.com/watch?v=QwbToV-FvsU",
     "type": "video",
-    "tags": ["geography", "introduction", "earth science"],
+    "tags": [
+      "geography",
+      "introduction",
+      "earth science"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -509,7 +737,11 @@
     "description": "Comprehensive course on geography principles and concepts.",
     "url": "https://www.coursera.org/learn/geography",
     "type": "course",
-    "tags": ["geography", "physical geography", "human geography"],
+    "tags": [
+      "geography",
+      "physical geography",
+      "human geography"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -518,7 +750,11 @@
     "description": "Tutorial on Geographic Information Systems for beginners.",
     "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
     "type": "tutorial",
-    "tags": ["geography", "GIS", "mapping"],
+    "tags": [
+      "geography",
+      "GIS",
+      "mapping"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -527,7 +763,11 @@
     "description": "A beginner-friendly introduction to the field of law and legal studies.",
     "url": "https://www.youtube.com/watch?v=QwbToV-FvsU",
     "type": "video",
-    "tags": ["law", "introduction", "legal studies"],
+    "tags": [
+      "law",
+      "introduction",
+      "legal studies"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -536,7 +776,11 @@
     "description": "Comprehensive Harvard Law School course on fundamental legal principles.",
     "url": "https://online.law.harvard.edu/course/introduction-to-law/",
     "type": "course",
-    "tags": ["law", "legal principles", "fundamentals"],
+    "tags": [
+      "law",
+      "legal principles",
+      "fundamentals"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -545,7 +789,11 @@
     "description": "Step-by-step tutorial on conducting legal research for beginners.",
     "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
     "type": "tutorial",
-    "tags": ["law", "legal research", "methods"],
+    "tags": [
+      "law",
+      "legal research",
+      "methods"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -554,7 +802,11 @@
     "description": "A beginner-friendly introduction to the field of political science.",
     "url": "https://www.youtube.com/watch?v=3ez10ADR_gM",
     "type": "video",
-    "tags": ["political science", "introduction", "politics"],
+    "tags": [
+      "political science",
+      "introduction",
+      "politics"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -563,7 +815,11 @@
     "description": "Comprehensive MIT OpenCourseWare course on political science principles.",
     "url": "https://ocw.mit.edu/courses/political-science/17-20-introduction-to-american-politics-spring-2013/",
     "type": "course",
-    "tags": ["political science", "american politics", "government"],
+    "tags": [
+      "political science",
+      "american politics",
+      "government"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -572,7 +828,11 @@
     "description": "Tutorial on research methods used in political science.",
     "url": "https://www.youtube.com/watch?v=8aHsTZQNL4s",
     "type": "tutorial",
-    "tags": ["political science", "research methods", "analysis"],
+    "tags": [
+      "political science",
+      "research methods",
+      "analysis"
+    ],
     "difficulty": "beginner"
   },
   {
@@ -581,7 +841,11 @@
     "description": "Comprehensive course on thermodynamic principles and applications.",
     "url": "https://www.coursera.org/learn/thermodynamics",
     "type": "course",
-    "tags": ["mechanical engineering", "thermodynamics", "physics"],
+    "tags": [
+      "mechanical engineering",
+      "thermodynamics",
+      "physics"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -590,7 +854,11 @@
     "description": "Advanced course on machine design and mechanical systems.",
     "url": "https://www.edx.org/course/machine-design",
     "type": "course",
-    "tags": ["mechanical engineering", "machine design", "mechanical systems"],
+    "tags": [
+      "mechanical engineering",
+      "machine design",
+      "mechanical systems"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -599,7 +867,11 @@
     "description": "Deep dive into advanced Python concepts and techniques.",
     "url": "https://realpython.com/tutorials/advanced/",
     "type": "tutorial",
-    "tags": ["python", "programming", "advanced"],
+    "tags": [
+      "python",
+      "programming",
+      "advanced"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -608,7 +880,11 @@
     "description": "Comprehensive course on fundamental data structures and algorithms.",
     "url": "https://www.coursera.org/learn/data-structures",
     "type": "course",
-    "tags": ["computer science", "data structures", "algorithms"],
+    "tags": [
+      "computer science",
+      "data structures",
+      "algorithms"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -617,7 +893,11 @@
     "description": "Advanced course on microeconomic theory and applications.",
     "url": "https://www.edx.org/course/microeconomics",
     "type": "course",
-    "tags": ["economics", "microeconomics", "theory"],
+    "tags": [
+      "economics",
+      "microeconomics",
+      "theory"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -626,7 +906,11 @@
     "description": "Course on macroeconomic policy and its applications.",
     "url": "https://www.coursera.org/learn/macroeconomics",
     "type": "course",
-    "tags": ["economics", "macroeconomics", "policy"],
+    "tags": [
+      "economics",
+      "macroeconomics",
+      "policy"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -635,7 +919,11 @@
     "description": "Advanced course on constitutional law and legal interpretation.",
     "url": "https://www.edx.org/course/constitutional-law",
     "type": "course",
-    "tags": ["law", "constitutional law", "legal principles"],
+    "tags": [
+      "law",
+      "constitutional law",
+      "legal principles"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -644,7 +932,11 @@
     "description": "Comprehensive course on international relations theories and practices.",
     "url": "https://www.coursera.org/learn/international-relations",
     "type": "course",
-    "tags": ["political science", "international relations", "diplomacy"],
+    "tags": [
+      "political science",
+      "international relations",
+      "diplomacy"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -653,7 +945,11 @@
     "description": "Course on advanced statistical techniques and applications.",
     "url": "https://www.edx.org/course/advanced-statistics",
     "type": "course",
-    "tags": ["statistics", "data science", "mathematics"],
+    "tags": [
+      "statistics",
+      "data science",
+      "mathematics"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -662,7 +958,11 @@
     "description": "Advanced course on medical imaging principles and technologies.",
     "url": "https://www.coursera.org/learn/medical-imaging",
     "type": "course",
-    "tags": ["biomedical engineering", "medical imaging", "technology"],
+    "tags": [
+      "biomedical engineering",
+      "medical imaging",
+      "technology"
+    ],
     "difficulty": "advanced"
   },
   {
@@ -671,7 +971,11 @@
     "description": "Course on fluid mechanics principles and applications.",
     "url": "https://www.edx.org/course/fluid-mechanics",
     "type": "course",
-    "tags": ["mechanical engineering", "fluid mechanics", "physics"],
+    "tags": [
+      "mechanical engineering",
+      "fluid mechanics",
+      "physics"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -680,7 +984,11 @@
     "description": "Advanced course on control systems design and analysis.",
     "url": "https://www.coursera.org/learn/control-systems",
     "type": "course",
-    "tags": ["electrical engineering", "control systems", "automation"],
+    "tags": [
+      "electrical engineering",
+      "control systems",
+      "automation"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -689,7 +997,11 @@
     "description": "Comprehensive course on database design principles and SQL.",
     "url": "https://www.edx.org/course/database-design",
     "type": "course",
-    "tags": ["computer science", "databases", "sql"],
+    "tags": [
+      "computer science",
+      "databases",
+      "sql"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -698,7 +1010,11 @@
     "description": "Advanced course on modern web development using React.",
     "url": "https://www.coursera.org/learn/react-web-development",
     "type": "course",
-    "tags": ["computer science", "web development", "react"],
+    "tags": [
+      "computer science",
+      "web development",
+      "react"
+    ],
     "difficulty": "intermediate"
   },
   {
@@ -707,7 +1023,1127 @@
     "description": "Course on software engineering methodologies and best practices.",
     "url": "https://www.edx.org/course/software-engineering",
     "type": "course",
-    "tags": ["computer science", "software engineering", "development"],
+    "tags": [
+      "computer science",
+      "software engineering",
+      "development"
+    ],
     "difficulty": "intermediate"
+  },
+  {
+    "id": "me-rec-1",
+    "title": "Master Mechanical Engineering Fundamentals",
+    "description": "Build a strong foundation in mechanical engineering principles",
+    "category": "mechanical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Start with basic physics concepts - mechanics, thermodynamics, and fluid dynamics",
+      "Learn mathematical foundations - calculus, linear algebra, and differential equations",
+      "Study material science and properties of engineering materials",
+      "Practice with CAD software and technical drawing",
+      "Work on hands-on projects to apply theoretical knowledge"
+    ],
+    "resources": [
+      "MIT OpenCourseWare - Introduction to Mechanical Engineering",
+      "Khan Academy - Physics and Mathematics",
+      "SolidWorks or AutoCAD for CAD practice",
+      "Engineering design projects and competitions"
+    ],
+    "tips": [
+      "Focus on understanding fundamental principles rather than memorizing formulas",
+      "Practice problem-solving regularly",
+      "Join engineering clubs and participate in projects",
+      "Develop strong analytical and critical thinking skills"
+    ]
+  },
+  {
+    "id": "me-rec-2",
+    "title": "Advanced Mechanical Systems Design",
+    "description": "Learn to design complex mechanical systems and components",
+    "category": "mechanical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "mechanical engineering fundamentals",
+      "CAD skills"
+    ],
+    "steps": [
+      "Study advanced mechanics and dynamics",
+      "Learn finite element analysis (FEA) for structural analysis",
+      "Master machine design principles and standards",
+      "Study control systems and automation",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "ANSYS or similar FEA software",
+      "Machine Design textbooks and standards",
+      "Control systems simulation software",
+      "Industry case studies and real-world projects"
+    ],
+    "tips": [
+      "Focus on practical applications and industry standards",
+      "Learn to use professional engineering software",
+      "Understand safety and reliability requirements",
+      "Develop project management skills"
+    ]
+  },
+  {
+    "id": "civil-rec-1",
+    "title": "Civil Engineering Infrastructure Design",
+    "description": "Learn to design and analyze civil infrastructure systems",
+    "category": "civil-engineering",
+    "difficulty": "Beginner",
+    "duration": "7 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study structural analysis and mechanics of materials",
+      "Learn geotechnical engineering and soil mechanics",
+      "Understand transportation engineering principles",
+      "Study environmental engineering and sustainability",
+      "Practice with civil engineering software"
+    ],
+    "resources": [
+      "AutoCAD Civil 3D for civil design",
+      "STAAD.Pro for structural analysis",
+      "Civil engineering textbooks and codes",
+      "Site visits and field experience"
+    ],
+    "tips": [
+      "Understand building codes and regulations",
+      "Focus on sustainable design practices",
+      "Develop strong project management skills",
+      "Learn to work with multidisciplinary teams"
+    ]
+  },
+  {
+    "id": "civil-rec-2",
+    "title": "Advanced Structural Engineering",
+    "description": "Master advanced structural analysis and design",
+    "category": "civil-engineering",
+    "difficulty": "Advanced",
+    "duration": "9 months",
+    "prerequisites": [
+      "structural analysis",
+      "mechanics of materials"
+    ],
+    "steps": [
+      "Study advanced structural analysis methods",
+      "Learn seismic design and earthquake engineering",
+      "Master steel and concrete design",
+      "Study bridge and building design",
+      "Work on complex structural projects"
+    ],
+    "resources": [
+      "ETABS or SAP2000 for structural analysis",
+      "Advanced structural engineering textbooks",
+      "Building codes and design standards",
+      "Professional engineering software"
+    ],
+    "tips": [
+      "Focus on safety and reliability in design",
+      "Understand construction methods and constraints",
+      "Learn to optimize designs for cost and performance",
+      "Stay updated with latest design codes and standards"
+    ]
+  },
+  {
+    "id": "chem-rec-1",
+    "title": "Chemical Process Engineering Fundamentals",
+    "description": "Build foundation in chemical engineering processes",
+    "category": "chemical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school chemistry",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study chemical engineering thermodynamics",
+      "Learn fluid mechanics and heat transfer",
+      "Understand mass transfer and separation processes",
+      "Study chemical reaction engineering",
+      "Practice with process simulation software"
+    ],
+    "resources": [
+      "Aspen Plus or similar process simulation software",
+      "Chemical engineering textbooks",
+      "Laboratory experiments and safety training",
+      "Industry case studies"
+    ],
+    "tips": [
+      "Focus on understanding process fundamentals",
+      "Develop strong safety awareness",
+      "Learn to use process simulation tools",
+      "Understand environmental and economic considerations"
+    ]
+  },
+  {
+    "id": "chem-rec-2",
+    "title": "Advanced Chemical Process Design",
+    "description": "Master complex chemical process design and optimization",
+    "category": "chemical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "chemical engineering fundamentals",
+      "process simulation"
+    ],
+    "steps": [
+      "Study advanced process design principles",
+      "Learn process control and automation",
+      "Master plant design and economics",
+      "Study safety and risk assessment",
+      "Work on comprehensive process design projects"
+    ],
+    "resources": [
+      "Advanced process simulation software",
+      "Plant design and economics textbooks",
+      "Safety analysis software",
+      "Industry design standards and codes"
+    ],
+    "tips": [
+      "Focus on safety and environmental compliance",
+      "Understand economic optimization",
+      "Learn to work with multidisciplinary teams",
+      "Stay updated with industry best practices"
+    ]
+  },
+  {
+    "id": "arch-rec-1",
+    "title": "Architectural Design Fundamentals",
+    "description": "Develop core architectural design skills and principles",
+    "category": "architecture",
+    "difficulty": "Beginner",
+    "duration": "8 months",
+    "prerequisites": [
+      "art and design interest",
+      "basic drawing skills"
+    ],
+    "steps": [
+      "Study architectural history and theory",
+      "Learn architectural drawing and representation",
+      "Understand building systems and construction",
+      "Study environmental design and sustainability",
+      "Practice with architectural software"
+    ],
+    "resources": [
+      "AutoCAD and Revit for architectural design",
+      "SketchUp for 3D modeling",
+      "Architectural history books and case studies",
+      "Drawing and sketching practice"
+    ],
+    "tips": [
+      "Develop strong visual and spatial thinking",
+      "Focus on sustainable and human-centered design",
+      "Learn to communicate design ideas effectively",
+      "Build a portfolio of design work"
+    ]
+  },
+  {
+    "id": "arch-rec-2",
+    "title": "Advanced Architectural Design Studio",
+    "description": "Master complex architectural design and urban planning",
+    "category": "architecture",
+    "difficulty": "Advanced",
+    "duration": "10 months",
+    "prerequisites": [
+      "architectural fundamentals",
+      "design software skills"
+    ],
+    "steps": [
+      "Study advanced architectural theory",
+      "Learn urban planning and design",
+      "Master building technology and systems",
+      "Study architectural research methods",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "Advanced architectural software",
+      "Urban planning and design tools",
+      "Building information modeling (BIM)",
+      "Research and case study analysis"
+    ],
+    "tips": [
+      "Focus on innovative and sustainable design solutions",
+      "Understand social and cultural contexts",
+      "Develop strong research and analytical skills",
+      "Build professional networks and collaborations"
+    ]
+  },
+  {
+    "id": "med-rec-1",
+    "title": "Medical Foundation Studies",
+    "description": "Build strong foundation in medical sciences and practice",
+    "category": "medicine",
+    "difficulty": "Beginner",
+    "duration": "12 months",
+    "prerequisites": [
+      "high school biology",
+      "high school chemistry"
+    ],
+    "steps": [
+      "Study human anatomy and physiology",
+      "Learn biochemistry and molecular biology",
+      "Understand medical terminology and concepts",
+      "Study basic clinical skills",
+      "Develop professional communication skills"
+    ],
+    "resources": [
+      "Anatomy and physiology textbooks",
+      "Medical terminology courses",
+      "Clinical skills training",
+      "Healthcare shadowing experiences"
+    ],
+    "tips": [
+      "Focus on understanding fundamental biological processes",
+      "Develop strong communication and empathy skills",
+      "Learn to work in healthcare teams",
+      "Maintain high ethical standards"
+    ]
+  },
+  {
+    "id": "med-rec-2",
+    "title": "Advanced Medical Practice",
+    "description": "Master clinical skills and medical decision-making",
+    "category": "medicine",
+    "difficulty": "Advanced",
+    "duration": "18 months",
+    "prerequisites": [
+      "medical foundation",
+      "clinical experience"
+    ],
+    "steps": [
+      "Study advanced clinical medicine",
+      "Learn diagnostic reasoning and decision-making",
+      "Master patient care and management",
+      "Study medical ethics and professionalism",
+      "Work in clinical settings under supervision"
+    ],
+    "resources": [
+      "Clinical medicine textbooks",
+      "Medical simulation and training",
+      "Clinical rotations and internships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on evidence-based practice",
+      "Develop strong clinical reasoning skills",
+      "Maintain patient safety and quality care",
+      "Continue lifelong learning and professional development"
+    ]
+  },
+  {
+    "id": "law-rec-1",
+    "title": "Legal Studies Foundation",
+    "description": "Build strong foundation in legal principles and systems",
+    "category": "law",
+    "difficulty": "Beginner",
+    "duration": "10 months",
+    "prerequisites": [
+      "strong reading and writing skills",
+      "critical thinking"
+    ],
+    "steps": [
+      "Study legal system and jurisprudence",
+      "Learn constitutional law and rights",
+      "Understand contract and tort law",
+      "Study legal research and writing",
+      "Develop analytical and argumentation skills"
+    ],
+    "resources": [
+      "Legal textbooks and case law",
+      "Legal research databases",
+      "Writing and argumentation courses",
+      "Moot court and debate practice"
+    ],
+    "tips": [
+      "Focus on understanding legal reasoning and logic",
+      "Develop strong research and writing skills",
+      "Learn to analyze complex legal issues",
+      "Build strong argumentation and advocacy skills"
+    ]
+  },
+  {
+    "id": "law-rec-2",
+    "title": "Advanced Legal Practice",
+    "description": "Master legal practice and specialized areas of law",
+    "category": "law",
+    "difficulty": "Advanced",
+    "duration": "12 months",
+    "prerequisites": [
+      "legal foundation",
+      "research skills"
+    ],
+    "steps": [
+      "Study specialized areas of law",
+      "Learn advanced legal research and writing",
+      "Master legal advocacy and negotiation",
+      "Study legal ethics and professionalism",
+      "Work in legal settings under supervision"
+    ],
+    "resources": [
+      "Advanced legal textbooks and journals",
+      "Legal practice software and tools",
+      "Internships and clerkships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on practical legal skills",
+      "Develop strong advocacy and negotiation skills",
+      "Maintain high ethical standards",
+      "Build professional networks and reputation"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219935-1",
+    "title": "Master Mechanical Engineering Fundamentals",
+    "description": "Build a strong foundation in mechanical engineering principles",
+    "category": "mechanical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Start with basic physics concepts - mechanics, thermodynamics, and fluid dynamics",
+      "Learn mathematical foundations - calculus, linear algebra, and differential equations",
+      "Study material science and properties of engineering materials",
+      "Practice with CAD software and technical drawing",
+      "Work on hands-on projects to apply theoretical knowledge"
+    ],
+    "resources": [
+      "MIT OpenCourseWare - Introduction to Mechanical Engineering",
+      "Khan Academy - Physics and Mathematics",
+      "SolidWorks or AutoCAD for CAD practice",
+      "Engineering design projects and competitions"
+    ],
+    "tips": [
+      "Focus on understanding fundamental principles rather than memorizing formulas",
+      "Practice problem-solving regularly",
+      "Join engineering clubs and participate in projects",
+      "Develop strong analytical and critical thinking skills"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-2",
+    "title": "Advanced Mechanical Systems Design",
+    "description": "Learn to design complex mechanical systems and components",
+    "category": "mechanical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "mechanical engineering fundamentals",
+      "CAD skills"
+    ],
+    "steps": [
+      "Study advanced mechanics and dynamics",
+      "Learn finite element analysis (FEA) for structural analysis",
+      "Master machine design principles and standards",
+      "Study control systems and automation",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "ANSYS or similar FEA software",
+      "Machine Design textbooks and standards",
+      "Control systems simulation software",
+      "Industry case studies and real-world projects"
+    ],
+    "tips": [
+      "Focus on practical applications and industry standards",
+      "Learn to use professional engineering software",
+      "Understand safety and reliability requirements",
+      "Develop project management skills"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-3",
+    "title": "Civil Engineering Infrastructure Design",
+    "description": "Learn to design and analyze civil infrastructure systems",
+    "category": "civil-engineering",
+    "difficulty": "Beginner",
+    "duration": "7 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study structural analysis and mechanics of materials",
+      "Learn geotechnical engineering and soil mechanics",
+      "Understand transportation engineering principles",
+      "Study environmental engineering and sustainability",
+      "Practice with civil engineering software"
+    ],
+    "resources": [
+      "AutoCAD Civil 3D for civil design",
+      "STAAD.Pro for structural analysis",
+      "Civil engineering textbooks and codes",
+      "Site visits and field experience"
+    ],
+    "tips": [
+      "Understand building codes and regulations",
+      "Focus on sustainable design practices",
+      "Develop strong project management skills",
+      "Learn to work with multidisciplinary teams"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-4",
+    "title": "Advanced Structural Engineering",
+    "description": "Master advanced structural analysis and design",
+    "category": "civil-engineering",
+    "difficulty": "Advanced",
+    "duration": "9 months",
+    "prerequisites": [
+      "structural analysis",
+      "mechanics of materials"
+    ],
+    "steps": [
+      "Study advanced structural analysis methods",
+      "Learn seismic design and earthquake engineering",
+      "Master steel and concrete design",
+      "Study bridge and building design",
+      "Work on complex structural projects"
+    ],
+    "resources": [
+      "ETABS or SAP2000 for structural analysis",
+      "Advanced structural engineering textbooks",
+      "Building codes and design standards",
+      "Professional engineering software"
+    ],
+    "tips": [
+      "Focus on safety and reliability in design",
+      "Understand construction methods and constraints",
+      "Learn to optimize designs for cost and performance",
+      "Stay updated with latest design codes and standards"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-5",
+    "title": "Chemical Process Engineering Fundamentals",
+    "description": "Build foundation in chemical engineering processes",
+    "category": "chemical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school chemistry",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study chemical engineering thermodynamics",
+      "Learn fluid mechanics and heat transfer",
+      "Understand mass transfer and separation processes",
+      "Study chemical reaction engineering",
+      "Practice with process simulation software"
+    ],
+    "resources": [
+      "Aspen Plus or similar process simulation software",
+      "Chemical engineering textbooks",
+      "Laboratory experiments and safety training",
+      "Industry case studies"
+    ],
+    "tips": [
+      "Focus on understanding process fundamentals",
+      "Develop strong safety awareness",
+      "Learn to use process simulation tools",
+      "Understand environmental and economic considerations"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-6",
+    "title": "Advanced Chemical Process Design",
+    "description": "Master complex chemical process design and optimization",
+    "category": "chemical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "chemical engineering fundamentals",
+      "process simulation"
+    ],
+    "steps": [
+      "Study advanced process design principles",
+      "Learn process control and automation",
+      "Master plant design and economics",
+      "Study safety and risk assessment",
+      "Work on comprehensive process design projects"
+    ],
+    "resources": [
+      "Advanced process simulation software",
+      "Plant design and economics textbooks",
+      "Safety analysis software",
+      "Industry design standards and codes"
+    ],
+    "tips": [
+      "Focus on safety and environmental compliance",
+      "Understand economic optimization",
+      "Learn to work with multidisciplinary teams",
+      "Stay updated with industry best practices"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-7",
+    "title": "Architectural Design Fundamentals",
+    "description": "Develop core architectural design skills and principles",
+    "category": "architecture",
+    "difficulty": "Beginner",
+    "duration": "8 months",
+    "prerequisites": [
+      "art and design interest",
+      "basic drawing skills"
+    ],
+    "steps": [
+      "Study architectural history and theory",
+      "Learn architectural drawing and representation",
+      "Understand building systems and construction",
+      "Study environmental design and sustainability",
+      "Practice with architectural software"
+    ],
+    "resources": [
+      "AutoCAD and Revit for architectural design",
+      "SketchUp for 3D modeling",
+      "Architectural history books and case studies",
+      "Drawing and sketching practice"
+    ],
+    "tips": [
+      "Develop strong visual and spatial thinking",
+      "Focus on sustainable and human-centered design",
+      "Learn to communicate design ideas effectively",
+      "Build a portfolio of design work"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-8",
+    "title": "Advanced Architectural Design Studio",
+    "description": "Master complex architectural design and urban planning",
+    "category": "architecture",
+    "difficulty": "Advanced",
+    "duration": "10 months",
+    "prerequisites": [
+      "architectural fundamentals",
+      "design software skills"
+    ],
+    "steps": [
+      "Study advanced architectural theory",
+      "Learn urban planning and design",
+      "Master building technology and systems",
+      "Study architectural research methods",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "Advanced architectural software",
+      "Urban planning and design tools",
+      "Building information modeling (BIM)",
+      "Research and case study analysis"
+    ],
+    "tips": [
+      "Focus on innovative and sustainable design solutions",
+      "Understand social and cultural contexts",
+      "Develop strong research and analytical skills",
+      "Build professional networks and collaborations"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-9",
+    "title": "Medical Foundation Studies",
+    "description": "Build strong foundation in medical sciences and practice",
+    "category": "medicine",
+    "difficulty": "Beginner",
+    "duration": "12 months",
+    "prerequisites": [
+      "high school biology",
+      "high school chemistry"
+    ],
+    "steps": [
+      "Study human anatomy and physiology",
+      "Learn biochemistry and molecular biology",
+      "Understand medical terminology and concepts",
+      "Study basic clinical skills",
+      "Develop professional communication skills"
+    ],
+    "resources": [
+      "Anatomy and physiology textbooks",
+      "Medical terminology courses",
+      "Clinical skills training",
+      "Healthcare shadowing experiences"
+    ],
+    "tips": [
+      "Focus on understanding fundamental biological processes",
+      "Develop strong communication and empathy skills",
+      "Learn to work in healthcare teams",
+      "Maintain high ethical standards"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-10",
+    "title": "Advanced Medical Practice",
+    "description": "Master clinical skills and medical decision-making",
+    "category": "medicine",
+    "difficulty": "Advanced",
+    "duration": "18 months",
+    "prerequisites": [
+      "medical foundation",
+      "clinical experience"
+    ],
+    "steps": [
+      "Study advanced clinical medicine",
+      "Learn diagnostic reasoning and decision-making",
+      "Master patient care and management",
+      "Study medical ethics and professionalism",
+      "Work in clinical settings under supervision"
+    ],
+    "resources": [
+      "Clinical medicine textbooks",
+      "Medical simulation and training",
+      "Clinical rotations and internships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on evidence-based practice",
+      "Develop strong clinical reasoning skills",
+      "Maintain patient safety and quality care",
+      "Continue lifelong learning and professional development"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-11",
+    "title": "Legal Studies Foundation",
+    "description": "Build strong foundation in legal principles and systems",
+    "category": "law",
+    "difficulty": "Beginner",
+    "duration": "10 months",
+    "prerequisites": [
+      "strong reading and writing skills",
+      "critical thinking"
+    ],
+    "steps": [
+      "Study legal system and jurisprudence",
+      "Learn constitutional law and rights",
+      "Understand contract and tort law",
+      "Study legal research and writing",
+      "Develop analytical and argumentation skills"
+    ],
+    "resources": [
+      "Legal textbooks and case law",
+      "Legal research databases",
+      "Writing and argumentation courses",
+      "Moot court and debate practice"
+    ],
+    "tips": [
+      "Focus on understanding legal reasoning and logic",
+      "Develop strong research and writing skills",
+      "Learn to analyze complex legal issues",
+      "Build strong argumentation and advocacy skills"
+    ]
+  },
+  {
+    "id": "rec-fixed-1750820219936-12",
+    "title": "Advanced Legal Practice",
+    "description": "Master legal practice and specialized areas of law",
+    "category": "law",
+    "difficulty": "Advanced",
+    "duration": "12 months",
+    "prerequisites": [
+      "legal foundation",
+      "research skills"
+    ],
+    "steps": [
+      "Study specialized areas of law",
+      "Learn advanced legal research and writing",
+      "Master legal advocacy and negotiation",
+      "Study legal ethics and professionalism",
+      "Work in legal settings under supervision"
+    ],
+    "resources": [
+      "Advanced legal textbooks and journals",
+      "Legal practice software and tools",
+      "Internships and clerkships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on practical legal skills",
+      "Develop strong advocacy and negotiation skills",
+      "Maintain high ethical standards",
+      "Build professional networks and reputation"
+    ]
+  },
+  {
+    "id": "me-rec-1",
+    "title": "Master Mechanical Engineering Fundamentals",
+    "description": "Build a strong foundation in mechanical engineering principles",
+    "category": "mechanical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Start with basic physics concepts - mechanics, thermodynamics, and fluid dynamics",
+      "Learn mathematical foundations - calculus, linear algebra, and differential equations",
+      "Study material science and properties of engineering materials",
+      "Practice with CAD software and technical drawing",
+      "Work on hands-on projects to apply theoretical knowledge"
+    ],
+    "resources": [
+      "MIT OpenCourseWare - Introduction to Mechanical Engineering",
+      "Khan Academy - Physics and Mathematics",
+      "SolidWorks or AutoCAD for CAD practice",
+      "Engineering design projects and competitions"
+    ],
+    "tips": [
+      "Focus on understanding fundamental principles rather than memorizing formulas",
+      "Practice problem-solving regularly",
+      "Join engineering clubs and participate in projects",
+      "Develop strong analytical and critical thinking skills"
+    ]
+  },
+  {
+    "id": "me-rec-2",
+    "title": "Advanced Mechanical Systems Design",
+    "description": "Learn to design complex mechanical systems and components",
+    "category": "mechanical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "mechanical engineering fundamentals",
+      "CAD skills"
+    ],
+    "steps": [
+      "Study advanced mechanics and dynamics",
+      "Learn finite element analysis (FEA) for structural analysis",
+      "Master machine design principles and standards",
+      "Study control systems and automation",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "ANSYS or similar FEA software",
+      "Machine Design textbooks and standards",
+      "Control systems simulation software",
+      "Industry case studies and real-world projects"
+    ],
+    "tips": [
+      "Focus on practical applications and industry standards",
+      "Learn to use professional engineering software",
+      "Understand safety and reliability requirements",
+      "Develop project management skills"
+    ]
+  },
+  {
+    "id": "civil-rec-1",
+    "title": "Civil Engineering Infrastructure Design",
+    "description": "Learn to design and analyze civil infrastructure systems",
+    "category": "civil-engineering",
+    "difficulty": "Beginner",
+    "duration": "7 months",
+    "prerequisites": [
+      "high school physics",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study structural analysis and mechanics of materials",
+      "Learn geotechnical engineering and soil mechanics",
+      "Understand transportation engineering principles",
+      "Study environmental engineering and sustainability",
+      "Practice with civil engineering software"
+    ],
+    "resources": [
+      "AutoCAD Civil 3D for civil design",
+      "STAAD.Pro for structural analysis",
+      "Civil engineering textbooks and codes",
+      "Site visits and field experience"
+    ],
+    "tips": [
+      "Understand building codes and regulations",
+      "Focus on sustainable design practices",
+      "Develop strong project management skills",
+      "Learn to work with multidisciplinary teams"
+    ]
+  },
+  {
+    "id": "civil-rec-2",
+    "title": "Advanced Structural Engineering",
+    "description": "Master advanced structural analysis and design",
+    "category": "civil-engineering",
+    "difficulty": "Advanced",
+    "duration": "9 months",
+    "prerequisites": [
+      "structural analysis",
+      "mechanics of materials"
+    ],
+    "steps": [
+      "Study advanced structural analysis methods",
+      "Learn seismic design and earthquake engineering",
+      "Master steel and concrete design",
+      "Study bridge and building design",
+      "Work on complex structural projects"
+    ],
+    "resources": [
+      "ETABS or SAP2000 for structural analysis",
+      "Advanced structural engineering textbooks",
+      "Building codes and design standards",
+      "Professional engineering software"
+    ],
+    "tips": [
+      "Focus on safety and reliability in design",
+      "Understand construction methods and constraints",
+      "Learn to optimize designs for cost and performance",
+      "Stay updated with latest design codes and standards"
+    ]
+  },
+  {
+    "id": "chem-rec-1",
+    "title": "Chemical Process Engineering Fundamentals",
+    "description": "Build foundation in chemical engineering processes",
+    "category": "chemical-engineering",
+    "difficulty": "Beginner",
+    "duration": "6 months",
+    "prerequisites": [
+      "high school chemistry",
+      "high school mathematics"
+    ],
+    "steps": [
+      "Study chemical engineering thermodynamics",
+      "Learn fluid mechanics and heat transfer",
+      "Understand mass transfer and separation processes",
+      "Study chemical reaction engineering",
+      "Practice with process simulation software"
+    ],
+    "resources": [
+      "Aspen Plus or similar process simulation software",
+      "Chemical engineering textbooks",
+      "Laboratory experiments and safety training",
+      "Industry case studies"
+    ],
+    "tips": [
+      "Focus on understanding process fundamentals",
+      "Develop strong safety awareness",
+      "Learn to use process simulation tools",
+      "Understand environmental and economic considerations"
+    ]
+  },
+  {
+    "id": "chem-rec-2",
+    "title": "Advanced Chemical Process Design",
+    "description": "Master complex chemical process design and optimization",
+    "category": "chemical-engineering",
+    "difficulty": "Advanced",
+    "duration": "8 months",
+    "prerequisites": [
+      "chemical engineering fundamentals",
+      "process simulation"
+    ],
+    "steps": [
+      "Study advanced process design principles",
+      "Learn process control and automation",
+      "Master plant design and economics",
+      "Study safety and risk assessment",
+      "Work on comprehensive process design projects"
+    ],
+    "resources": [
+      "Advanced process simulation software",
+      "Plant design and economics textbooks",
+      "Safety analysis software",
+      "Industry design standards and codes"
+    ],
+    "tips": [
+      "Focus on safety and environmental compliance",
+      "Understand economic optimization",
+      "Learn to work with multidisciplinary teams",
+      "Stay updated with industry best practices"
+    ]
+  },
+  {
+    "id": "arch-rec-1",
+    "title": "Architectural Design Fundamentals",
+    "description": "Develop core architectural design skills and principles",
+    "category": "architecture",
+    "difficulty": "Beginner",
+    "duration": "8 months",
+    "prerequisites": [
+      "art and design interest",
+      "basic drawing skills"
+    ],
+    "steps": [
+      "Study architectural history and theory",
+      "Learn architectural drawing and representation",
+      "Understand building systems and construction",
+      "Study environmental design and sustainability",
+      "Practice with architectural software"
+    ],
+    "resources": [
+      "AutoCAD and Revit for architectural design",
+      "SketchUp for 3D modeling",
+      "Architectural history books and case studies",
+      "Drawing and sketching practice"
+    ],
+    "tips": [
+      "Develop strong visual and spatial thinking",
+      "Focus on sustainable and human-centered design",
+      "Learn to communicate design ideas effectively",
+      "Build a portfolio of design work"
+    ]
+  },
+  {
+    "id": "arch-rec-2",
+    "title": "Advanced Architectural Design Studio",
+    "description": "Master complex architectural design and urban planning",
+    "category": "architecture",
+    "difficulty": "Advanced",
+    "duration": "10 months",
+    "prerequisites": [
+      "architectural fundamentals",
+      "design software skills"
+    ],
+    "steps": [
+      "Study advanced architectural theory",
+      "Learn urban planning and design",
+      "Master building technology and systems",
+      "Study architectural research methods",
+      "Work on comprehensive design projects"
+    ],
+    "resources": [
+      "Advanced architectural software",
+      "Urban planning and design tools",
+      "Building information modeling (BIM)",
+      "Research and case study analysis"
+    ],
+    "tips": [
+      "Focus on innovative and sustainable design solutions",
+      "Understand social and cultural contexts",
+      "Develop strong research and analytical skills",
+      "Build professional networks and collaborations"
+    ]
+  },
+  {
+    "id": "med-rec-1",
+    "title": "Medical Foundation Studies",
+    "description": "Build strong foundation in medical sciences and practice",
+    "category": "medicine",
+    "difficulty": "Beginner",
+    "duration": "12 months",
+    "prerequisites": [
+      "high school biology",
+      "high school chemistry"
+    ],
+    "steps": [
+      "Study human anatomy and physiology",
+      "Learn biochemistry and molecular biology",
+      "Understand medical terminology and concepts",
+      "Study basic clinical skills",
+      "Develop professional communication skills"
+    ],
+    "resources": [
+      "Anatomy and physiology textbooks",
+      "Medical terminology courses",
+      "Clinical skills training",
+      "Healthcare shadowing experiences"
+    ],
+    "tips": [
+      "Focus on understanding fundamental biological processes",
+      "Develop strong communication and empathy skills",
+      "Learn to work in healthcare teams",
+      "Maintain high ethical standards"
+    ]
+  },
+  {
+    "id": "med-rec-2",
+    "title": "Advanced Medical Practice",
+    "description": "Master clinical skills and medical decision-making",
+    "category": "medicine",
+    "difficulty": "Advanced",
+    "duration": "18 months",
+    "prerequisites": [
+      "medical foundation",
+      "clinical experience"
+    ],
+    "steps": [
+      "Study advanced clinical medicine",
+      "Learn diagnostic reasoning and decision-making",
+      "Master patient care and management",
+      "Study medical ethics and professionalism",
+      "Work in clinical settings under supervision"
+    ],
+    "resources": [
+      "Clinical medicine textbooks",
+      "Medical simulation and training",
+      "Clinical rotations and internships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on evidence-based practice",
+      "Develop strong clinical reasoning skills",
+      "Maintain patient safety and quality care",
+      "Continue lifelong learning and professional development"
+    ]
+  },
+  {
+    "id": "law-rec-1",
+    "title": "Legal Studies Foundation",
+    "description": "Build strong foundation in legal principles and systems",
+    "category": "law",
+    "difficulty": "Beginner",
+    "duration": "10 months",
+    "prerequisites": [
+      "strong reading and writing skills",
+      "critical thinking"
+    ],
+    "steps": [
+      "Study legal system and jurisprudence",
+      "Learn constitutional law and rights",
+      "Understand contract and tort law",
+      "Study legal research and writing",
+      "Develop analytical and argumentation skills"
+    ],
+    "resources": [
+      "Legal textbooks and case law",
+      "Legal research databases",
+      "Writing and argumentation courses",
+      "Moot court and debate practice"
+    ],
+    "tips": [
+      "Focus on understanding legal reasoning and logic",
+      "Develop strong research and writing skills",
+      "Learn to analyze complex legal issues",
+      "Build strong argumentation and advocacy skills"
+    ]
+  },
+  {
+    "id": "law-rec-2",
+    "title": "Advanced Legal Practice",
+    "description": "Master legal practice and specialized areas of law",
+    "category": "law",
+    "difficulty": "Advanced",
+    "duration": "12 months",
+    "prerequisites": [
+      "legal foundation",
+      "research skills"
+    ],
+    "steps": [
+      "Study specialized areas of law",
+      "Learn advanced legal research and writing",
+      "Master legal advocacy and negotiation",
+      "Study legal ethics and professionalism",
+      "Work in legal settings under supervision"
+    ],
+    "resources": [
+      "Advanced legal textbooks and journals",
+      "Legal practice software and tools",
+      "Internships and clerkships",
+      "Professional development programs"
+    ],
+    "tips": [
+      "Focus on practical legal skills",
+      "Develop strong advocacy and negotiation skills",
+      "Maintain high ethical standards",
+      "Build professional networks and reputation"
+    ]
   }
 ]

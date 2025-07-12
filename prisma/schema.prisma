@@ -7,13 +7,59 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Program {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  years       Year[]
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Year {
+  id        String     @id @default(uuid())
+  year      Int
+  programId String
+  program   Program    @relation(fields: [programId], references: [id], onDelete: Cascade)
+  semesters Semester[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([programId, year])
+}
+
+model Semester {
+  id        String   @id @default(uuid())
+  semester  Int
+  yearId    String
+  year      Year     @relation(fields: [yearId], references: [id], onDelete: Cascade)
+  courses   Course[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([yearId, semester])
+}
+
+model Course {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  semesterId  String
+  semester    Semester @relation(fields: [semesterId], references: [id], onDelete: Cascade)
+  quizzes     Quiz[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model User {
   id                String             @id @default(uuid())
   name              String
   email             String             @unique
   password          String
   image             String?
-  program           String?
+  programId         String?
+  program           Program?           @relation(fields: [programId], references: [id])
   bio               String?
   year              Int?               @default(1)
   city              String?
@@ -35,6 +81,7 @@ model User {
   userAchievements  UserAchievement[]
   userAnalytics     UserAnalytics?
   userStreaks       UserStreak[]
+  personalizationProfile PersonalizationProfile?
 }
 
 model Quiz {
@@ -44,8 +91,15 @@ model Quiz {
   difficulty  String
   timeLimit   Int
   tags        String[]
+  courseId    String?
+  course      Course?          @relation(fields: [courseId], references: [id])
   questions   Question[]
   submissions QuizSubmission[]
+  isActive    Boolean          @default(true)
+  maxAttempts Int              @default(3)
+  passingScore Int             @default(70)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
 }
 
 model Question {
@@ -53,8 +107,16 @@ model Question {
   text          String
   options       String[]
   correctAnswer String
+  explanation   String
+  difficulty    String   @default("Medium")
+  category      String?
+  tags          String[] @default([])
+  points        Int      @default(1)
+  timeLimit     Int?
   quizId        String
   quiz          Quiz     @relation(fields: [quizId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model Recommendation {
@@ -105,7 +167,14 @@ model QuizResult {
   totalQuestions   Int
   correctAnswers   Int[]
   incorrectAnswers Int[]
+  timeSpent        Int?           // Total time spent in seconds
+  percentage       Float          // Percentage score
+  passed           Boolean        // Whether the quiz was passed
+  feedback         String?        // General feedback for the user
+  detailedAnswers  Json?          // Detailed breakdown of each answer
   submission       QuizSubmission @relation(fields: [submissionId], references: [id])
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
 }
 
 model UserAnalytics {
@@ -265,17 +334,96 @@ model VerificationToken {
 
 model StudySession {
   id          String   @id @default(uuid())
-  title       String
-  description String?
-  date        DateTime
-  startTime   String
-  endTime     String
-  course      String
-  priority    String
-  completed   Boolean  @default(false)
-  reminders   Boolean  @default(true)
-  userId      String?
+  userId      String
+  startTime   DateTime @default(now())
+  endTime     DateTime?
+  duration    Int?     // in minutes
+  courseId    String?
+  topics      String[]
+  notes       String?
+  user        User     @relation(fields: [userId], references: [id])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  user        User?    @relation(fields: [userId], references: [id])
+}
+
+// New models for caching API-generated content
+model CachedRecommendation {
+  id              String   @id @default(uuid())
+  userId          String?
+  courseId        String?
+  programId       String?
+  quizResultsHash String   // Hash of quiz results for cache key
+  apiProvider     String   // 'deepseek', 'gemini', 'rule-based'
+  recommendations Json     // Stored recommendations
+  performance     Json?    // Performance data used for generation
+  userProfile     Json?    // User profile data used for generation
+  confidence      Float    // Confidence score of the recommendations
+  expiresAt       DateTime // Cache expiration time
+  hitCount        Int      @default(0) // Number of times this cache was used
+  lastAccessed    DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([quizResultsHash, apiProvider])
+  @@index([userId, courseId])
+  @@index([expiresAt])
+}
+
+model CachedStudyPlan {
+  id              String   @id @default(uuid())
+  userId          String?
+  courseId        String?
+  quizContextHash String   // Hash of quiz context for cache key
+  apiProvider     String   // 'gemini', 'rule-based'
+  studyPlan       Json     // Stored study plan
+  quizContext     Json     // Quiz context used for generation
+  confidence      Float    // Confidence score of the study plan
+  expiresAt       DateTime // Cache expiration time
+  hitCount        Int      @default(0) // Number of times this cache was used
+  lastAccessed    DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([quizContextHash, apiProvider])
+  @@index([userId, courseId])
+  @@index([expiresAt])
+}
+
+model APILog {
+  id            String   @id @default(uuid())
+  userId        String?
+  apiProvider   String   // 'deepseek', 'gemini', 'youtube'
+  endpoint      String   // API endpoint called
+  requestData   Json?    // Request data sent to API
+  responseData  Json?    // Response data from API
+  statusCode    Int?     // HTTP status code
+  responseTime  Int?     // Response time in milliseconds
+  success       Boolean  // Whether the API call was successful
+  errorMessage  String?  // Error message if failed
+  cacheHit      Boolean  @default(false) // Whether this was served from cache
+  cost          Float?   // API cost in USD
+  tokens        Int?     // Number of tokens used
+  createdAt     DateTime @default(now())
+
+  @@index([userId, apiProvider])
+  @@index([createdAt])
+  @@index([success])
+}
+
+model PersonalizationProfile {
+  id                String   @id @default(uuid())
+  userId            String   @unique
+  learningStyle     String?  // 'visual', 'auditory', 'kinesthetic', 'reading'
+  preferredDifficulty String? // 'beginner', 'intermediate', 'advanced'
+  availableTime     Int?     // hours per week
+  studyPatterns     Json?    // Detailed study pattern data
+  interests         String[] // Learning interests
+  recentTopics      String[] // Recently studied topics
+  performanceHistory Json?   // Historical performance data
+  preferences       Json?    // User preferences for recommendations
+  lastUpdated       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  user              User     @relation(fields: [userId], references: [id])
+
+  @@index([learningStyle, preferredDifficulty])
 }

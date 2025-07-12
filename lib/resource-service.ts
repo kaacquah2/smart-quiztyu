@@ -1,7 +1,6 @@
 export * from './resource-service-db'
 
-import { resourcesData } from "./resources-data"
-import { getCourseById, programs } from "./program-data"
+import { getAllPrograms, getCourseById, type Program, type Course } from "./program-service"
 
 export interface ResourceRecommendation {
   id: string
@@ -59,6 +58,11 @@ export const quizToCourseMapping: Record<string, string> = {
   "big-data-analytics": "big-data-analytics",
   "cybersecurity": "cybersecurity",
   "advanced-web": "advanced-web",
+  
+  // Computer Science University Electives
+  "university-elective-1": "university-elective-1",
+  "university-elective-2": "university-elective-2",
+  "university-elective-3": "university-elective-3",
   
   // Electrical Engineering courses
   "physics": "physics",
@@ -120,6 +124,10 @@ export const quizToCourseMapping: Record<string, string> = {
   "digital-marketing": "digital-marketing",
   "business-analytics": "business-analytics",
   
+  // Business Administration University Electives
+  "university-elective-ba-1": "university-elective-ba-1",
+  "university-elective-ba-2": "university-elective-ba-2",
+  
   // Nursing courses
   "anatomy-physiology": "anatomy-physiology",
   "anatomy-physiology-1": "anatomy-physiology-1",
@@ -137,31 +145,51 @@ export const quizToCourseMapping: Record<string, string> = {
   "nursing-research": "nursing-research",
   "geriatric-nursing": "geriatric-nursing",
   "critical-care-nursing": "critical-care-nursing",
+  
+  // Nursing University Electives
+  "university-elective-nursing-1": "university-elective-nursing-1",
+  "university-elective-nursing-2": "university-elective-nursing-2",
+  "university-elective-nursing-3": "university-elective-nursing-3",
+  
+  // Mechanical Engineering University Electives
+  "university-elective-me-1": "university-elective-me-1",
+  "university-elective-me-2": "university-elective-me-2",
 }
 
 // Get resources for a specific course
-export function getResourcesForCourse(courseId: string) {
-  return resourcesData.filter(resource => 
-    resource.courseIds && resource.courseIds.includes(courseId)
-  )
+export async function getResourcesForCourse(courseId: string) {
+  try {
+    const { prisma } = await import('./prisma')
+    const resources = await prisma.resource.findMany({
+      where: {
+        courseIds: {
+          has: courseId
+        }
+      }
+    })
+    return resources
+  } catch (error) {
+    console.error('Error fetching resources for course:', error)
+    return []
+  }
 }
 
 // Get resources for a quiz by mapping quiz ID to course ID
-export function getResourcesForQuiz(quizId: string) {
+export async function getResourcesForQuiz(quizId: string) {
   const courseId = quizToCourseMapping[quizId]
   if (!courseId) {
     return []
   }
-  return getResourcesForCourse(courseId)
+  return await getResourcesForCourse(courseId)
 }
 
 // Generate AI recommendations based on quiz performance
-export function generateAIRecommendations(
+export async function generateAIRecommendations(
   quizId: string, 
   score: number, 
   totalQuestions: number,
   _incorrectAnswers: number[] = []
-): ResourceRecommendation[] {
+): Promise<ResourceRecommendation[]> {
   const percentage = (score / totalQuestions) * 100
   const courseId = quizToCourseMapping[quizId]
   
@@ -169,7 +197,7 @@ export function generateAIRecommendations(
     return []
   }
 
-  const courseResources = getResourcesForCourse(courseId)
+  const courseResources = await getResourcesForCourse(courseId)
   const recommendations: ResourceRecommendation[] = []
 
   // Determine performance level and generate appropriate recommendations
@@ -189,7 +217,10 @@ export function generateAIRecommendations(
       recommendations.push({
         ...resource,
         reason: `Based on your score of ${percentage}%, I recommend starting with foundational concepts. This ${resource.type} will help you build a strong base.`,
-        priority: 5 - index
+        priority: 5 - index,
+        views: resource.views ?? undefined,
+        lessons: resource.lessons ?? undefined,
+        videos: resource.videos ?? undefined
       })
     })
   } else if (percentage < 70) {
@@ -208,7 +239,10 @@ export function generateAIRecommendations(
       recommendations.push({
         ...resource,
         reason: `You're on the right track with ${percentage}%! This ${resource.type} will help you strengthen your understanding and improve your performance.`,
-        priority: 5 - index
+        priority: 5 - index,
+        views: resource.views ?? undefined,
+        lessons: resource.lessons ?? undefined,
+        videos: resource.videos ?? undefined
       })
     })
   } else {
@@ -227,7 +261,10 @@ export function generateAIRecommendations(
       recommendations.push({
         ...resource,
         reason: `Excellent work with ${percentage}%! You're ready for more advanced content. This ${resource.type} will help you master the subject.`,
-        priority: 5 - index
+        priority: 5 - index,
+        views: resource.views ?? undefined,
+        lessons: resource.lessons ?? undefined,
+        videos: resource.videos ?? undefined
       })
     })
   }
@@ -243,7 +280,10 @@ export function generateAIRecommendations(
       recommendations.push({
         ...resource,
         reason: `This highly-rated ${resource.type} (${resource.rating}/5) is perfect for your current level.`,
-        priority: 3 - index
+        priority: 3 - index,
+        views: resource.views ?? undefined,
+        lessons: resource.lessons ?? undefined,
+        videos: resource.videos ?? undefined
       })
     })
   }
@@ -255,50 +295,47 @@ export function generateAIRecommendations(
 }
 
 // Get all resources for a program
-export function getResourcesForProgram(programId: string) {
-  const program = getCourseById(programId, "")
-  if (!program) {
+export async function getResourcesForProgram(programId: string) {
+  try {
+    const { prisma } = await import('./prisma')
+    const resources = await prisma.resource.findMany({
+      where: {
+        OR: [
+          { category: programId },
+          { tags: { has: programId.toLowerCase() } }
+        ]
+      }
+    })
+    return resources
+  } catch (error) {
+    console.error('Error fetching resources for program:', error)
     return []
   }
-
-  // Get all courses for the program and their resources
-  const allResources: typeof resourcesData = []
-  const seenResourceIds = new Set<string>()
-
-  // This would need to be implemented based on how you want to get all courses for a program
-  // For now, we'll return resources that match the program's general categories
-  resourcesData.forEach(resource => {
-    if (!seenResourceIds.has(resource.id)) {
-      const matchesProgram = resource.category === programId || 
-        resource.tags.some(tag => tag.toLowerCase().includes(programId.toLowerCase()))
-      
-      if (matchesProgram) {
-        allResources.push(resource)
-        seenResourceIds.add(resource.id)
-      }
-    }
-  })
-
-  return allResources
 }
 
 // Find which program a course belongs to
-function findProgramByCourseId(courseId: string): string | null {
-  for (const program of programs) {
-    for (const year of program.years) {
-      for (const semester of year.semesters) {
-        const course = semester.courses.find(c => c.id === courseId)
-        if (course) {
-          return program.id
+async function findProgramByCourseId(courseId: string): Promise<string | null> {
+  try {
+    const programs = await getAllPrograms()
+    for (const program of programs) {
+      for (const year of program.years) {
+        for (const semester of year.semesters) {
+          const course = semester.courses.find(c => c.id === courseId)
+          if (course) {
+            return program.id
+          }
         }
       }
     }
+    return null
+  } catch (error) {
+    console.error('Error finding program by course ID:', error)
+    return null
   }
-  return null
 }
 
 // Get personalized study plan based on quiz performance
-export function generateStudyPlan(quizId: string, score: number, totalQuestions: number, programId?: string) {
+export async function generateStudyPlan(quizId: string, score: number, totalQuestions: number, programId?: string) {
   const percentage = (score / totalQuestions) * 100
   const courseId = quizToCourseMapping[quizId]
   
@@ -310,17 +347,17 @@ export function generateStudyPlan(quizId: string, score: number, totalQuestions:
   let actualProgramId = programId
   if (!actualProgramId) {
     // Try to find the program based on the course ID
-    actualProgramId = findProgramByCourseId(courseId) || "computer-science"
+    actualProgramId = await findProgramByCourseId(courseId) || "computer-science"
   }
 
-  const course = getCourseById(actualProgramId, courseId)
-  const _resources = getResourcesForCourse(courseId)
+  const course = await getCourseById(actualProgramId, courseId)
+  const _resources = await getResourcesForCourse(courseId)
 
   const plan = {
     courseTitle: course?.title || "Unknown Course",
     currentLevel: percentage < 40 ? "Beginner" : percentage < 70 ? "Intermediate" : "Advanced",
     targetScore: Math.min(100, percentage + 20),
-    recommendations: generateAIRecommendations(quizId, score, totalQuestions),
+    recommendations: await generateAIRecommendations(quizId, score, totalQuestions),
     studySteps: [] as string[],
     programId: actualProgramId
   }

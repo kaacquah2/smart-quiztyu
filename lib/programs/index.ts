@@ -1,0 +1,10 @@
+export { computerScienceProgram } from './computer-science';
+export { electricalEngineeringProgram } from './electrical-engineering';
+export { businessAdminProgram } from './business-admin';
+export { nursingProgram } from './nursing';
+export { mechanicalEngineeringProgram } from './mechanical-engineering';
+export { civilEngineeringProgram } from './civil-engineering';
+export { chemicalEngineeringProgram } from './chemical-engineering';
+export { architectureProgram } from './architecture';
+export { medicineProgram } from './medicine';
+export { lawProgram } from './law';

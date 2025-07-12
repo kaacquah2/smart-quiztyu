@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server"
-import { generateStudyPlan } from "@/lib/resource-service"
+import { generateStudyPlan } from "@/lib/resource-service-db"
 import { generateGeminiStudyPlan, QuizContext } from "@/lib/gemini-study-plan-service"
 import { quizToCourseMapping } from "@/lib/resource-service"
-import { programs } from "@/lib/program-data"
+import { getAllPrograms, getCourseById, type Program, type Course } from "@/lib/program-service"
 
 export async function GET(request: Request) {
   try {
@@ -29,11 +29,11 @@ export async function GET(request: Request) {
         // Determine program ID if not provided
         let actualProgramId = programId
         if (!actualProgramId) {
-          actualProgramId = findProgramByCourseId(courseId) || "computer-science"
+          actualProgramId = await findProgramByCourseId(courseId) || "computer-science"
         }
 
         // Get course title
-        const course = getCourseById(actualProgramId, courseId)
+        const course = await getCourseByIdFromProgram(actualProgramId, courseId)
         const courseTitle = course?.title || "Unknown Course"
 
         const quizContext: QuizContext = {
@@ -61,7 +61,7 @@ export async function GET(request: Request) {
     }
 
     // Fallback to original study plan generation
-    const studyPlan = generateStudyPlan(quizId, score, total, programId)
+    const studyPlan = await generateStudyPlan(quizId, score, total, programId)
 
     if (!studyPlan) {
       return NextResponse.json({ error: "Could not generate study plan for this quiz" }, { status: 404 })
@@ -104,11 +104,11 @@ export async function POST(request: Request) {
         // Determine program ID if not provided
         let actualProgramId = programId
         if (!actualProgramId) {
-          actualProgramId = findProgramByCourseId(courseId) || "computer-science"
+          actualProgramId = await findProgramByCourseId(courseId) || "computer-science"
         }
 
         // Get course title
-        const course = getCourseById(actualProgramId, courseId)
+        const course = await getCourseByIdFromProgram(actualProgramId, courseId)
         const courseTitle = course?.title || "Unknown Course"
 
         const quizContext: QuizContext = {
@@ -137,7 +137,7 @@ export async function POST(request: Request) {
     }
 
     // Fallback to original study plan generation
-    const studyPlan = generateStudyPlan(quizId, score, totalQuestions, programId)
+    const studyPlan = await generateStudyPlan(quizId, score, totalQuestions, programId)
 
     if (!studyPlan) {
       return NextResponse.json({ error: "Could not generate study plan for this quiz" }, { status: 404 })
@@ -156,30 +156,42 @@ export async function POST(request: Request) {
 }
 
 // Helper function to find which program a course belongs to
-function findProgramByCourseId(courseId: string): string | null {
-  for (const program of programs) {
-    for (const year of program.years) {
-      for (const semester of year.semesters) {
-        const course = semester.courses.find(c => c.id === courseId)
-        if (course) {
-          return program.id
+async function findProgramByCourseId(courseId: string): Promise<string | null> {
+  try {
+    const programs = await getAllPrograms()
+    for (const program of programs) {
+      for (const year of program.years) {
+        for (const semester of year.semesters) {
+          const course = semester.courses.find(c => c.id === courseId)
+          if (course) {
+            return program.id
+          }
         }
       }
     }
+    return null
+  } catch (error) {
+    console.error("Error finding program by course ID:", error)
+    return null
   }
-  return null
 }
 
 // Helper function to get course by ID
-function getCourseById(programId: string, courseId: string) {
-  const program = programs.find(p => p.id === programId)
-  if (!program) return null
-  
-  for (const year of program.years) {
-    for (const semester of year.semesters) {
-      const course = semester.courses.find(c => c.id === courseId)
-      if (course) return course
+async function getCourseByIdFromProgram(programId: string, courseId: string): Promise<Course | null> {
+  try {
+    const programs = await getAllPrograms()
+    const program = programs.find(p => p.id === programId)
+    if (!program) return null
+    
+    for (const year of program.years) {
+      for (const semester of year.semesters) {
+        const course = semester.courses.find(c => c.id === courseId)
+        if (course) return course
+      }
     }
+    return null
+  } catch (error) {
+    console.error("Error getting course by ID:", error)
+    return null
   }
-  return null
 } 

@@ -7,11 +7,18 @@
     "platform": "youtube",
     "type": "video",
     "category": "computer-science",
-    "tags": ["programming", "computer science", "introduction"],
+    "tags": [
+      "programming",
+      "computer science",
+      "introduction"
+    ],
     "duration": "2h 15m",
     "rating": 4.9,
     "views": 12500000,
-    "courseIds": ["intro-to-cs", "fundamentals-computing"]
+    "courseIds": [
+      "intro-to-cs",
+      "fundamentals-computing"
+    ]
   },
   {
     "id": "2",
@@ -21,11 +28,18 @@
     "platform": "youtube",
     "type": "video",
     "category": "programming",
-    "tags": ["python", "programming", "beginners"],
+    "tags": [
+      "python",
+      "programming",
+      "beginners"
+    ],
     "duration": "4h 27m",
     "rating": 4.8,
     "views": 28300000,
-    "courseIds": ["intro-to-python", "intro-to-cs"]
+    "courseIds": [
+      "intro-to-python",
+      "intro-to-cs"
+    ]
   },
   {
     "id": "3",
@@ -35,11 +49,18 @@
     "platform": "khan-academy",
     "type": "course",
     "category": "mathematics",
-    "tags": ["linear algebra", "mathematics", "vectors"],
+    "tags": [
+      "linear algebra",
+      "mathematics",
+      "vectors"
+    ],
     "duration": "15h",
     "rating": 4.7,
     "lessons": 45,
-    "courseIds": ["linear-algebra", "math-for-cs"]
+    "courseIds": [
+      "linear-algebra",
+      "math-for-cs"
+    ]
   },
   {
     "id": "4",
@@ -49,11 +70,18 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "computer-science",
-    "tags": ["algorithms", "data structures", "advanced"],
+    "tags": [
+      "algorithms",
+      "data structures",
+      "advanced"
+    ],
     "duration": "20h",
     "rating": 4.9,
     "lessons": 24,
-    "courseIds": ["data-structures", "data-structures-2"]
+    "courseIds": [
+      "data-structures",
+      "data-structures-2"
+    ]
   },
   {
     "id": "5",
@@ -63,11 +91,18 @@
     "platform": "edx",
     "type": "course",
     "category": "computer-science",
-    "tags": ["databases", "sql", "design"],
+    "tags": [
+      "databases",
+      "sql",
+      "design"
+    ],
     "duration": "12h",
     "rating": 4.6,
     "lessons": 18,
-    "courseIds": ["database-systems", "database-systems-2"]
+    "courseIds": [
+      "database-systems",
+      "database-systems-2"
+    ]
   },
   {
     "id": "6",
@@ -77,11 +112,18 @@
     "platform": "khan-academy",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["circuits", "analysis", "beginners"],
+    "tags": [
+      "circuits",
+      "analysis",
+      "beginners"
+    ],
     "duration": "10h",
     "rating": 4.7,
     "lessons": 30,
-    "courseIds": ["circuit-analysis", "basic-electrical-circuits"]
+    "courseIds": [
+      "circuit-analysis",
+      "basic-electrical-circuits"
+    ]
   },
   {
     "id": "7",
@@ -91,11 +133,18 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["electronics", "components", "intermediate"],
+    "tags": [
+      "electronics",
+      "components",
+      "intermediate"
+    ],
     "duration": "15h",
     "rating": 4.8,
     "lessons": 26,
-    "courseIds": ["electronics-1", "electronics-2"]
+    "courseIds": [
+      "electronics-1",
+      "electronics-2"
+    ]
   },
   {
     "id": "8",
@@ -105,11 +154,18 @@
     "platform": "coursera",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["digital", "logic", "design"],
+    "tags": [
+      "digital",
+      "logic",
+      "design"
+    ],
     "duration": "8h",
     "rating": 4.5,
     "lessons": 12,
-    "courseIds": ["digital-logic", "digital-systems"]
+    "courseIds": [
+      "digital-logic",
+      "digital-systems"
+    ]
   },
   {
     "id": "9",
@@ -119,11 +175,18 @@
     "platform": "edx",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["power", "systems", "advanced"],
+    "tags": [
+      "power",
+      "systems",
+      "advanced"
+    ],
     "duration": "14h",
     "rating": 4.6,
     "lessons": 20,
-    "courseIds": ["power-systems", "power-systems-2"]
+    "courseIds": [
+      "power-systems",
+      "power-systems-2"
+    ]
   },
   {
     "id": "10",
@@ -133,11 +196,18 @@
     "platform": "hbs-online",
     "type": "course",
     "category": "business-admin",
-    "tags": ["business", "introduction", "fundamentals"],
+    "tags": [
+      "business",
+      "introduction",
+      "fundamentals"
+    ],
     "duration": "6h",
     "rating": 4.8,
     "lessons": 12,
-    "courseIds": ["intro-business", "principles-management"]
+    "courseIds": [
+      "intro-business",
+      "principles-management"
+    ]
   },
   {
     "id": "11",
@@ -147,11 +217,18 @@
     "platform": "coursera",
     "type": "course",
     "category": "business-admin",
-    "tags": ["accounting", "finance", "intermediate"],
+    "tags": [
+      "accounting",
+      "finance",
+      "intermediate"
+    ],
     "duration": "10h",
     "rating": 4.7,
     "lessons": 16,
-    "courseIds": ["financial-accounting", "principles-accounting"]
+    "courseIds": [
+      "financial-accounting",
+      "principles-accounting"
+    ]
   },
   {
     "id": "12",
@@ -161,11 +238,18 @@
     "platform": "stanford-online",
     "type": "course",
     "category": "business-admin",
-    "tags": ["marketing", "strategy", "principles"],
+    "tags": [
+      "marketing",
+      "strategy",
+      "principles"
+    ],
     "duration": "8h",
     "rating": 4.6,
     "lessons": 14,
-    "courseIds": ["marketing-principles", "marketing-management"]
+    "courseIds": [
+      "marketing-principles",
+      "marketing-management"
+    ]
   },
   {
     "id": "13",
@@ -175,11 +259,18 @@
     "platform": "mit-sloan",
     "type": "course",
     "category": "business-admin",
-    "tags": ["strategy", "management", "advanced"],
+    "tags": [
+      "strategy",
+      "management",
+      "advanced"
+    ],
     "duration": "12h",
     "rating": 4.9,
     "lessons": 18,
-    "courseIds": ["strategic-management", "business-analysis"]
+    "courseIds": [
+      "strategic-management",
+      "business-analysis"
+    ]
   },
   {
     "id": "14",
@@ -189,11 +280,18 @@
     "platform": "khan-academy",
     "type": "course",
     "category": "nursing",
-    "tags": ["anatomy", "physiology", "health"],
+    "tags": [
+      "anatomy",
+      "physiology",
+      "health"
+    ],
     "duration": "20h",
     "rating": 4.8,
     "lessons": 40,
-    "courseIds": ["anatomy-physiology-1", "anatomy-physiology-2"]
+    "courseIds": [
+      "anatomy-physiology-1",
+      "anatomy-physiology-2"
+    ]
   },
   {
     "id": "15",
@@ -203,11 +301,18 @@
     "platform": "coursera",
     "type": "course",
     "category": "nursing",
-    "tags": ["nursing", "fundamentals", "patient-care"],
+    "tags": [
+      "nursing",
+      "fundamentals",
+      "patient-care"
+    ],
     "duration": "8h",
     "rating": 4.6,
     "lessons": 12,
-    "courseIds": ["nursing-fundamentals", "fundamentals-nursing"]
+    "courseIds": [
+      "nursing-fundamentals",
+      "fundamentals-nursing"
+    ]
   },
   {
     "id": "16",
@@ -217,11 +322,17 @@
     "platform": "edx",
     "type": "course",
     "category": "nursing",
-    "tags": ["assessment", "health", "clinical"],
+    "tags": [
+      "assessment",
+      "health",
+      "clinical"
+    ],
     "duration": "10h",
     "rating": 4.7,
     "lessons": 16,
-    "courseIds": ["health-assessment"]
+    "courseIds": [
+      "health-assessment"
+    ]
   },
   {
     "id": "17",
@@ -231,11 +342,18 @@
     "platform": "stanford-online",
     "type": "course",
     "category": "nursing",
-    "tags": ["pharmacology", "medications", "nursing"],
+    "tags": [
+      "pharmacology",
+      "medications",
+      "nursing"
+    ],
     "duration": "12h",
     "rating": 4.8,
     "lessons": 20,
-    "courseIds": ["pharmacology", "pharmacology-1"]
+    "courseIds": [
+      "pharmacology",
+      "pharmacology-1"
+    ]
   },
   {
     "id": "18",
@@ -245,11 +363,18 @@
     "platform": "berkeley-cs",
     "type": "course",
     "category": "computer-science",
-    "tags": ["operating systems", "advanced", "systems"],
+    "tags": [
+      "operating systems",
+      "advanced",
+      "systems"
+    ],
     "duration": "16h",
     "rating": 4.8,
     "lessons": 22,
-    "courseIds": ["operating-systems", "os-advanced"]
+    "courseIds": [
+      "operating-systems",
+      "os-advanced"
+    ]
   },
   {
     "id": "19",
@@ -259,11 +384,18 @@
     "platform": "stanford-cs",
     "type": "course",
     "category": "computer-science",
-    "tags": ["ai", "machine learning", "advanced"],
+    "tags": [
+      "ai",
+      "machine learning",
+      "advanced"
+    ],
     "duration": "18h",
     "rating": 4.9,
     "lessons": 24,
-    "courseIds": ["artificial-intelligence", "machine-learning"]
+    "courseIds": [
+      "artificial-intelligence",
+      "machine-learning"
+    ]
   },
   {
     "id": "20",
@@ -273,11 +405,18 @@
     "platform": "fullstack-open",
     "type": "course",
     "category": "computer-science",
-    "tags": ["web development", "react", "node.js"],
+    "tags": [
+      "web development",
+      "react",
+      "node.js"
+    ],
     "duration": "14h",
     "rating": 4.7,
     "lessons": 20,
-    "courseIds": ["web-development", "advanced-web"]
+    "courseIds": [
+      "web-development",
+      "advanced-web"
+    ]
   },
   {
     "id": "201",
@@ -287,11 +426,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "introduction", "engineering"],
+    "tags": [
+      "mechanical engineering",
+      "introduction",
+      "engineering"
+    ],
     "duration": "12m",
     "rating": 4.8,
     "views": 1500000,
-    "courseIds": ["intro-mechanical-eng"]
+    "courseIds": [
+      "intro-mechanical-eng"
+    ]
   },
   {
     "id": "202",
@@ -301,11 +446,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "mechanics", "materials"],
+    "tags": [
+      "mechanical engineering",
+      "mechanics",
+      "materials"
+    ],
     "duration": "40h",
     "rating": 4.9,
     "lessons": 30,
-    "courseIds": ["mechanics-materials"]
+    "courseIds": [
+      "mechanics-materials"
+    ]
   },
   {
     "id": "203",
@@ -315,11 +466,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "CAD", "design"],
+    "tags": [
+      "mechanical engineering",
+      "CAD",
+      "design"
+    ],
     "duration": "1h 5m",
     "rating": 4.7,
     "views": 900000,
-    "courseIds": ["engineering-drawing"]
+    "courseIds": [
+      "engineering-drawing"
+    ]
   },
   {
     "id": "204",
@@ -329,11 +486,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "electrical-engineering",
-    "tags": ["electrical engineering", "introduction", "engineering"],
+    "tags": [
+      "electrical engineering",
+      "introduction",
+      "engineering"
+    ],
     "duration": "10m",
     "rating": 4.8,
     "views": 1200000,
-    "courseIds": ["intro-to-ee"]
+    "courseIds": [
+      "intro-to-ee"
+    ]
   },
   {
     "id": "205",
@@ -343,11 +506,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["electrical engineering", "circuits", "electronics"],
+    "tags": [
+      "electrical engineering",
+      "circuits",
+      "electronics"
+    ],
     "duration": "35h",
     "rating": 4.9,
     "lessons": 25,
-    "courseIds": ["basic-electrical-circuits"]
+    "courseIds": [
+      "basic-electrical-circuits"
+    ]
   },
   {
     "id": "206",
@@ -357,11 +526,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "electrical-engineering",
-    "tags": ["electrical engineering", "breadboard", "circuits"],
+    "tags": [
+      "electrical engineering",
+      "breadboard",
+      "circuits"
+    ],
     "duration": "15m",
     "rating": 4.7,
     "views": 800000,
-    "courseIds": ["basic-electrical-circuits"]
+    "courseIds": [
+      "basic-electrical-circuits"
+    ]
   },
   {
     "id": "207",
@@ -371,11 +546,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "biomedical-engineering",
-    "tags": ["biomedical engineering", "introduction", "engineering"],
+    "tags": [
+      "biomedical engineering",
+      "introduction",
+      "engineering"
+    ],
     "duration": "11m",
     "rating": 4.8,
     "views": 950000,
-    "courseIds": ["intro-biomed-eng"]
+    "courseIds": [
+      "intro-biomed-eng"
+    ]
   },
   {
     "id": "208",
@@ -385,11 +566,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "biomedical-engineering",
-    "tags": ["biomedical engineering", "biological engineering", "medical devices"],
+    "tags": [
+      "biomedical engineering",
+      "biological engineering",
+      "medical devices"
+    ],
     "duration": "38h",
     "rating": 4.9,
     "lessons": 28,
-    "courseIds": ["intro-biomed-eng"]
+    "courseIds": [
+      "intro-biomed-eng"
+    ]
   },
   {
     "id": "209",
@@ -399,11 +586,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "biomedical-engineering",
-    "tags": ["biomedical engineering", "medical devices", "design"],
+    "tags": [
+      "biomedical engineering",
+      "medical devices",
+      "design"
+    ],
     "duration": "22m",
     "rating": 4.7,
     "views": 600000,
-    "courseIds": ["intro-biomed-eng"]
+    "courseIds": [
+      "intro-biomed-eng"
+    ]
   },
   {
     "id": "210",
@@ -413,11 +606,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "biological-science",
-    "tags": ["biological science", "biology", "introduction"],
+    "tags": [
+      "biological science",
+      "biology",
+      "introduction"
+    ],
     "duration": "13m",
     "rating": 4.8,
     "views": 1100000,
-    "courseIds": ["intro-bio-sci"]
+    "courseIds": [
+      "intro-bio-sci"
+    ]
   },
   {
     "id": "211",
@@ -427,11 +626,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "biological-science",
-    "tags": ["biological science", "biology", "fundamentals"],
+    "tags": [
+      "biological science",
+      "biology",
+      "fundamentals"
+    ],
     "duration": "42h",
     "rating": 4.9,
     "lessons": 32,
-    "courseIds": ["intro-bio-sci"]
+    "courseIds": [
+      "intro-bio-sci"
+    ]
   },
   {
     "id": "212",
@@ -441,11 +646,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "biological-science",
-    "tags": ["biological science", "laboratory", "techniques"],
+    "tags": [
+      "biological science",
+      "laboratory",
+      "techniques"
+    ],
     "duration": "18m",
     "rating": 4.7,
     "views": 750000,
-    "courseIds": ["intro-bio-sci"]
+    "courseIds": [
+      "intro-bio-sci"
+    ]
   },
   {
     "id": "213",
@@ -455,11 +666,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "data-science",
-    "tags": ["data science", "introduction", "analytics"],
+    "tags": [
+      "data science",
+      "introduction",
+      "analytics"
+    ],
     "duration": "14m",
     "rating": 4.8,
     "views": 1300000,
-    "courseIds": ["intro-data-sci"]
+    "courseIds": [
+      "intro-data-sci"
+    ]
   },
   {
     "id": "214",
@@ -469,11 +686,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "data-science",
-    "tags": ["data science", "computational thinking", "python"],
+    "tags": [
+      "data science",
+      "computational thinking",
+      "python"
+    ],
     "duration": "45h",
     "rating": 4.9,
     "lessons": 35,
-    "courseIds": ["intro-data-sci"]
+    "courseIds": [
+      "intro-data-sci"
+    ]
   },
   {
     "id": "215",
@@ -483,11 +706,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "data-science",
-    "tags": ["data science", "python", "pandas"],
+    "tags": [
+      "data science",
+      "python",
+      "pandas"
+    ],
     "duration": "25m",
     "rating": 4.7,
     "views": 850000,
-    "courseIds": ["intro-data-sci"]
+    "courseIds": [
+      "intro-data-sci"
+    ]
   },
   {
     "id": "216",
@@ -497,11 +726,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "actuarial-science",
-    "tags": ["actuarial science", "introduction", "risk management"],
+    "tags": [
+      "actuarial science",
+      "introduction",
+      "risk management"
+    ],
     "duration": "12m",
     "rating": 4.8,
     "views": 700000,
-    "courseIds": ["intro-actuarial-sci"]
+    "courseIds": [
+      "intro-actuarial-sci"
+    ]
   },
   {
     "id": "217",
@@ -511,11 +746,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "actuarial-science",
-    "tags": ["actuarial science", "risk assessment", "insurance"],
+    "tags": [
+      "actuarial science",
+      "risk assessment",
+      "insurance"
+    ],
     "duration": "40h",
     "rating": 4.8,
     "lessons": 28,
-    "courseIds": ["intro-actuarial-sci"]
+    "courseIds": [
+      "intro-actuarial-sci"
+    ]
   },
   {
     "id": "218",
@@ -525,11 +766,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "actuarial-science",
-    "tags": ["actuarial science", "statistics", "risk modeling"],
+    "tags": [
+      "actuarial science",
+      "statistics",
+      "risk modeling"
+    ],
     "duration": "20m",
     "rating": 4.7,
     "views": 550000,
-    "courseIds": ["intro-actuarial-sci"]
+    "courseIds": [
+      "intro-actuarial-sci"
+    ]
   },
   {
     "id": "219",
@@ -539,11 +786,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "economics",
-    "tags": ["economics", "introduction", "social science"],
+    "tags": [
+      "economics",
+      "introduction",
+      "social science"
+    ],
     "duration": "15m",
     "rating": 4.8,
     "views": 1400000,
-    "courseIds": ["intro-economics"]
+    "courseIds": [
+      "intro-economics"
+    ]
   },
   {
     "id": "220",
@@ -553,11 +806,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "economics",
-    "tags": ["economics", "microeconomics", "principles"],
+    "tags": [
+      "economics",
+      "microeconomics",
+      "principles"
+    ],
     "duration": "48h",
     "rating": 4.9,
     "lessons": 36,
-    "courseIds": ["intro-economics"]
+    "courseIds": [
+      "intro-economics"
+    ]
   },
   {
     "id": "221",
@@ -567,11 +826,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "economics",
-    "tags": ["economics", "analysis", "methods"],
+    "tags": [
+      "economics",
+      "analysis",
+      "methods"
+    ],
     "duration": "28m",
     "rating": 4.7,
     "views": 650000,
-    "courseIds": ["intro-economics"]
+    "courseIds": [
+      "intro-economics"
+    ]
   },
   {
     "id": "222",
@@ -581,11 +846,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "geography",
-    "tags": ["geography", "introduction", "earth science"],
+    "tags": [
+      "geography",
+      "introduction",
+      "earth science"
+    ],
     "duration": "16m",
     "rating": 4.8,
     "views": 1200000,
-    "courseIds": ["intro-geography"]
+    "courseIds": [
+      "intro-geography"
+    ]
   },
   {
     "id": "223",
@@ -595,11 +866,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "geography",
-    "tags": ["geography", "physical geography", "human geography"],
+    "tags": [
+      "geography",
+      "physical geography",
+      "human geography"
+    ],
     "duration": "42h",
     "rating": 4.8,
     "lessons": 30,
-    "courseIds": ["intro-geography"]
+    "courseIds": [
+      "intro-geography"
+    ]
   },
   {
     "id": "224",
@@ -609,11 +886,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "geography",
-    "tags": ["geography", "GIS", "mapping"],
+    "tags": [
+      "geography",
+      "GIS",
+      "mapping"
+    ],
     "duration": "32m",
     "rating": 4.7,
     "views": 580000,
-    "courseIds": ["intro-geography"]
+    "courseIds": [
+      "intro-geography"
+    ]
   },
   {
     "id": "225",
@@ -623,11 +906,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "law",
-    "tags": ["law", "introduction", "legal studies"],
+    "tags": [
+      "law",
+      "introduction",
+      "legal studies"
+    ],
     "duration": "18m",
     "rating": 4.8,
     "views": 1100000,
-    "courseIds": ["intro-law"]
+    "courseIds": [
+      "intro-law"
+    ]
   },
   {
     "id": "226",
@@ -637,11 +926,17 @@
     "platform": "harvard-law",
     "type": "course",
     "category": "law",
-    "tags": ["law", "legal principles", "fundamentals"],
+    "tags": [
+      "law",
+      "legal principles",
+      "fundamentals"
+    ],
     "duration": "50h",
     "rating": 4.9,
     "lessons": 40,
-    "courseIds": ["intro-law"]
+    "courseIds": [
+      "intro-law"
+    ]
   },
   {
     "id": "227",
@@ -651,11 +946,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "law",
-    "tags": ["law", "legal research", "methods"],
+    "tags": [
+      "law",
+      "legal research",
+      "methods"
+    ],
     "duration": "35m",
     "rating": 4.7,
     "views": 520000,
-    "courseIds": ["intro-law"]
+    "courseIds": [
+      "intro-law"
+    ]
   },
   {
     "id": "228",
@@ -665,11 +966,17 @@
     "platform": "youtube",
     "type": "video",
     "category": "political-science",
-    "tags": ["political science", "introduction", "politics"],
+    "tags": [
+      "political science",
+      "introduction",
+      "politics"
+    ],
     "duration": "17m",
     "rating": 4.8,
     "views": 1300000,
-    "courseIds": ["intro-political-sci"]
+    "courseIds": [
+      "intro-political-sci"
+    ]
   },
   {
     "id": "229",
@@ -679,11 +986,17 @@
     "platform": "mit-ocw",
     "type": "course",
     "category": "political-science",
-    "tags": ["political science", "american politics", "government"],
+    "tags": [
+      "political science",
+      "american politics",
+      "government"
+    ],
     "duration": "44h",
     "rating": 4.9,
     "lessons": 34,
-    "courseIds": ["intro-political-sci"]
+    "courseIds": [
+      "intro-political-sci"
+    ]
   },
   {
     "id": "230",
@@ -693,11 +1006,17 @@
     "platform": "youtube",
     "type": "tutorial",
     "category": "political-science",
-    "tags": ["political science", "research methods", "analysis"],
+    "tags": [
+      "political science",
+      "research methods",
+      "analysis"
+    ],
     "duration": "30m",
     "rating": 4.7,
     "views": 480000,
-    "courseIds": ["intro-political-sci"]
+    "courseIds": [
+      "intro-political-sci"
+    ]
   },
   {
     "id": "231",
@@ -707,11 +1026,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "thermodynamics", "physics"],
+    "tags": [
+      "mechanical engineering",
+      "thermodynamics",
+      "physics"
+    ],
     "duration": "45h",
     "rating": 4.8,
     "lessons": 32,
-    "courseIds": ["thermodynamics-1"]
+    "courseIds": [
+      "thermodynamics-1"
+    ]
   },
   {
     "id": "232",
@@ -721,11 +1046,17 @@
     "platform": "edx",
     "type": "course",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "machine design", "mechanical systems"],
+    "tags": [
+      "mechanical engineering",
+      "machine design",
+      "mechanical systems"
+    ],
     "duration": "50h",
     "rating": 4.7,
     "lessons": 35,
-    "courseIds": ["machine-design-1"]
+    "courseIds": [
+      "machine-design-1"
+    ]
   },
   {
     "id": "233",
@@ -735,11 +1066,17 @@
     "platform": "real-python",
     "type": "tutorial",
     "category": "computer-science",
-    "tags": ["python", "programming", "advanced"],
+    "tags": [
+      "python",
+      "programming",
+      "advanced"
+    ],
     "duration": "40h",
     "rating": 4.9,
     "lessons": 25,
-    "courseIds": ["advanced-python"]
+    "courseIds": [
+      "advanced-python"
+    ]
   },
   {
     "id": "234",
@@ -749,11 +1086,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "computer-science",
-    "tags": ["computer science", "data structures", "algorithms"],
+    "tags": [
+      "computer science",
+      "data structures",
+      "algorithms"
+    ],
     "duration": "55h",
     "rating": 4.8,
     "lessons": 40,
-    "courseIds": ["data-structures"]
+    "courseIds": [
+      "data-structures"
+    ]
   },
   {
     "id": "235",
@@ -763,11 +1106,17 @@
     "platform": "edx",
     "type": "course",
     "category": "economics",
-    "tags": ["economics", "microeconomics", "theory"],
+    "tags": [
+      "economics",
+      "microeconomics",
+      "theory"
+    ],
     "duration": "42h",
     "rating": 4.7,
     "lessons": 30,
-    "courseIds": ["microeconomics"]
+    "courseIds": [
+      "microeconomics"
+    ]
   },
   {
     "id": "236",
@@ -777,11 +1126,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "economics",
-    "tags": ["economics", "macroeconomics", "policy"],
+    "tags": [
+      "economics",
+      "macroeconomics",
+      "policy"
+    ],
     "duration": "48h",
     "rating": 4.8,
     "lessons": 34,
-    "courseIds": ["macroeconomics"]
+    "courseIds": [
+      "macroeconomics"
+    ]
   },
   {
     "id": "237",
@@ -791,11 +1146,17 @@
     "platform": "edx",
     "type": "course",
     "category": "law",
-    "tags": ["law", "constitutional law", "legal principles"],
+    "tags": [
+      "law",
+      "constitutional law",
+      "legal principles"
+    ],
     "duration": "45h",
     "rating": 4.8,
     "lessons": 32,
-    "courseIds": ["constitutional-law"]
+    "courseIds": [
+      "constitutional-law"
+    ]
   },
   {
     "id": "238",
@@ -805,11 +1166,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "political-science",
-    "tags": ["political science", "international relations", "diplomacy"],
+    "tags": [
+      "political science",
+      "international relations",
+      "diplomacy"
+    ],
     "duration": "40h",
     "rating": 4.7,
     "lessons": 28,
-    "courseIds": ["international-relations"]
+    "courseIds": [
+      "international-relations"
+    ]
   },
   {
     "id": "239",
@@ -819,11 +1186,17 @@
     "platform": "edx",
     "type": "course",
     "category": "data-science",
-    "tags": ["statistics", "data science", "mathematics"],
+    "tags": [
+      "statistics",
+      "data science",
+      "mathematics"
+    ],
     "duration": "50h",
     "rating": 4.8,
     "lessons": 35,
-    "courseIds": ["advanced-statistics"]
+    "courseIds": [
+      "advanced-statistics"
+    ]
   },
   {
     "id": "240",
@@ -833,11 +1206,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "biomedical-engineering",
-    "tags": ["biomedical engineering", "medical imaging", "technology"],
+    "tags": [
+      "biomedical engineering",
+      "medical imaging",
+      "technology"
+    ],
     "duration": "45h",
     "rating": 4.8,
     "lessons": 30,
-    "courseIds": ["medical-imaging"]
+    "courseIds": [
+      "medical-imaging"
+    ]
   },
   {
     "id": "241",
@@ -847,11 +1226,17 @@
     "platform": "edx",
     "type": "course",
     "category": "mechanical-engineering",
-    "tags": ["mechanical engineering", "fluid mechanics", "physics"],
+    "tags": [
+      "mechanical engineering",
+      "fluid mechanics",
+      "physics"
+    ],
     "duration": "48h",
     "rating": 4.7,
     "lessons": 33,
-    "courseIds": ["fluid-mechanics-1"]
+    "courseIds": [
+      "fluid-mechanics-1"
+    ]
   },
   {
     "id": "242",
@@ -861,11 +1246,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "electrical-engineering",
-    "tags": ["electrical engineering", "control systems", "automation"],
+    "tags": [
+      "electrical engineering",
+      "control systems",
+      "automation"
+    ],
     "duration": "42h",
     "rating": 4.8,
     "lessons": 30,
-    "courseIds": ["control-systems-me"]
+    "courseIds": [
+      "control-systems-me"
+    ]
   },
   {
     "id": "243",
@@ -875,11 +1266,17 @@
     "platform": "edx",
     "type": "course",
     "category": "computer-science",
-    "tags": ["computer science", "databases", "sql"],
+    "tags": [
+      "computer science",
+      "databases",
+      "sql"
+    ],
     "duration": "38h",
     "rating": 4.7,
     "lessons": 26,
-    "courseIds": ["database-systems"]
+    "courseIds": [
+      "database-systems"
+    ]
   },
   {
     "id": "244",
@@ -889,11 +1286,17 @@
     "platform": "coursera",
     "type": "course",
     "category": "computer-science",
-    "tags": ["computer science", "web development", "react"],
+    "tags": [
+      "computer science",
+      "web development",
+      "react"
+    ],
     "duration": "35h",
     "rating": 4.8,
     "lessons": 24,
-    "courseIds": ["web-development"]
+    "courseIds": [
+      "web-development"
+    ]
   },
   {
     "id": "245",
@@ -903,10 +1306,1906 @@
     "platform": "edx",
     "type": "course",
     "category": "computer-science",
-    "tags": ["computer science", "software engineering", "development"],
+    "tags": [
+      "computer science",
+      "software engineering",
+      "development"
+    ],
     "duration": "45h",
     "rating": 4.8,
     "lessons": 32,
-    "courseIds": ["intro-software-eng"]
+    "courseIds": [
+      "intro-software-eng"
+    ]
+  },
+  {
+    "id": "me-1",
+    "title": "Introduction to Mechanical Engineering - MIT OpenCourseWare",
+    "description": "Comprehensive introduction to mechanical engineering principles",
+    "url": "https://ocw.mit.edu/courses/2-00aj-exploring-sea-space-earth-fundamental-oceanographic-concepts-spring-2009/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "mechanical engineering",
+      "introduction",
+      "fundamentals"
+    ],
+    "duration": "15h",
+    "rating": 4.8,
+    "lessons": 25,
+    "courseIds": [
+      "intro-to-me",
+      "mechanical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "me-2",
+    "title": "Thermodynamics - Khan Academy",
+    "description": "Complete course on thermodynamic principles and applications",
+    "url": "https://www.khanacademy.org/science/physics/thermodynamics",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "thermodynamics",
+      "physics",
+      "energy"
+    ],
+    "duration": "12h",
+    "rating": 4.7,
+    "lessons": 35,
+    "courseIds": [
+      "thermodynamics-1",
+      "thermodynamics-2"
+    ]
+  },
+  {
+    "id": "me-3",
+    "title": "Fluid Mechanics - Coursera",
+    "description": "Advanced course on fluid mechanics and dynamics",
+    "url": "https://www.coursera.org/learn/fluid-mechanics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "fluid mechanics",
+      "dynamics",
+      "advanced"
+    ],
+    "duration": "18h",
+    "rating": 4.6,
+    "lessons": 28,
+    "courseIds": [
+      "fluid-mechanics-1",
+      "fluid-mechanics-2"
+    ]
+  },
+  {
+    "id": "me-4",
+    "title": "Materials Science for Engineers - edX",
+    "description": "Understanding material properties and selection",
+    "url": "https://www.edx.org/course/materials-science-for-engineers",
+    "platform": "edx",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "materials science",
+      "engineering",
+      "properties"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 20,
+    "courseIds": [
+      "materials-science",
+      "engineering-materials"
+    ]
+  },
+  {
+    "id": "me-5",
+    "title": "Machine Design - Stanford Online",
+    "description": "Principles and practices of machine design",
+    "url": "https://online.stanford.edu/courses/me-101-machine-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "machine design",
+      "mechanical systems",
+      "design"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 22,
+    "courseIds": [
+      "machine-design",
+      "mechanical-design"
+    ]
+  },
+  {
+    "id": "civil-1",
+    "title": "Introduction to Civil Engineering - UC Berkeley",
+    "description": "Overview of civil engineering disciplines and practices",
+    "url": "https://www.berkeley.edu/academics/civil-environmental-engineering",
+    "platform": "berkeley-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "civil engineering",
+      "introduction",
+      "infrastructure"
+    ],
+    "duration": "8h",
+    "rating": 4.7,
+    "lessons": 16,
+    "courseIds": [
+      "intro-to-civil",
+      "civil-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "civil-2",
+    "title": "Structural Analysis - MIT OpenCourseWare",
+    "description": "Advanced structural analysis methods and applications",
+    "url": "https://ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "structural analysis",
+      "mechanics",
+      "advanced"
+    ],
+    "duration": "20h",
+    "rating": 4.9,
+    "lessons": 30,
+    "courseIds": [
+      "structural-analysis-1",
+      "structural-analysis-2"
+    ]
+  },
+  {
+    "id": "civil-3",
+    "title": "Transportation Engineering - Coursera",
+    "description": "Design and analysis of transportation systems",
+    "url": "https://www.coursera.org/learn/transportation-engineering",
+    "platform": "coursera",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "transportation",
+      "engineering",
+      "systems"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 18,
+    "courseIds": [
+      "transportation-engineering",
+      "traffic-engineering"
+    ]
+  },
+  {
+    "id": "civil-4",
+    "title": "Environmental Engineering - edX",
+    "description": "Environmental protection and sustainable engineering",
+    "url": "https://www.edx.org/course/environmental-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "environmental",
+      "sustainability",
+      "protection"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "environmental-engineering",
+      "water-resources"
+    ]
+  },
+  {
+    "id": "civil-5",
+    "title": "Geotechnical Engineering - Stanford Online",
+    "description": "Soil mechanics and foundation engineering",
+    "url": "https://online.stanford.edu/courses/ce-101-geotechnical-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "geotechnical",
+      "soil mechanics",
+      "foundations"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "geotechnical-engineering",
+      "foundation-engineering"
+    ]
+  },
+  {
+    "id": "chem-1",
+    "title": "Introduction to Chemical Engineering - MIT OpenCourseWare",
+    "description": "Fundamentals of chemical engineering principles",
+    "url": "https://ocw.mit.edu/courses/10-302-transport-processes-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "chemical engineering",
+      "introduction",
+      "processes"
+    ],
+    "duration": "18h",
+    "rating": 4.8,
+    "lessons": 28,
+    "courseIds": [
+      "intro-to-chemical",
+      "chemical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "chem-2",
+    "title": "Chemical Engineering Thermodynamics - Coursera",
+    "description": "Advanced thermodynamic principles for chemical processes",
+    "url": "https://www.coursera.org/learn/chemical-engineering-thermodynamics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "thermodynamics",
+      "chemical processes",
+      "advanced"
+    ],
+    "duration": "15h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "thermodynamics-chemical",
+      "chemical-thermodynamics"
+    ]
+  },
+  {
+    "id": "chem-3",
+    "title": "Process Control - edX",
+    "description": "Control systems for chemical processes",
+    "url": "https://www.edx.org/course/process-control-chemical-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "process control",
+      "control systems",
+      "automation"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "process-control",
+      "control-systems"
+    ]
+  },
+  {
+    "id": "chem-4",
+    "title": "Reaction Engineering - Stanford Online",
+    "description": "Chemical reaction kinetics and reactor design",
+    "url": "https://online.stanford.edu/courses/che-101-reaction-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "reaction engineering",
+      "kinetics",
+      "reactors"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "reaction-engineering",
+      "chemical-kinetics"
+    ]
+  },
+  {
+    "id": "chem-5",
+    "title": "Separation Processes - Khan Academy",
+    "description": "Principles of separation and purification techniques",
+    "url": "https://www.khanacademy.org/science/chemistry",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "separation processes",
+      "purification",
+      "techniques"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 18,
+    "courseIds": [
+      "separation-processes",
+      "unit-operations"
+    ]
+  },
+  {
+    "id": "arch-1",
+    "title": "Introduction to Architecture - Harvard GSD",
+    "description": "Fundamental principles of architectural design",
+    "url": "https://www.gsd.harvard.edu/courses/",
+    "platform": "harvard-gsd",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architecture",
+      "design",
+      "principles"
+    ],
+    "duration": "12h",
+    "rating": 4.9,
+    "lessons": 20,
+    "courseIds": [
+      "intro-to-architecture",
+      "architectural-principles"
+    ]
+  },
+  {
+    "id": "arch-2",
+    "title": "Architectural History - Coursera",
+    "description": "Survey of architectural history and styles",
+    "url": "https://www.coursera.org/learn/architectural-history",
+    "platform": "coursera",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architectural history",
+      "styles",
+      "survey"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "architectural-history",
+      "history-of-architecture"
+    ]
+  },
+  {
+    "id": "arch-3",
+    "title": "Sustainable Architecture - edX",
+    "description": "Green building design and sustainable practices",
+    "url": "https://www.edx.org/course/sustainable-architecture",
+    "platform": "edx",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "sustainable architecture",
+      "green building",
+      "environmental"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "sustainable-architecture",
+      "green-building"
+    ]
+  },
+  {
+    "id": "arch-4",
+    "title": "Digital Design Tools - Stanford Online",
+    "description": "Computer-aided design and digital modeling",
+    "url": "https://online.stanford.edu/courses/arch-101-digital-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "digital design",
+      "CAD",
+      "modeling"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "digital-design-tools",
+      "computer-aided-design"
+    ]
+  },
+  {
+    "id": "arch-5",
+    "title": "Urban Planning - MIT OpenCourseWare",
+    "description": "Principles of urban planning and city design",
+    "url": "https://ocw.mit.edu/courses/11-001j-introduction-to-urban-design-and-development-spring-2006/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "urban planning",
+      "city design",
+      "development"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 28,
+    "courseIds": [
+      "urban-planning",
+      "city-design"
+    ]
+  },
+  {
+    "id": "med-1",
+    "title": "Introduction to Medicine - Harvard Medical School",
+    "description": "Overview of medical profession and healthcare",
+    "url": "https://hms.harvard.edu/education",
+    "platform": "harvard-medical",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medicine",
+      "healthcare",
+      "profession"
+    ],
+    "duration": "8h",
+    "rating": 4.9,
+    "lessons": 14,
+    "courseIds": [
+      "intro-to-medicine",
+      "medical-profession"
+    ]
+  },
+  {
+    "id": "med-2",
+    "title": "Human Anatomy - Khan Academy",
+    "description": "Comprehensive study of human anatomy",
+    "url": "https://www.khanacademy.org/science/health-and-medicine",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "anatomy",
+      "human body",
+      "health"
+    ],
+    "duration": "20h",
+    "rating": 4.8,
+    "lessons": 40,
+    "courseIds": [
+      "anatomy-1",
+      "anatomy-2"
+    ]
+  },
+  {
+    "id": "med-3",
+    "title": "Physiology - Coursera",
+    "description": "Study of body functions and systems",
+    "url": "https://www.coursera.org/learn/human-physiology",
+    "platform": "coursera",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "physiology",
+      "body functions",
+      "systems"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "physiology-1",
+      "physiology-2"
+    ]
+  },
+  {
+    "id": "med-4",
+    "title": "Medical Ethics - edX",
+    "description": "Ethical principles in medical practice",
+    "url": "https://www.edx.org/course/medical-ethics",
+    "platform": "edx",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medical ethics",
+      "ethics",
+      "practice"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "medical-ethics",
+      "bioethics"
+    ]
+  },
+  {
+    "id": "med-5",
+    "title": "Clinical Skills - Stanford Online",
+    "description": "Basic clinical examination and diagnostic skills",
+    "url": "https://online.stanford.edu/courses/med-101-clinical-skills",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "clinical skills",
+      "diagnosis",
+      "examination"
+    ],
+    "duration": "12h",
+    "rating": 4.8,
+    "lessons": 20,
+    "courseIds": [
+      "clinical-skills",
+      "diagnostic-methods"
+    ]
+  },
+  {
+    "id": "law-1",
+    "title": "Introduction to Law - Harvard Law School",
+    "description": "Fundamentals of legal system and jurisprudence",
+    "url": "https://hls.harvard.edu/academics/",
+    "platform": "harvard-law",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "law",
+      "legal system",
+      "jurisprudence"
+    ],
+    "duration": "10h",
+    "rating": 4.9,
+    "lessons": 18,
+    "courseIds": [
+      "intro-to-law",
+      "legal-system"
+    ]
+  },
+  {
+    "id": "law-2",
+    "title": "Constitutional Law - Coursera",
+    "description": "Study of constitutional principles and rights",
+    "url": "https://www.coursera.org/learn/constitutional-law",
+    "platform": "coursera",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "constitutional law",
+      "rights",
+      "government"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "constitutional-law-1",
+      "constitutional-law-2"
+    ]
+  },
+  {
+    "id": "law-3",
+    "title": "Criminal Law - edX",
+    "description": "Principles of criminal law and procedure",
+    "url": "https://www.edx.org/course/criminal-law",
+    "platform": "edx",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "criminal law",
+      "procedure",
+      "justice"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "criminal-law",
+      "criminal-procedure"
+    ]
+  },
+  {
+    "id": "law-4",
+    "title": "Contract Law - Stanford Online",
+    "description": "Principles of contract formation and enforcement",
+    "url": "https://online.stanford.edu/courses/law-101-contract-law",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "contract law",
+      "contracts",
+      "enforcement"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "contract-law",
+      "commercial-law"
+    ]
+  },
+  {
+    "id": "law-5",
+    "title": "International Law - Yale Online",
+    "description": "Principles of international law and relations",
+    "url": "https://online.yale.edu/courses/international-law",
+    "platform": "yale-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "international law",
+      "relations",
+      "global"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 26,
+    "courseIds": [
+      "international-law",
+      "global-governance"
+    ]
+  },
+  {
+    "id": "me-1",
+    "title": "Introduction to Mechanical Engineering - MIT OpenCourseWare",
+    "description": "Comprehensive introduction to mechanical engineering principles",
+    "url": "https://ocw.mit.edu/courses/2-00aj-exploring-sea-space-earth-fundamental-oceanographic-concepts-spring-2009/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "mechanical engineering",
+      "introduction",
+      "fundamentals"
+    ],
+    "duration": "15h",
+    "rating": 4.8,
+    "lessons": 25,
+    "courseIds": [
+      "intro-to-me",
+      "mechanical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "me-2",
+    "title": "Thermodynamics - Khan Academy",
+    "description": "Complete course on thermodynamic principles and applications",
+    "url": "https://www.khanacademy.org/science/physics/thermodynamics",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "thermodynamics",
+      "physics",
+      "energy"
+    ],
+    "duration": "12h",
+    "rating": 4.7,
+    "lessons": 35,
+    "courseIds": [
+      "thermodynamics-1",
+      "thermodynamics-2"
+    ]
+  },
+  {
+    "id": "me-3",
+    "title": "Fluid Mechanics - Coursera",
+    "description": "Advanced course on fluid mechanics and dynamics",
+    "url": "https://www.coursera.org/learn/fluid-mechanics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "fluid mechanics",
+      "dynamics",
+      "advanced"
+    ],
+    "duration": "18h",
+    "rating": 4.6,
+    "lessons": 28,
+    "courseIds": [
+      "fluid-mechanics-1",
+      "fluid-mechanics-2"
+    ]
+  },
+  {
+    "id": "me-4",
+    "title": "Materials Science for Engineers - edX",
+    "description": "Understanding material properties and selection",
+    "url": "https://www.edx.org/course/materials-science-for-engineers",
+    "platform": "edx",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "materials science",
+      "engineering",
+      "properties"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 20,
+    "courseIds": [
+      "materials-science",
+      "engineering-materials"
+    ]
+  },
+  {
+    "id": "me-5",
+    "title": "Machine Design - Stanford Online",
+    "description": "Principles and practices of machine design",
+    "url": "https://online.stanford.edu/courses/me-101-machine-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "machine design",
+      "mechanical systems",
+      "design"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 22,
+    "courseIds": [
+      "machine-design",
+      "mechanical-design"
+    ]
+  },
+  {
+    "id": "civil-1",
+    "title": "Introduction to Civil Engineering - UC Berkeley",
+    "description": "Overview of civil engineering disciplines and practices",
+    "url": "https://www.berkeley.edu/academics/civil-environmental-engineering",
+    "platform": "berkeley-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "civil engineering",
+      "introduction",
+      "infrastructure"
+    ],
+    "duration": "8h",
+    "rating": 4.7,
+    "lessons": 16,
+    "courseIds": [
+      "intro-to-civil",
+      "civil-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "civil-2",
+    "title": "Structural Analysis - MIT OpenCourseWare",
+    "description": "Advanced structural analysis methods and applications",
+    "url": "https://ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "structural analysis",
+      "mechanics",
+      "advanced"
+    ],
+    "duration": "20h",
+    "rating": 4.9,
+    "lessons": 30,
+    "courseIds": [
+      "structural-analysis-1",
+      "structural-analysis-2"
+    ]
+  },
+  {
+    "id": "civil-3",
+    "title": "Transportation Engineering - Coursera",
+    "description": "Design and analysis of transportation systems",
+    "url": "https://www.coursera.org/learn/transportation-engineering",
+    "platform": "coursera",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "transportation",
+      "engineering",
+      "systems"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 18,
+    "courseIds": [
+      "transportation-engineering",
+      "traffic-engineering"
+    ]
+  },
+  {
+    "id": "civil-4",
+    "title": "Environmental Engineering - edX",
+    "description": "Environmental protection and sustainable engineering",
+    "url": "https://www.edx.org/course/environmental-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "environmental",
+      "sustainability",
+      "protection"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "environmental-engineering",
+      "water-resources"
+    ]
+  },
+  {
+    "id": "civil-5",
+    "title": "Geotechnical Engineering - Stanford Online",
+    "description": "Soil mechanics and foundation engineering",
+    "url": "https://online.stanford.edu/courses/ce-101-geotechnical-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "geotechnical",
+      "soil mechanics",
+      "foundations"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "geotechnical-engineering",
+      "foundation-engineering"
+    ]
+  },
+  {
+    "id": "chem-1",
+    "title": "Introduction to Chemical Engineering - MIT OpenCourseWare",
+    "description": "Fundamentals of chemical engineering principles",
+    "url": "https://ocw.mit.edu/courses/10-302-transport-processes-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "chemical engineering",
+      "introduction",
+      "processes"
+    ],
+    "duration": "18h",
+    "rating": 4.8,
+    "lessons": 28,
+    "courseIds": [
+      "intro-to-chemical",
+      "chemical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "chem-2",
+    "title": "Chemical Engineering Thermodynamics - Coursera",
+    "description": "Advanced thermodynamic principles for chemical processes",
+    "url": "https://www.coursera.org/learn/chemical-engineering-thermodynamics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "thermodynamics",
+      "chemical processes",
+      "advanced"
+    ],
+    "duration": "15h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "thermodynamics-chemical",
+      "chemical-thermodynamics"
+    ]
+  },
+  {
+    "id": "chem-3",
+    "title": "Process Control - edX",
+    "description": "Control systems for chemical processes",
+    "url": "https://www.edx.org/course/process-control-chemical-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "process control",
+      "control systems",
+      "automation"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "process-control",
+      "control-systems"
+    ]
+  },
+  {
+    "id": "chem-4",
+    "title": "Reaction Engineering - Stanford Online",
+    "description": "Chemical reaction kinetics and reactor design",
+    "url": "https://online.stanford.edu/courses/che-101-reaction-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "reaction engineering",
+      "kinetics",
+      "reactors"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "reaction-engineering",
+      "chemical-kinetics"
+    ]
+  },
+  {
+    "id": "chem-5",
+    "title": "Separation Processes - Khan Academy",
+    "description": "Principles of separation and purification techniques",
+    "url": "https://www.khanacademy.org/science/chemistry",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "separation processes",
+      "purification",
+      "techniques"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 18,
+    "courseIds": [
+      "separation-processes",
+      "unit-operations"
+    ]
+  },
+  {
+    "id": "arch-1",
+    "title": "Introduction to Architecture - Harvard GSD",
+    "description": "Fundamental principles of architectural design",
+    "url": "https://www.gsd.harvard.edu/courses/",
+    "platform": "harvard-gsd",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architecture",
+      "design",
+      "principles"
+    ],
+    "duration": "12h",
+    "rating": 4.9,
+    "lessons": 20,
+    "courseIds": [
+      "intro-to-architecture",
+      "architectural-principles"
+    ]
+  },
+  {
+    "id": "arch-2",
+    "title": "Architectural History - Coursera",
+    "description": "Survey of architectural history and styles",
+    "url": "https://www.coursera.org/learn/architectural-history",
+    "platform": "coursera",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architectural history",
+      "styles",
+      "survey"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "architectural-history",
+      "history-of-architecture"
+    ]
+  },
+  {
+    "id": "arch-3",
+    "title": "Sustainable Architecture - edX",
+    "description": "Green building design and sustainable practices",
+    "url": "https://www.edx.org/course/sustainable-architecture",
+    "platform": "edx",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "sustainable architecture",
+      "green building",
+      "environmental"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "sustainable-architecture",
+      "green-building"
+    ]
+  },
+  {
+    "id": "arch-4",
+    "title": "Digital Design Tools - Stanford Online",
+    "description": "Computer-aided design and digital modeling",
+    "url": "https://online.stanford.edu/courses/arch-101-digital-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "digital design",
+      "CAD",
+      "modeling"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "digital-design-tools",
+      "computer-aided-design"
+    ]
+  },
+  {
+    "id": "arch-5",
+    "title": "Urban Planning - MIT OpenCourseWare",
+    "description": "Principles of urban planning and city design",
+    "url": "https://ocw.mit.edu/courses/11-001j-introduction-to-urban-design-and-development-spring-2006/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "urban planning",
+      "city design",
+      "development"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 28,
+    "courseIds": [
+      "urban-planning",
+      "city-design"
+    ]
+  },
+  {
+    "id": "med-1",
+    "title": "Introduction to Medicine - Harvard Medical School",
+    "description": "Overview of medical profession and healthcare",
+    "url": "https://hms.harvard.edu/education",
+    "platform": "harvard-medical",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medicine",
+      "healthcare",
+      "profession"
+    ],
+    "duration": "8h",
+    "rating": 4.9,
+    "lessons": 14,
+    "courseIds": [
+      "intro-to-medicine",
+      "medical-profession"
+    ]
+  },
+  {
+    "id": "med-2",
+    "title": "Human Anatomy - Khan Academy",
+    "description": "Comprehensive study of human anatomy",
+    "url": "https://www.khanacademy.org/science/health-and-medicine",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "anatomy",
+      "human body",
+      "health"
+    ],
+    "duration": "20h",
+    "rating": 4.8,
+    "lessons": 40,
+    "courseIds": [
+      "anatomy-1",
+      "anatomy-2"
+    ]
+  },
+  {
+    "id": "med-3",
+    "title": "Physiology - Coursera",
+    "description": "Study of body functions and systems",
+    "url": "https://www.coursera.org/learn/human-physiology",
+    "platform": "coursera",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "physiology",
+      "body functions",
+      "systems"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "physiology-1",
+      "physiology-2"
+    ]
+  },
+  {
+    "id": "med-4",
+    "title": "Medical Ethics - edX",
+    "description": "Ethical principles in medical practice",
+    "url": "https://www.edx.org/course/medical-ethics",
+    "platform": "edx",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medical ethics",
+      "ethics",
+      "practice"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "medical-ethics",
+      "bioethics"
+    ]
+  },
+  {
+    "id": "med-5",
+    "title": "Clinical Skills - Stanford Online",
+    "description": "Basic clinical examination and diagnostic skills",
+    "url": "https://online.stanford.edu/courses/med-101-clinical-skills",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "clinical skills",
+      "diagnosis",
+      "examination"
+    ],
+    "duration": "12h",
+    "rating": 4.8,
+    "lessons": 20,
+    "courseIds": [
+      "clinical-skills",
+      "diagnostic-methods"
+    ]
+  },
+  {
+    "id": "law-1",
+    "title": "Introduction to Law - Harvard Law School",
+    "description": "Fundamentals of legal system and jurisprudence",
+    "url": "https://hls.harvard.edu/academics/",
+    "platform": "harvard-law",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "law",
+      "legal system",
+      "jurisprudence"
+    ],
+    "duration": "10h",
+    "rating": 4.9,
+    "lessons": 18,
+    "courseIds": [
+      "intro-to-law",
+      "legal-system"
+    ]
+  },
+  {
+    "id": "law-2",
+    "title": "Constitutional Law - Coursera",
+    "description": "Study of constitutional principles and rights",
+    "url": "https://www.coursera.org/learn/constitutional-law",
+    "platform": "coursera",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "constitutional law",
+      "rights",
+      "government"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "constitutional-law-1",
+      "constitutional-law-2"
+    ]
+  },
+  {
+    "id": "law-3",
+    "title": "Criminal Law - edX",
+    "description": "Principles of criminal law and procedure",
+    "url": "https://www.edx.org/course/criminal-law",
+    "platform": "edx",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "criminal law",
+      "procedure",
+      "justice"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "criminal-law",
+      "criminal-procedure"
+    ]
+  },
+  {
+    "id": "law-4",
+    "title": "Contract Law - Stanford Online",
+    "description": "Principles of contract formation and enforcement",
+    "url": "https://online.stanford.edu/courses/law-101-contract-law",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "contract law",
+      "contracts",
+      "enforcement"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "contract-law",
+      "commercial-law"
+    ]
+  },
+  {
+    "id": "law-5",
+    "title": "International Law - Yale Online",
+    "description": "Principles of international law and relations",
+    "url": "https://online.yale.edu/courses/international-law",
+    "platform": "yale-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "international law",
+      "relations",
+      "global"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 26,
+    "courseIds": [
+      "international-law",
+      "global-governance"
+    ]
+  },
+  {
+    "id": "me-1",
+    "title": "Introduction to Mechanical Engineering - MIT OpenCourseWare",
+    "description": "Comprehensive introduction to mechanical engineering principles",
+    "url": "https://ocw.mit.edu/courses/2-00aj-exploring-sea-space-earth-fundamental-oceanographic-concepts-spring-2009/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "mechanical engineering",
+      "introduction",
+      "fundamentals"
+    ],
+    "duration": "15h",
+    "rating": 4.8,
+    "lessons": 25,
+    "courseIds": [
+      "intro-to-me",
+      "mechanical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "me-2",
+    "title": "Thermodynamics - Khan Academy",
+    "description": "Complete course on thermodynamic principles and applications",
+    "url": "https://www.khanacademy.org/science/physics/thermodynamics",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "thermodynamics",
+      "physics",
+      "energy"
+    ],
+    "duration": "12h",
+    "rating": 4.7,
+    "lessons": 35,
+    "courseIds": [
+      "thermodynamics-1",
+      "thermodynamics-2"
+    ]
+  },
+  {
+    "id": "me-3",
+    "title": "Fluid Mechanics - Coursera",
+    "description": "Advanced course on fluid mechanics and dynamics",
+    "url": "https://www.coursera.org/learn/fluid-mechanics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "fluid mechanics",
+      "dynamics",
+      "advanced"
+    ],
+    "duration": "18h",
+    "rating": 4.6,
+    "lessons": 28,
+    "courseIds": [
+      "fluid-mechanics-1",
+      "fluid-mechanics-2"
+    ]
+  },
+  {
+    "id": "me-4",
+    "title": "Materials Science for Engineers - edX",
+    "description": "Understanding material properties and selection",
+    "url": "https://www.edx.org/course/materials-science-for-engineers",
+    "platform": "edx",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "materials science",
+      "engineering",
+      "properties"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 20,
+    "courseIds": [
+      "materials-science",
+      "engineering-materials"
+    ]
+  },
+  {
+    "id": "me-5",
+    "title": "Machine Design - Stanford Online",
+    "description": "Principles and practices of machine design",
+    "url": "https://online.stanford.edu/courses/me-101-machine-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "mechanical-engineering",
+    "tags": [
+      "machine design",
+      "mechanical systems",
+      "design"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 22,
+    "courseIds": [
+      "machine-design",
+      "mechanical-design"
+    ]
+  },
+  {
+    "id": "civil-1",
+    "title": "Introduction to Civil Engineering - UC Berkeley",
+    "description": "Overview of civil engineering disciplines and practices",
+    "url": "https://www.berkeley.edu/academics/civil-environmental-engineering",
+    "platform": "berkeley-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "civil engineering",
+      "introduction",
+      "infrastructure"
+    ],
+    "duration": "8h",
+    "rating": 4.7,
+    "lessons": 16,
+    "courseIds": [
+      "intro-to-civil",
+      "civil-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "civil-2",
+    "title": "Structural Analysis - MIT OpenCourseWare",
+    "description": "Advanced structural analysis methods and applications",
+    "url": "https://ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "structural analysis",
+      "mechanics",
+      "advanced"
+    ],
+    "duration": "20h",
+    "rating": 4.9,
+    "lessons": 30,
+    "courseIds": [
+      "structural-analysis-1",
+      "structural-analysis-2"
+    ]
+  },
+  {
+    "id": "civil-3",
+    "title": "Transportation Engineering - Coursera",
+    "description": "Design and analysis of transportation systems",
+    "url": "https://www.coursera.org/learn/transportation-engineering",
+    "platform": "coursera",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "transportation",
+      "engineering",
+      "systems"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 18,
+    "courseIds": [
+      "transportation-engineering",
+      "traffic-engineering"
+    ]
+  },
+  {
+    "id": "civil-4",
+    "title": "Environmental Engineering - edX",
+    "description": "Environmental protection and sustainable engineering",
+    "url": "https://www.edx.org/course/environmental-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "environmental",
+      "sustainability",
+      "protection"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "environmental-engineering",
+      "water-resources"
+    ]
+  },
+  {
+    "id": "civil-5",
+    "title": "Geotechnical Engineering - Stanford Online",
+    "description": "Soil mechanics and foundation engineering",
+    "url": "https://online.stanford.edu/courses/ce-101-geotechnical-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "civil-engineering",
+    "tags": [
+      "geotechnical",
+      "soil mechanics",
+      "foundations"
+    ],
+    "duration": "14h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "geotechnical-engineering",
+      "foundation-engineering"
+    ]
+  },
+  {
+    "id": "chem-1",
+    "title": "Introduction to Chemical Engineering - MIT OpenCourseWare",
+    "description": "Fundamentals of chemical engineering principles",
+    "url": "https://ocw.mit.edu/courses/10-302-transport-processes-fall-2004/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "chemical engineering",
+      "introduction",
+      "processes"
+    ],
+    "duration": "18h",
+    "rating": 4.8,
+    "lessons": 28,
+    "courseIds": [
+      "intro-to-chemical",
+      "chemical-engineering-fundamentals"
+    ]
+  },
+  {
+    "id": "chem-2",
+    "title": "Chemical Engineering Thermodynamics - Coursera",
+    "description": "Advanced thermodynamic principles for chemical processes",
+    "url": "https://www.coursera.org/learn/chemical-engineering-thermodynamics",
+    "platform": "coursera",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "thermodynamics",
+      "chemical processes",
+      "advanced"
+    ],
+    "duration": "15h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "thermodynamics-chemical",
+      "chemical-thermodynamics"
+    ]
+  },
+  {
+    "id": "chem-3",
+    "title": "Process Control - edX",
+    "description": "Control systems for chemical processes",
+    "url": "https://www.edx.org/course/process-control-chemical-engineering",
+    "platform": "edx",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "process control",
+      "control systems",
+      "automation"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "process-control",
+      "control-systems"
+    ]
+  },
+  {
+    "id": "chem-4",
+    "title": "Reaction Engineering - Stanford Online",
+    "description": "Chemical reaction kinetics and reactor design",
+    "url": "https://online.stanford.edu/courses/che-101-reaction-engineering",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "reaction engineering",
+      "kinetics",
+      "reactors"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "reaction-engineering",
+      "chemical-kinetics"
+    ]
+  },
+  {
+    "id": "chem-5",
+    "title": "Separation Processes - Khan Academy",
+    "description": "Principles of separation and purification techniques",
+    "url": "https://www.khanacademy.org/science/chemistry",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "chemical-engineering",
+    "tags": [
+      "separation processes",
+      "purification",
+      "techniques"
+    ],
+    "duration": "10h",
+    "rating": 4.5,
+    "lessons": 18,
+    "courseIds": [
+      "separation-processes",
+      "unit-operations"
+    ]
+  },
+  {
+    "id": "arch-1",
+    "title": "Introduction to Architecture - Harvard GSD",
+    "description": "Fundamental principles of architectural design",
+    "url": "https://www.gsd.harvard.edu/courses/",
+    "platform": "harvard-gsd",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architecture",
+      "design",
+      "principles"
+    ],
+    "duration": "12h",
+    "rating": 4.9,
+    "lessons": 20,
+    "courseIds": [
+      "intro-to-architecture",
+      "architectural-principles"
+    ]
+  },
+  {
+    "id": "arch-2",
+    "title": "Architectural History - Coursera",
+    "description": "Survey of architectural history and styles",
+    "url": "https://www.coursera.org/learn/architectural-history",
+    "platform": "coursera",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "architectural history",
+      "styles",
+      "survey"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "architectural-history",
+      "history-of-architecture"
+    ]
+  },
+  {
+    "id": "arch-3",
+    "title": "Sustainable Architecture - edX",
+    "description": "Green building design and sustainable practices",
+    "url": "https://www.edx.org/course/sustainable-architecture",
+    "platform": "edx",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "sustainable architecture",
+      "green building",
+      "environmental"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 26,
+    "courseIds": [
+      "sustainable-architecture",
+      "green-building"
+    ]
+  },
+  {
+    "id": "arch-4",
+    "title": "Digital Design Tools - Stanford Online",
+    "description": "Computer-aided design and digital modeling",
+    "url": "https://online.stanford.edu/courses/arch-101-digital-design",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "digital design",
+      "CAD",
+      "modeling"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "digital-design-tools",
+      "computer-aided-design"
+    ]
+  },
+  {
+    "id": "arch-5",
+    "title": "Urban Planning - MIT OpenCourseWare",
+    "description": "Principles of urban planning and city design",
+    "url": "https://ocw.mit.edu/courses/11-001j-introduction-to-urban-design-and-development-spring-2006/",
+    "platform": "mit-ocw",
+    "type": "course",
+    "category": "architecture",
+    "tags": [
+      "urban planning",
+      "city design",
+      "development"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 28,
+    "courseIds": [
+      "urban-planning",
+      "city-design"
+    ]
+  },
+  {
+    "id": "med-1",
+    "title": "Introduction to Medicine - Harvard Medical School",
+    "description": "Overview of medical profession and healthcare",
+    "url": "https://hms.harvard.edu/education",
+    "platform": "harvard-medical",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medicine",
+      "healthcare",
+      "profession"
+    ],
+    "duration": "8h",
+    "rating": 4.9,
+    "lessons": 14,
+    "courseIds": [
+      "intro-to-medicine",
+      "medical-profession"
+    ]
+  },
+  {
+    "id": "med-2",
+    "title": "Human Anatomy - Khan Academy",
+    "description": "Comprehensive study of human anatomy",
+    "url": "https://www.khanacademy.org/science/health-and-medicine",
+    "platform": "khan-academy",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "anatomy",
+      "human body",
+      "health"
+    ],
+    "duration": "20h",
+    "rating": 4.8,
+    "lessons": 40,
+    "courseIds": [
+      "anatomy-1",
+      "anatomy-2"
+    ]
+  },
+  {
+    "id": "med-3",
+    "title": "Physiology - Coursera",
+    "description": "Study of body functions and systems",
+    "url": "https://www.coursera.org/learn/human-physiology",
+    "platform": "coursera",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "physiology",
+      "body functions",
+      "systems"
+    ],
+    "duration": "16h",
+    "rating": 4.7,
+    "lessons": 24,
+    "courseIds": [
+      "physiology-1",
+      "physiology-2"
+    ]
+  },
+  {
+    "id": "med-4",
+    "title": "Medical Ethics - edX",
+    "description": "Ethical principles in medical practice",
+    "url": "https://www.edx.org/course/medical-ethics",
+    "platform": "edx",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "medical ethics",
+      "ethics",
+      "practice"
+    ],
+    "duration": "10h",
+    "rating": 4.6,
+    "lessons": 16,
+    "courseIds": [
+      "medical-ethics",
+      "bioethics"
+    ]
+  },
+  {
+    "id": "med-5",
+    "title": "Clinical Skills - Stanford Online",
+    "description": "Basic clinical examination and diagnostic skills",
+    "url": "https://online.stanford.edu/courses/med-101-clinical-skills",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "medicine",
+    "tags": [
+      "clinical skills",
+      "diagnosis",
+      "examination"
+    ],
+    "duration": "12h",
+    "rating": 4.8,
+    "lessons": 20,
+    "courseIds": [
+      "clinical-skills",
+      "diagnostic-methods"
+    ]
+  },
+  {
+    "id": "law-1",
+    "title": "Introduction to Law - Harvard Law School",
+    "description": "Fundamentals of legal system and jurisprudence",
+    "url": "https://hls.harvard.edu/academics/",
+    "platform": "harvard-law",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "law",
+      "legal system",
+      "jurisprudence"
+    ],
+    "duration": "10h",
+    "rating": 4.9,
+    "lessons": 18,
+    "courseIds": [
+      "intro-to-law",
+      "legal-system"
+    ]
+  },
+  {
+    "id": "law-2",
+    "title": "Constitutional Law - Coursera",
+    "description": "Study of constitutional principles and rights",
+    "url": "https://www.coursera.org/learn/constitutional-law",
+    "platform": "coursera",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "constitutional law",
+      "rights",
+      "government"
+    ],
+    "duration": "14h",
+    "rating": 4.7,
+    "lessons": 22,
+    "courseIds": [
+      "constitutional-law-1",
+      "constitutional-law-2"
+    ]
+  },
+  {
+    "id": "law-3",
+    "title": "Criminal Law - edX",
+    "description": "Principles of criminal law and procedure",
+    "url": "https://www.edx.org/course/criminal-law",
+    "platform": "edx",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "criminal law",
+      "procedure",
+      "justice"
+    ],
+    "duration": "12h",
+    "rating": 4.6,
+    "lessons": 20,
+    "courseIds": [
+      "criminal-law",
+      "criminal-procedure"
+    ]
+  },
+  {
+    "id": "law-4",
+    "title": "Contract Law - Stanford Online",
+    "description": "Principles of contract formation and enforcement",
+    "url": "https://online.stanford.edu/courses/law-101-contract-law",
+    "platform": "stanford-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "contract law",
+      "contracts",
+      "enforcement"
+    ],
+    "duration": "16h",
+    "rating": 4.8,
+    "lessons": 24,
+    "courseIds": [
+      "contract-law",
+      "commercial-law"
+    ]
+  },
+  {
+    "id": "law-5",
+    "title": "International Law - Yale Online",
+    "description": "Principles of international law and relations",
+    "url": "https://online.yale.edu/courses/international-law",
+    "platform": "yale-online",
+    "type": "course",
+    "category": "law",
+    "tags": [
+      "international law",
+      "relations",
+      "global"
+    ],
+    "duration": "18h",
+    "rating": 4.7,
+    "lessons": 26,
+    "courseIds": [
+      "international-law",
+      "global-governance"
+    ]
   }
-] 
+]

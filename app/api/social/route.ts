@@ -197,7 +197,7 @@ async function generateLeaderboard() {
         name: user.name,
         username: user.name.toLowerCase().replace(/\s+/g, ''),
         avatar: user.image,
-        program: user.program || "Not specified",
+        program: user.programId || "Not specified",
       },
       score: Math.round(totalScore),
       quizzesTaken: user.submissions.length,
